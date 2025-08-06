@@ -16,6 +16,7 @@
         "t2s3": "npx tsx theory/2-operators-and-expressions/3-logic.ts",
         "t2s4": "npx tsx theory/2-operators-and-expressions/4-error-handling.ts",
         "t2s5": "npx tsx theory/2-operators-and-expressions/5-assignment.ts",
+        "t2s6": "npx tsx theory/2-operators-and-expressions/6-math-module.ts",
         "t3s1": "npx tsx theory/3-conditionals/1-if-statement.ts",
         "t3s2": "npx tsx theory/3-conditionals/2-logical-groups.ts",
         "t3s3": "npx tsx theory/3-conditionals/3-truthy-falsy.ts",

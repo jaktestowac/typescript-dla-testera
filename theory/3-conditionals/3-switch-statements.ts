@@ -79,6 +79,9 @@ switch (fruit) {
 // ✅ Mini Practice
 // -------------------------
 // Change the value of `status` and see what message appears
+console.log("-------------------------")
+console.log("✅ Mini Practice")
+console.log("-------------------------")
 
 let status = "loading"
 

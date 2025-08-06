@@ -1,6 +1,6 @@
 // 📘 Lesson: Ternary Operator in TypeScript
 
-// What is ternary operator?
+// What is ternary operator? (PL: Operator warunkowy)
 // The ternary operator is a shorthand way to write an if-else statement.
 // It has three parts:
 // 1. A condition to check
