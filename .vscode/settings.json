@@ -1,0 +1,8 @@
+{
+    "typescript.validate.enable": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "code-runner.executorMap": {
+        "typescript": "npx tsx"
+    }
+}

@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript/TypeScript Comparison Demonstration by jaktestowac.pl</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+
+        .tab {
+            padding: 8px 16px;
+            background: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border-radius: 6px 6px 0 0;
+            margin-right: 4px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .tab:last-child {
+            margin-right: 0;
+        }
+
+        .tab.active {
+            background: #007bff;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .comparison-table th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            position: sticky;
+            left: 0;
+            z-index: 5;
+        }
+
+        .comparison-table th:first-child {
+            z-index: 15;
+        }
+
+        .equal {
+            color: #28a745;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .not-equal {
+            color: #dc3545;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .value-display {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #666;
+            display: block;
+        }
+
+        .legend {
+            margin-top: 5px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .legend h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .legend-item {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 5px;
+        }
+
+        .legend p {
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
+
+        .table-container {
+            overflow: auto;
+            max-height: 1200px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .footer {
+            margin-top: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 2px solid #007bff;
+            font-size: 14px;
+        }
+
+        .footer p {
+            margin: 2px 0;
+            color: #666;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 1000;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e0e0e0;
+        }
+
+        .lang-btn {
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 90px;
+            justify-content: center;
+        }
+
+        .flag-emoji {
+            font-size: 20px;
+        }
+
+        .lang-btn.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+            transform: scale(1.05);
+        }
+
+        .lang-btn:hover {
+            background: #e9ecef;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .lang-btn.active:hover {
+            background: #0056b3;
+        }
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+
+        .custom-tooltip {
+            position: absolute;
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 10000;
+            max-width: 300px;
+            word-wrap: break-word;
+            white-space: normal;
+            pointer-events: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 12px;
+        }
+
+        .quiz-progress {
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 12px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #e9ecef;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 6px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            transition: width 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .quiz-question {
+            background: white;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 6px rgba(0, 123, 255, 0.1);
+        }
+
+        .question-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .comparison-display {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            text-align: center;
+            margin: 12px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 3px solid #007bff;
+        }
+
+        .comparison-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8px 0;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+        }
+
+        .comparison-row:hover {
+            background: #f8f9fa;
+            transform: translateY(-1px);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-expression {
+            font-family: 'Courier New', monospace;
+            font-size: 1em;
+            font-weight: bold;
+            flex: 1;
+        }
+
+        .answer-buttons {
+            display: flex;
+            gap: 6px;
+        }
+
+        .quiz-btn {
+            padding: 6px 12px;
+            border: 2px solid;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            min-width: 60px;
+        }
+
+        .quiz-btn.equal {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .quiz-btn.equal:hover {
+            background: #28a745;
+            color: white;
+        }
+
+        .quiz-btn.not-equal {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .quiz-btn.not-equal:hover {
+            background: #dc3545;
+            color: white;
+        }
+
+        .quiz-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .quiz-btn.selected {
+            box-shadow: 0 0 0 4px #002fff;
+            border-width: 4px;
+            outline: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quiz-results {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .score-display {
+            font-size: 1.6em;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 123, 255, 0.3);
+        }
+
+        .quiz-restart-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-restart-btn:hover {
+            background: #218838;
+            transform: translateY(-1px);
+        }
+
+        .answer-review {
+            text-align: left;
+            max-width: 700px;
+            margin: 15px auto;
+        }
+
+        .answer-item {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 10px;
+            margin: 6px 0;
+            font-size: 14px;
+        }
+
+        .answer-item.correct {
+            border-left: 3px solid #28a745;
+            background: #f8fff9;
+        }
+
+        .answer-item.incorrect {
+            border-left: 3px solid #dc3545;
+            background: #fff8f8;
+        }
+
+        #quiz h2 {
+            font-size: 1.4em;
+            margin: 10px 0 15px 0;
+            text-align: center;
+        }
+
+        #main-title {
+            margin-bottom: 0px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .quiz-feedback {
+            margin-top: 8px;
+            text-align: center;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 6px;
+            padding: 8px 0;
+            transition: background 0.3s, color 0.3s;
+            min-height: 32px;
+        }
+
+        .quiz-feedback.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #28a745;
+            box-shadow: 0 2px 6px rgba(40, 167, 69, 0.08);
+        }
+
+        .quiz-feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #dc3545;
+            box-shadow: 0 2px 6px rgba(220, 53, 69, 0.08);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="language-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('en')" id="lang-en"><span class="flag-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#071b65"></rect>
+                    <path d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z" fill="#fff"></path>
+                    <path d="M22.25,19h-2.5l9.934,7.947c.387-.353,.704-.777,.929-1.257l-8.363-6.691Z" fill="#b92932"></path>
+                    <path d="M1.387,6.309l8.363,6.691h2.5L2.316,5.053c-.387,.353-.704,.777-.929,1.257Z" fill="#b92932"></path>
+                    <path d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z" fill="#fff"></path>
+                    <rect x="13" y="4" width="6" height="24" fill="#fff"></rect>
+                    <rect x="1" y="13" width="30" height="6" fill="#fff"></rect>
+                    <rect x="14" y="4" width="4" height="24" fill="#b92932"></rect>
+                    <rect x="14" y="1" width="4" height="30" transform="translate(32) rotate(90)" fill="#b92932"></rect>
+                    <path d="M28.222,4.21l-9.222,7.376v1.414h.75l9.943-7.94c-.419-.384-.918-.671-1.471-.85Z" fill="#b92932"></path>
+                    <path d="M2.328,26.957c.414,.374,.904,.656,1.447,.832l9.225-7.38v-1.408h-.75L2.328,26.957Z" fill="#b92932"></path>
+                    <path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path>
+                    <path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+                </svg></span> EN</button>
+        <button class="lang-btn" onclick="switchLanguage('pl')" id="lang-pl"><span class="flag-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <path d="M1,24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V15H1v9Z" fill="#cb2e40"></path>
+                    <path d="M27,4H5c-2.209,0-4,1.791-4,4v8H31V8c0-2.209-1.791-4-4-4Z" fill="#fff"></path>
+                    <path d="M5,28H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4ZM2,8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8Z" opacity=".15"></path>
+                    <path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+                </svg></span> PL</button>
+    </div>
+
+    <div class="container">
+        <h1 id="main-title">JavaScript/TypeScript Comparison Demonstration</h1>
+        <div id="main-desc" style="font-size:13px; color:#555; text-align:center; margin-bottom:10px;">
+            <span id="main-desc-text">Created for the <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript for Testers</a> course | by <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a></span>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('loose')" id="tab-loose">Loose Equality (==)</button>
+            <button class="tab" onclick="showTab('strict')" id="tab-strict">Strict Equality (===)</button>
+            <button class="tab" onclick="showTab('quiz')" id="tab-quiz">Quiz</button>
+        </div>
+        <div class="legend">
+            <h3 id="legend-title">Legend:</h3>
+            <div class="legend-item">
+                <span class="equal">✅</span> - <span id="legend-equal">Values are equal</span>
+            </div>
+            <div class="legend-item">
+                <span class="not-equal">✗</span> - <span id="legend-not-equal">Values are not equal</span>
+            </div>
+            <p><strong id="legend-note-label">Note:</strong> <span id="legend-note">This demonstrates how JavaScript/TypeScript handles equality comparisons with different types and values.</span></p>
+            <p><strong id="legend-coercion-label">Type coercion:</strong> <span id="legend-coercion">Automatic conversion of values from one type to another (e.g., string to number) during comparison.</span></p>
+        </div>
+        <div id="loose" class="tab-content active">
+            <h2 id="loose-title">Loose Equality (==)</h2>
+            <div class="table-container">
+                <table class="comparison-table" id="looseTable">
+                    <!-- Table will be generated by JavaScript -->
+                </table>
+            </div>
+        </div>
+
+        <div id="strict" class="tab-content">
+            <h2 id="strict-title">Strict Equality (===)</h2>
+            <div class="table-container">
+                <table class="comparison-table" id="strictTable">
+                    <!-- Table will be generated by JavaScript -->
+                </table>
+            </div>
+        </div>
+
+        <div id="quiz" class="tab-content">
+            <h2 id="quiz-title">Quiz: Test Your Equality Knowledge</h2>
+            <div id="quiz-container" class="quiz-container">
+                <!-- Quiz content will be generated by JavaScript -->
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p id="footer-text">Created for the <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript for Testers</a> course | by <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a></p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Language translations
+        const translations = {
+            en: {
+                title: "JavaScript/TypeScript Comparison Demonstration",
+                tabLoose: "Loose Equality (==)",
+                tabStrict: "Strict Equality (===)",
+                tabQuiz: "Quiz",
+                legendTitle: "Legend:",
+                legendEqual: "Values are equal",
+                legendNotEqual: "Values are not equal",
+                legendNoteLabel: "Note:",
+                legendNote: "This demonstrates how JavaScript/TypeScript handles equality comparisons with different types and values.",
+                legendTypeCoercionLabel: "Type coercion:",
+                legendTypeCoercion: "Automatic conversion of values from one type to another (e.g., string to number) during comparison. This is how JavaScript/TypeScript handles loose equality.",
+                looseTitle: "Loose Equality (==)",
+                strictTitle: "Strict Equality (===)",
+                footerText: 'Created for the <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript for Testers</a> course | by <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a>',
+                quizTitle: "Quiz: Test Your Equality Knowledge",
+                quizQuestion: "Are these values equal?",
+                quizProgress: "Question {current} of {total}",
+                quizLooseComparison: "Loose Equality (==)",
+                quizStrictComparison: "Strict Equality (===)",
+                quizEqual: "Equal",
+                quizNotEqual: "Not Equal",
+                quizNext: "Next Question",
+                quizFinish: "Finish Quiz",
+                quizScore: "Your score: {score} out of {total}",
+                quizRestart: "Restart Quiz",
+                quizShowAnswers: "Review Answers",
+                quizCorrect: "Correct!",
+                quizIncorrect: "Incorrect!",
+                quizYourAnswer: "Your answer:",
+                quizCorrectAnswer: "Correct answer:",
+                quizLooseLabel: "==",
+                quizStrictLabel: "===",
+                tooltips: {
+                    nanAlwaysFalse: "NaN {operator} NaN is always false",
+                    sameTypeAndValue: "{left} {operator} {right}: Same type and value",
+                    typeCoercionEqual: "{left} == {right}: Type coercion makes them equal",
+                    differentTypes: "{left} !== {right}: Different types ({leftType} vs {rightType})",
+                    sameTypeDifferentValues: "{left} !== {right}: Same type but different values",
+                    notEqualWithCoercion: "{left} != {right}: Not equal even with type coercion"
+                }
+            },
+            pl: {
+                title: "Demonstracja Porównań JavaScript/TypeScript",
+                tabLoose: "Porównanie Luźne (==)",
+                tabStrict: "Porównanie Ścisłe (===)",
+                tabQuiz: "Quiz",
+                legendTitle: "Legenda:",
+                legendEqual: "Wartości są równe",
+                legendNotEqual: "Wartości nie są równe",
+                legendNoteLabel: "Uwaga:",
+                legendNote: "To pokazuje jak JavaScript/TypeScript obsługuje porównania równości między różnymi typami i wartościami.",
+                legendTypeCoercionLabel: "Konwersja typów:",
+                legendTypeCoercion: "Automatyczna konwersja wartości z jednego typu na inny (np. string na number) podczas porównania. To jest sposób, w jaki JavaScript/TypeScript obsługuje luźne porównanie.",
+                looseTitle: "Porównanie Luźne (==)",
+                strictTitle: "Porównanie Ścisłe (===)",
+                footerText: 'Utworzone dla kursu <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript dla Testera</a> | przez <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a>',
+                quizTitle: "Quiz: Sprawdź swoją wiedzę o równości",
+                quizQuestion: "Czy te wartości są równe?",
+                quizProgress: "Pytanie {current} z {total}",
+                quizLooseComparison: "Porównanie luźne (==)",
+                quizStrictComparison: "Porównanie ścisłe (===)",
+                quizEqual: "Równe",
+                quizNotEqual: "Nie równe",
+                quizNext: "Następne pytanie",
+                quizFinish: "Zakończ quiz",
+                quizScore: "Twój wynik: {score} z {total}",
+                quizRestart: "Zacznij od nowa",
+                quizShowAnswers: "Przejrzyj odpowiedzi",
+                quizCorrect: "Poprawnie!",
+                quizIncorrect: "Niepoprawnie!",
+                quizYourAnswer: "Twoja odpowiedź:",
+                quizCorrectAnswer: "Poprawna odpowiedź:",
+                quizLooseLabel: "==",
+                quizStrictLabel: "===",
+                tooltips: {
+                    nanAlwaysFalse: "NaN {operator} NaN zawsze zwraca false",
+                    sameTypeAndValue: "{left} {operator} {right}: Ten sam typ i wartość",
+                    typeCoercionEqual: "{left} == {right}: Konwersja typów sprawia, że są równe",
+                    differentTypes: "{left} !== {right}: Różne typy ({leftType} vs {rightType})",
+                    sameTypeDifferentValues: "{left} !== {right}: Ten sam typ ale różne wartości",
+                    notEqualWithCoercion: "{left} != {right}: Nie równe nawet z konwersją typów"
+                }
+            }
+        };
+
+        let currentLanguage = 'en';
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`lang-${lang}`).classList.add('active');
+
+            // Update text content
+            const t = translations[lang];
+            document.getElementById('main-title').textContent = t.title;
+            document.getElementById('tab-loose').textContent = t.tabLoose;
+            document.getElementById('tab-strict').textContent = t.tabStrict;
+            document.getElementById('tab-quiz').textContent = t.tabQuiz;
+            document.getElementById('legend-title').textContent = t.legendTitle;
+            document.getElementById('legend-equal').textContent = t.legendEqual;
+            document.getElementById('legend-not-equal').textContent = t.legendNotEqual;
+            document.getElementById('legend-note-label').textContent = t.legendNoteLabel;
+            document.getElementById('legend-note').textContent = t.legendNote;
+            document.getElementById('legend-coercion-label').textContent = t.legendTypeCoercionLabel;
+            document.getElementById('legend-coercion').textContent = t.legendTypeCoercion;
+            document.getElementById('loose-title').textContent = t.looseTitle;
+            document.getElementById('strict-title').textContent = t.strictTitle;
+            document.getElementById('quiz-title').textContent = t.quizTitle;
+            document.getElementById('footer-text').innerHTML = t.footerText;
+
+            // Regenerate tables with new language for tooltips
+            generateTable('looseTable', false);
+            generateTable('strictTable', true);
+
+            if (document.getElementById('quiz').classList.contains('active')) {
+                startQuiz();
+            }
+        }
+
+        // Test values representing different types and edge cases
+        const testValues = [
+            { name: 'undefined', value: undefined },
+            { name: 'null', value: null },
+            { name: 'true', value: true },
+            { name: 'false', value: false },
+            { name: '0', value: 0 },
+            { name: '1', value: 1 },
+            { name: '-1', value: -1 },
+            { name: 'NaN', value: NaN },
+            { name: 'Infinity', value: Infinity },
+            { name: '-Infinity', value: -Infinity },
+            { name: '""', value: "" },
+            { name: '"0"', value: "0" },
+            { name: '"1"', value: "1" },
+            { name: '"true"', value: "true" },
+            { name: '"false"', value: "false" },
+            { name: '"hello"', value: "hello" },
+            { name: '" "', value: " " },
+            { name: '"\\t"', value: "\t" },
+            { name: '"\\n"', value: "\n" },
+            { name: '[]', value: [] },
+            { name: '[0]', value: [0] },
+            { name: '[1]', value: [1] },
+            { name: '[1,2]', value: [1, 2] },
+            { name: '{}', value: {} },
+            { name: '{a:1}', value: { a: 1 } },
+            { name: 'function(){}', value: function () { } }
+        ];
+
+        function formatValue(value) {
+            if (value === undefined) return 'undefined';
+            if (value === null) return 'null';
+            if (typeof value === 'string') return `"${value}"`;
+            if (typeof value === 'function') return 'function(){}';
+            if (Array.isArray(value)) return `[${value.join(',')}]`;
+            if (typeof value === 'object') return JSON.stringify(value);
+            return String(value);
+        }
+
+        function generateTooltip(rowValue, colValue, isEqual, useStrict) {
+            const operator = useStrict ? '===' : '==';
+            const rowStr = formatValue(rowValue);
+            const colStr = formatValue(colValue);
+            const t = translations[currentLanguage].tooltips;
+
+            let tooltip = '';
+
+            if (isEqual) {
+                if (Number.isNaN(rowValue) && Number.isNaN(colValue)) {
+                    tooltip = t.nanAlwaysFalse.replace('{operator}', operator);
+                } else if (useStrict) {
+                    if (rowValue === colValue) {
+                        tooltip = t.sameTypeAndValue
+                            .replace('{left}', rowStr)
+                            .replace('{operator}', operator)
+                            .replace('{right}', colStr);
+                    }
+                } else {
+                    if (rowValue === colValue) {
+                        tooltip = t.sameTypeAndValue
+                            .replace('{left}', rowStr)
+                            .replace('{operator}', operator)
+                            .replace('{right}', colStr);
+                    } else {
+                        tooltip = t.typeCoercionEqual
+                            .replace('{left}', rowStr)
+                            .replace('{right}', colStr);
+                    }
+                }
+            } else {
+                if (useStrict) {
+                    if (typeof rowValue !== typeof colValue) {
+                        tooltip = t.differentTypes
+                            .replace('{left}', rowStr)
+                            .replace('{right}', colStr)
+                            .replace('{leftType}', typeof rowValue)
+                            .replace('{rightType}', typeof colValue);
+                    } else {
+                        tooltip = t.sameTypeDifferentValues
+                            .replace('{left}', rowStr)
+                            .replace('{right}', colStr);
+                    }
+                } else {
+                    tooltip = t.notEqualWithCoercion
+                        .replace('{left}', rowStr)
+                        .replace('{right}', colStr);
+                }
+            }
+
+            // Escape HTML entities for tooltip attribute
+            return tooltip.replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        function generateTable(tableId, useStrict) {
+            const table = document.getElementById(tableId);
+            table.innerHTML = '';
+
+            // Create header row
+            const headerRow = document.createElement('tr');
+            const emptyHeader = document.createElement('th');
+            emptyHeader.textContent = '';
+            headerRow.appendChild(emptyHeader);
+
+            testValues.forEach(item => {
+                const th = document.createElement('th');
+                th.innerHTML = `${item.name}`;
+                // th.innerHTML = `${item.name}<br><span class="value-display">${formatValue(item.value)}</span>`;
+                headerRow.appendChild(th);
+            });
+            table.appendChild(headerRow);
+
+            // Create data rows
+            testValues.forEach(rowItem => {
+                const row = document.createElement('tr');
+
+                // First column (row header)
+                const rowHeader = document.createElement('td');
+                rowHeader.innerHTML = `${rowItem.name}`;
+                // rowHeader.innerHTML = `${rowItem.name}<br><span class="value-display">${formatValue(rowItem.value)}</span>`;
+                row.appendChild(rowHeader);
+
+                // Comparison cells
+                testValues.forEach(colItem => {
+                    const cell = document.createElement('td');
+                    let isEqual;
+
+                    if (useStrict) {
+                        isEqual = rowItem.value === colItem.value;
+                    } else {
+                        isEqual = rowItem.value == colItem.value;
+                    }
+
+                    // Special handling for NaN (NaN is never equal to anything, including itself)
+                    if (Number.isNaN(rowItem.value) && Number.isNaN(colItem.value)) {
+                        isEqual = false; // NaN === NaN is false, NaN == NaN is false
+                    }
+
+                    const tooltip = generateTooltip(rowItem.value, colItem.value, isEqual, useStrict);
+
+                    cell.innerHTML = isEqual ?
+                        `<span class="equal tooltip" data-tooltip="${tooltip}">✅</span>` :
+                        `<span class="not-equal tooltip" data-tooltip="${tooltip}">✗</span>`;
+
+                    row.appendChild(cell);
+                });
+
+                table.appendChild(row);
+            });
+        }
+
+        function showTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            // If quiz tab, start quiz
+            if (tabName === 'quiz') {
+                startQuiz();
+            }
+        }
+
+        // --- Quiz Logic ---
+        let quizQuestions = [];
+        let quizCurrent = 0;
+        let quizScore = 0;
+        let quizUserAnswers = [];
+        let currentQuestionAnswers = {};
+
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        function generateQuizQuestions() {
+            // Create separate pools for equal and not-equal comparisons
+            const equalPairs = [];
+            const notEqualPairs = [];
+
+            // Analyze all possible pairs
+            for (let i = 0; i < testValues.length; i++) {
+                for (let j = i + 1; j < testValues.length; j++) {
+                    const left = testValues[i];
+                    const right = testValues[j];
+
+                    let looseEqual = left.value == right.value;
+                    let strictEqual = left.value === right.value;
+
+                    // Special handling for NaN
+                    if (Number.isNaN(left.value) && Number.isNaN(right.value)) {
+                        looseEqual = false;
+                        strictEqual = false;
+                    }
+
+                    // If either comparison is true, add to equal pairs
+                    if (looseEqual || strictEqual) {
+                        equalPairs.push([i, j]);
+                    } else {
+                        notEqualPairs.push([i, j]);
+                    }
+                }
+            }
+
+            // Shuffle both pools
+            const shuffledEqual = equalPairs.sort(() => 0.5 - Math.random());
+            const shuffledNotEqual = notEqualPairs.sort(() => 0.5 - Math.random());
+
+            // Try to get 2-3 from each pool for better balance
+            const numEqual = Math.min(3, shuffledEqual.length);
+            const numNotEqual = Math.min(5 - numEqual, shuffledNotEqual.length);
+            const remainingEqual = Math.min(5 - numNotEqual, shuffledEqual.length);
+
+            const selectedPairs = [
+                ...shuffledEqual.slice(0, remainingEqual),
+                ...shuffledNotEqual.slice(0, numNotEqual)
+            ];
+
+            // Shuffle the final selection
+            const finalSelection = selectedPairs.sort(() => 0.5 - Math.random()).slice(0, 5);
+
+            return finalSelection.map(([i, j]) => {
+                const left = testValues[i];
+                const right = testValues[j];
+
+                // Calculate both loose and strict equality
+                let looseEqual = left.value == right.value;
+                let strictEqual = left.value === right.value;
+
+                // Special handling for NaN
+                if (Number.isNaN(left.value) && Number.isNaN(right.value)) {
+                    looseEqual = false;
+                    strictEqual = false;
+                }
+
+                return {
+                    left,
+                    right,
+                    looseEqual,
+                    strictEqual
+                };
+            });
+        }
+
+        function startQuiz() {
+            quizQuestions = generateQuizQuestions();
+            quizCurrent = 0;
+            quizScore = 0;
+            quizUserAnswers = [];
+            currentQuestionAnswers = {};
+            renderQuizQuestion();
+        }
+
+        function renderQuizQuestion() {
+            const t = translations[currentLanguage];
+            const container = document.getElementById('quiz-container');
+
+            if (quizCurrent >= quizQuestions.length) {
+                renderQuizResults();
+                return;
+            }
+
+            const q = quizQuestions[quizCurrent];
+            const progress = Math.round(((quizCurrent) / quizQuestions.length) * 100);
+
+            // Feedback for each row
+            let looseFeedback = '';
+            let strictFeedback = '';
+            // Mark which button was pressed
+            let looseSelected = currentQuestionAnswers.loose !== undefined ? (currentQuestionAnswers.loose.userAnswer ? 'equal' : 'not-equal') : '';
+            let strictSelected = currentQuestionAnswers.strict !== undefined ? (currentQuestionAnswers.strict.userAnswer ? 'equal' : 'not-equal') : '';
+            if (currentQuestionAnswers.loose !== undefined) {
+                looseFeedback = `<div class=\"quiz-feedback ${currentQuestionAnswers.loose.correct ? 'correct' : 'incorrect'}\">${currentQuestionAnswers.loose.correct ? '✅ ' + t.quizCorrect : '✗ ' + t.quizIncorrect}</div>`;
+            }
+            if (currentQuestionAnswers.strict !== undefined) {
+                strictFeedback = `<div class=\"quiz-feedback ${currentQuestionAnswers.strict.correct ? 'correct' : 'incorrect'}\">${currentQuestionAnswers.strict.correct ? '✅ ' + t.quizCorrect : '✗ ' + t.quizIncorrect}</div>`;
+            }
+
+            container.innerHTML = `
+                <div class=\"quiz-progress\">
+                    <div>${t.quizProgress.replace('{current}', quizCurrent + 1).replace('{total}', quizQuestions.length)}</div>
+                    <div class=\"progress-bar\">
+                        <div class=\"progress-fill\" style=\"width: ${progress}%\"></div>
+                    </div>
+                </div>
+                
+                <div class=\"quiz-question\">
+                    <div class=\"question-title\">${t.quizQuestion}</div>
+                    <div class=\"comparison-display\">
+                        <strong>${q.left.name}</strong> vs <strong>${q.right.name}</strong>
+                    </div>
+                    
+                    <div class=\"comparison-row\">
+                        <div class=\"comparison-expression\">
+                            ${q.left.name} <strong>==</strong> ${q.right.name}
+                            <br><small>${t.quizLooseComparison}</small>
+                        </div>
+                        <div class=\"answer-buttons\">
+                            <button class=\"quiz-btn equal${looseSelected === 'equal' ? ' selected' : ''}\" onclick=\"answerQuizComparison('loose', true)\" 
+                                ${currentQuestionAnswers.loose !== undefined ? 'disabled' : ''}>
+                                ${t.quizEqual}
+                            </button>
+                            <button class=\"quiz-btn not-equal${looseSelected === 'not-equal' ? ' selected' : ''}\" onclick=\"answerQuizComparison('loose', false)\"
+                                ${currentQuestionAnswers.loose !== undefined ? 'disabled' : ''}>
+                                ${t.quizNotEqual}
+                            </button>
+                        </div>
+                    </div>
+                    ${looseFeedback}
+                    <div class=\"comparison-row\">
+                        <div class=\"comparison-expression\">
+                            ${q.left.name} <strong>===</strong> ${q.right.name}
+                            <br><small>${t.quizStrictComparison}</small>
+                        </div>
+                        <div class=\"answer-buttons\">
+                            <button class=\"quiz-btn equal${strictSelected === 'equal' ? ' selected' : ''}\" onclick=\"answerQuizComparison('strict', true)\"
+                                ${currentQuestionAnswers.strict !== undefined ? 'disabled' : ''}>
+                                ${t.quizEqual}
+                            </button>
+                            <button class=\"quiz-btn not-equal${strictSelected === 'not-equal' ? ' selected' : ''}\" onclick=\"answerQuizComparison('strict', false)\"
+                                ${currentQuestionAnswers.strict !== undefined ? 'disabled' : ''}>
+                                ${t.quizNotEqual}
+                            </button>
+                        </div>
+                    </div>
+                    ${strictFeedback}
+                    ${Object.keys(currentQuestionAnswers).length === 2 ?
+                    `<div style="text-align: center; margin-top: 20px;">
+                            <button class="quiz-restart-btn" onclick="nextQuestion()">
+                                ${quizCurrent < quizQuestions.length - 1 ? t.quizNext : t.quizFinish}
+                            </button>
+                        </div>` : ''}
+                </div>
+            `;
+        }
+
+        function answerQuizComparison(type, userAnswer) {
+            const q = quizQuestions[quizCurrent];
+            const correctAnswer = type === 'loose' ? q.looseEqual : q.strictEqual;
+
+            currentQuestionAnswers[type] = {
+                userAnswer,
+                correct: userAnswer === correctAnswer,
+                correctAnswer
+            };
+
+            if (userAnswer === correctAnswer) {
+                quizScore++;
+            }
+
+            // Re-render to show disabled buttons and next button if both answered
+            renderQuizQuestion();
+        }
+
+        function nextQuestion() {
+            // Store answers for this question
+            quizUserAnswers.push({
+                question: quizQuestions[quizCurrent],
+                answers: { ...currentQuestionAnswers }
+            });
+
+            currentQuestionAnswers = {};
+            quizCurrent++;
+            renderQuizQuestion();
+        }
+
+        function renderQuizResults() {
+            const t = translations[currentLanguage];
+            const container = document.getElementById('quiz-container');
+            const totalQuestions = quizQuestions.length * 2; // Each question has 2 parts
+            const percentage = Math.round((quizScore / totalQuestions) * 100);
+
+            let html = `
+                <div class="quiz-results">
+                    <div class="score-display">
+                        ${t.quizScore.replace('{score}', quizScore).replace('{total}', totalQuestions)}
+                        <br><small>${percentage}%</small>
+                    </div>
+                    <button class="quiz-restart-btn" onclick="startQuiz()">${t.quizRestart}</button>
+                    
+                    <div class="answer-review">
+                        <h3>${t.quizShowAnswers}</h3>
+            `;
+
+            quizUserAnswers.forEach((qa, i) => {
+                const q = qa.question;
+                const looseAnswer = qa.answers.loose;
+                const strictAnswer = qa.answers.strict;
+
+                html += `
+                    <div class="answer-item ${looseAnswer.correct && strictAnswer.correct ? 'correct' : 'incorrect'}">
+                        <h4>${t.quizQuestion} ${i + 1}: ${q.left.name} vs ${q.right.name}</h4>
+                        
+                        <div style="margin: 10px 0;">
+                            <strong>${q.left.name} == ${q.right.name}</strong><br>
+                            ${t.quizYourAnswer} <span style="color: ${looseAnswer.correct ? '#28a745' : '#dc3545'}">${looseAnswer.userAnswer ? t.quizEqual : t.quizNotEqual}</span><br>
+                            ${t.quizCorrectAnswer} ${looseAnswer.correctAnswer ? t.quizEqual : t.quizNotEqual}
+                            <span style="font-weight: bold; color: ${looseAnswer.correct ? '#28a745' : '#dc3545'}">
+                                ${looseAnswer.correct ? ' ✓' : ' ✗'}
+                            </span>
+                        </div>
+                        
+                        <div style="margin: 10px 0;">
+                            <strong>${q.left.name} === ${q.right.name}</strong><br>
+                            ${t.quizYourAnswer} <span style="color: ${strictAnswer.correct ? '#28a745' : '#dc3545'}">${strictAnswer.userAnswer ? t.quizEqual : t.quizNotEqual}</span><br>
+                            ${t.quizCorrectAnswer} ${strictAnswer.correctAnswer ? t.quizEqual : t.quizNotEqual}
+                            <span style="font-weight: bold; color: ${strictAnswer.correct ? '#28a745' : '#dc3545'}">
+                                ${strictAnswer.correct ? ' ✓' : ' ✗'}
+                            </span>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `</div></div>`;
+            container.innerHTML = html;
+        }
+
+        // Generate tables when page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            generateTable('looseTable', false);  // Loose equality (==)
+            generateTable('strictTable', true);  // Strict equality (===)
+
+            // Initialize tooltip system
+            initializeTooltips();
+        });
+
+        // Dynamic tooltip system
+        function initializeTooltips() {
+            // Create tooltip element
+            const tooltip = document.createElement('div');
+            tooltip.className = 'custom-tooltip';
+            document.body.appendChild(tooltip);
+
+            // Add event listeners to all tooltip elements
+            document.addEventListener('mouseover', function (e) {
+                if (e.target.classList.contains('tooltip')) {
+                    const tooltipText = e.target.getAttribute('data-tooltip');
+                    if (tooltipText) {
+                        tooltip.innerHTML = tooltipText;
+                        tooltip.style.opacity = '1';
+                        tooltip.style.visibility = 'visible';
+                        updateTooltipPosition(e, tooltip);
+                    }
+                }
+            });
+
+            document.addEventListener('mousemove', function (e) {
+                if (e.target.classList.contains('tooltip')) {
+                    updateTooltipPosition(e, tooltip);
+                }
+            });
+
+            document.addEventListener('mouseout', function (e) {
+                if (e.target.classList.contains('tooltip')) {
+                    tooltip.style.opacity = '0';
+                    tooltip.style.visibility = 'hidden';
+                }
+            });
+        }
+
+        function updateTooltipPosition(e, tooltip) {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Get tooltip dimensions
+            const tooltipRect = tooltip.getBoundingClientRect();
+            const tooltipWidth = tooltipRect.width;
+            const tooltipHeight = tooltipRect.height;
+
+            // Get viewport dimensions
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+
+            // Calculate position with offset from cursor
+            let left = mouseX + scrollX + 15;
+            let top = mouseY + scrollY - tooltipHeight - 10;
+
+            // Adjust if tooltip would go off screen
+            if (left + tooltipWidth > viewportWidth + scrollX) {
+                left = mouseX + scrollX - tooltipWidth - 15;
+            }
+
+            if (top < scrollY) {
+                top = mouseY + scrollY + 15;
+            }
+
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+        }
+    </script>
+</body>
+
+</html>

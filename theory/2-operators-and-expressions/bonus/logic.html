@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeScript Logic Operators Interactive Demonstration by jaktestowac.pl</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        .section h2 {
+            color: #007bff;
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            min-width: 120px;
+            color: #333;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border: 3px solid #007bff;
+            border-radius: 6px;
+            background: white;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+        }
+
+        .checkbox-container input[type="checkbox"]:hover {
+            border-color: #0056b3;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .checkbox-container input[type="checkbox"]:checked {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            border-color: #0056b3;
+        }
+
+        .checkbox-container input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            top: -2px;
+            left: 2px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .checkbox-container input[type="checkbox"]:focus {
+            outline: none;
+            border-color: #80bdff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+
+        .number-input {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 100px;
+        }
+
+        .result-box {
+            background: #f8f9fa;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px auto;
+            max-width: 500px;
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+        }
+
+        .result-box h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #007bff;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 12px 0;
+            padding: 12px 16px;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid #007bff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .result-item:hover {
+            transform: translateX(2px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .result-item.true {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-left-color: #28a745;
+            color: #155724;
+        }
+
+        .result-item.false {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            border-left-color: #dc3545;
+            color: #721c24;
+        }
+
+        .result-item.true:hover {
+            background: linear-gradient(135deg, #c3e6cb 0%, #b6dfbd 100%);
+            box-shadow: 0 3px 8px rgba(40, 167, 69, 0.2);
+        }
+
+        .result-item.false:hover {
+            background: linear-gradient(135deg, #f5c6cb 0%, #f1b0b7 100%);
+            box-shadow: 0 3px 8px rgba(220, 53, 69, 0.2);
+        }
+
+        .result-value {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .true {
+            color: #28a745;
+        }
+
+        .false {
+            color: #dc3545;
+        }
+
+        .truth-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        .truth-table th,
+        .truth-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .truth-table th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        .truth-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .operator-symbol {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .club-scenario {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .club-scenario::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        .club-scenario h2 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .club-scenario .result-box {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 1;
+            overflow: visible;
+        }
+
+        .club-scenario .input-group {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 12px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .club-scenario .input-group label {
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-weight: 600;
+        }
+
+        .club-scenario .number-input {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #333;
+            font-weight: 600;
+        }
+
+        .club-scenario .number-input:focus {
+            background: white;
+            border-color: #fff;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+            outline: none;
+        }
+
+        .club-scenario .checkbox-container span {
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-weight: 600;
+        }
+
+        .scenario-description {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 16px;
+            line-height: 1.6;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .scenario-description strong {
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .reset-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .reset-btn:hover {
+            background: #c82333;
+        }
+
+        .toggle-advanced {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+
+        .toggle-advanced:hover {
+            background: #5a6268;
+        }
+
+        .advanced-section {
+            display: none;
+        }
+
+        .emoji {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 1000;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e0e0e0;
+        }
+
+        .lang-btn {
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 90px;
+            justify-content: center;
+        }
+
+        .flag-emoji {
+            font-size: 20px;
+        }
+
+        .lang-btn.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+            transform: scale(1.05);
+        }
+
+        .lang-btn:hover {
+            background: #e9ecef;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .lang-btn.active:hover {
+            background: #0056b3;
+        }
+
+        .footer {
+            margin-top: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 2px solid #007bff;
+            font-size: 12px;
+        }
+
+        .footer p {
+            margin: 2px 0;
+            color: #666;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .explanation {
+            display: none;
+            font-size: 13px;
+            color: #555;
+            margin-left: 10px;
+            margin-top: 2px;
+            font-style: italic;
+            position: absolute;
+            background: #fffbe7;
+            border: 1px solid #ffe082;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 8px 12px;
+            z-index: 1002;
+            left: 100%;
+            right: auto;
+            top: 50%;
+            width: 250px;
+            max-width: 90vw;
+            transform: translateY(-50%);
+            white-space: normal;
+            box-sizing: border-box;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            overflow: auto;
+            pointer-events: none;
+        }
+
+        .result-item:hover .explanation,
+        .result-item:focus-within .explanation {
+            display: block;
+            pointer-events: auto;
+        }
+
+        /* Remove forced left-side and centering for small screens */
+        @media (max-width: 600px) {
+            .explanation {
+                width: 90vw;
+                min-width: 180px;
+            }
+        }
+
+        .club-scenario {
+            overflow: visible !important;
+        }
+
+        /* Tab Styles */
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+
+        .tab {
+            padding: 8px 16px;
+            background: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border-radius: 6px 6px 0 0;
+            margin-right: 4px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .tab:last-child {
+            margin-right: 0;
+        }
+
+        .tab.active {
+            background: #007bff;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 12px;
+        }
+
+        .quiz-progress {
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 12px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #e9ecef;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 6px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            transition: width 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .quiz-question {
+            background: white;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 6px rgba(0, 123, 255, 0.1);
+            text-align: center;
+        }
+
+        .question-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .expression-display {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            text-align: center;
+            margin: 12px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 3px solid #007bff;
+        }
+
+        .answer-buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .quiz-btn {
+            padding: 8px 16px;
+            border: 2px solid;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            min-width: 80px;
+        }
+
+        .quiz-btn.true-btn {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .quiz-btn.true-btn:hover {
+            background: #28a745;
+            color: white;
+        }
+
+        .quiz-btn.false-btn {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .quiz-btn.false-btn:hover {
+            background: #dc3545;
+            color: white;
+        }
+
+        .quiz-btn.selected {
+            box-shadow: 0 0 0 4px #002fff;
+            border-width: 4px;
+            outline: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quiz-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .quiz-results {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .score-display {
+            font-size: 1.6em;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 123, 255, 0.3);
+        }
+
+        .quiz-restart-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-restart-btn:hover {
+            background: #218838;
+            transform: translateY(-1px);
+        }
+
+        .answer-review {
+            text-align: left;
+            max-width: 700px;
+            margin: 15px auto;
+        }
+
+        .answer-item {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 10px;
+            margin: 6px 0;
+            font-size: 14px;
+        }
+
+        .answer-item.correct {
+            border-left: 3px solid #28a745;
+            background: #f8fff9;
+        }
+
+        .answer-item.incorrect {
+            border-left: 3px solid #dc3545;
+            background: #fff8f8;
+        }
+
+        #logic-quiz h2 {
+            font-size: 1.4em;
+            margin: 10px 0 15px 0;
+            text-align: center;
+        }
+
+        #main-title {
+            margin-bottom: 0px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .quiz-feedback {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 6px;
+            padding: 10px 0;
+            transition: background 0.3s, color 0.3s;
+            min-height: 32px;
+        }
+
+        .quiz-feedback.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #28a745;
+            box-shadow: 0 2px 6px rgba(40, 167, 69, 0.08);
+        }
+
+        .quiz-feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #dc3545;
+            box-shadow: 0 2px 6px rgba(220, 53, 69, 0.08);
+        }
+
+        .next-question-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .next-question-btn:hover {
+            background: #218838;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="language-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('en')" id="lang-en"><span class="flag-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#071b65"></rect>
+                    <path d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z" fill="#fff"></path>
+                    <path d="M22.25,19h-2.5l9.934,7.947c.387-.353,.704-.777,.929-1.257l-8.363-6.691Z" fill="#b92932"></path>
+                    <path d="M1.387,6.309l8.363,6.691h2.5L2.316,5.053c-.387,.353-.704,.777-.929,1.257Z" fill="#b92932"></path>
+                    <path d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z" fill="#fff"></path>
+                    <rect x="13" y="4" width="6" height="24" fill="#fff"></rect>
+                    <rect x="1" y="13" width="30" height="6" fill="#fff"></rect>
+                    <rect x="14" y="4" width="4" height="24" fill="#b92932"></rect>
+                    <rect x="14" y="1" width="4" height="30" transform="translate(32) rotate(90)" fill="#b92932"></rect>
+                    <path d="M28.222,4.21l-9.222,7.376v1.414h.75l9.943-7.94c-.419-.384-.918-.671-1.471-.85Z" fill="#b92932"></path>
+                    <path d="M2.328,26.957c.414,.374,.904,.656,1.447,.832l9.225-7.38v-1.408h-.75L2.328,26.957Z" fill="#b92932"></path>
+                    <path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path>
+                    <path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+                </svg></span> EN</button>
+        <button class="lang-btn" onclick="switchLanguage('pl')" id="lang-pl"><span class="flag-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <path d="M1,24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V15H1v9Z" fill="#cb2e40"></path>
+                    <path d="M27,4H5c-2.209,0-4,1.791-4,4v8H31V8c0-2.209-1.791-4-4-4Z" fill="#fff"></path>
+                    <path d="M5,28H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4ZM2,8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8Z" opacity=".15"></path>
+                    <path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+                </svg></span> PL</button>
+    </div>
+
+    <div class="container">
+        <h1 id="main-title">🧠 TypeScript Logic Operators Interactive Demo</h1>
+        <div id="main-desc" style="font-size:13px; color:#555; text-align:center; margin-bottom:10px;">
+            <span id="main-desc-text">Created for the <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript for Testers</a> course | by <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a></span>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('demo')" id="tab-demo">Demo</button>
+            <button class="tab" onclick="showTab('quiz')" id="tab-quiz">Quiz</button>
+        </div>
+
+        <!-- Demo Tab Content -->
+        <div id="demo" class="tab-content active">
+
+
+            <!-- Basic Logic Operations Section -->
+            <div class="section">
+                <h2><span class="emoji">🟢</span><span id="and-title">Logical AND</span> (<span class="operator-symbol">&&</span>)</h2>
+                <p id="and-description">Both conditions must be true for the result to be true.</p>
+
+                <div class="input-group">
+                    <label id="and-condition-a">Condition A:</label>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="andA" onchange="updateAndResults()">
+                        <span id="andALabel">false</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label id="and-condition-b">Condition B:</label>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="andB" onchange="updateAndResults()">
+                        <span id="andBLabel">false</span>
+                    </div>
+                </div>
+
+                <div class="result-box">
+                    <h3 id="and-result-title">Result: A && B</h3>
+                    <div class="result-item">
+                        <span id="and-result-label">Result:</span>
+                        <span class="result-value" id="andResult">false</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logical OR Section -->
+            <div class="section">
+                <h2><span class="emoji">🔴</span><span id="or-title">Logical OR</span> (<span class="operator-symbol">||</span>)</h2>
+                <p id="or-description">At least one condition must be true for the result to be true.</p>
+
+                <div class="input-group">
+                    <label id="or-condition-a">Condition A:</label>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="orA" onchange="updateOrResults()">
+                        <span id="orALabel">false</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label id="or-condition-b">Condition B:</label>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="orB" onchange="updateOrResults()">
+                        <span id="orBLabel">false</span>
+                    </div>
+                </div>
+
+                <div class="result-box">
+                    <h3 id="or-result-title">Result: A || B</h3>
+                    <div class="result-item">
+                        <span id="or-result-label">Result:</span>
+                        <span class="result-value" id="orResult">false</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logical NOT Section -->
+            <div class="section">
+                <h2><span class="emoji">🚫</span><span id="not-title">Logical NOT</span> (<span class="operator-symbol">!</span>)</h2>
+                <p id="not-description">Reverses the boolean value: true becomes false, false becomes true.</p>
+
+                <div class="input-group">
+                    <label id="not-original-label">Original Value:</label>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="notInput" onchange="updateNotResults()">
+                        <span id="notInputLabel">false</span>
+                    </div>
+                </div>
+
+                <div class="result-box">
+                    <h3 id="not-result-title">Result: !Original</h3>
+                    <div class="result-item">
+                        <span id="not-result-label">Result:</span>
+                        <span class="result-value" id="notResult">true</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-world Club Scenario -->
+            <div class="section club-scenario">
+                <h2><span class="emoji">🎭</span><span id="club-title">Real-World Scenario: Club Entry</span></h2>
+                <div class="scenario-description">
+                    <span id="club-description">Can you enter the club? You need to be an adult (age ≥ 18) AND be a member, OR have a valid ID.</span>
+                    <br><strong id="club-formula">Formula:</strong> (age ≥ 18 && isMember) || hasValidID
+                </div>
+
+                <div class="input-group">
+                    <label id="club-age-label">Age:</label>
+                    <input type="number" id="age" class="number-input" value="20" min="0" max="100" onchange="updateClubResults()">
+                </div>
+
+                <div class="input-group">
+                    <label id="club-member-label">Is Member:</label>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="isMember" checked onchange="updateClubResults()">
+                        <span id="isMemberLabel">true</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label id="club-id-label">Has Valid ID:</label>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="hasValidID" checked onchange="updateClubResults()">
+                        <span id="hasValidIDLabel">true</span>
+                    </div>
+                </div>
+
+                <div class="result-box">
+                    <h3 id="club-analysis-title">Club Entry Analysis</h3>
+                    <!-- Club Entry Analysis with tooltips and explanations -->
+                    <div class="result-item" id="club-adult-row">
+                        <span id="club-adult-label">Is Adult (age ≥ 18):</span>
+                        <span class="result-value" id="isAdult">true</span>
+                        <span class="explanation" id="explain-isAdult"></span>
+                    </div>
+                    <div class="result-item" id="club-member-row">
+                        <span id="club-member-analysis-label">Is Member:</span>
+                        <span class="result-value" id="isMemberAnalysis">true</span>
+                        <span class="explanation" id="explain-isMember"></span>
+                    </div>
+                    <div class="result-item" id="club-adult-member-row">
+                        <span id="club-adult-member-label">Adult AND Member:</span>
+                        <span class="result-value" id="adultAndMember">true</span>
+                        <span class="explanation" id="explain-adultAndMember"></span>
+                    </div>
+                    <div class="result-item" id="club-id-analysis-row">
+                        <span id="club-id-analysis-label">Has Valid ID:</span>
+                        <span class="result-value" id="hasValidIDAnalysis">true</span>
+                        <span class="explanation" id="explain-hasValidID"></span>
+                    </div>
+                    <div class="result-item" id="club-can-enter-row">
+                        <span id="club-can-enter-label"><strong>Can Enter Club:</strong></span>
+                        <span class="result-value" id="canEnterClub">true</span>
+                        <span class="explanation" id="explain-canEnterClub"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Section -->
+            <div class="section">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <button class="toggle-advanced" onclick="toggleAdvanced()" id="toggle-advanced-btn">🔧 Toggle Logic Playground</button>
+                    <span id="logic-playground-desc" style="font-size: 14px; color: #555;">Explore and experiment with logic operators interactively below.</span>
+                </div>
+                <div class="advanced-section" id="advancedSection">
+                    <h2><span class="emoji">📊</span><span id="logic-playground-title">Logic Operator Playground</span></h2>
+
+                    <!-- AND Truth Table -->
+                    <h3 id="and-truth-table-title">AND Truth Table</h3>
+                    <table class="truth-table">
+                        <thead>
+                            <tr>
+                                <th>A</th>
+                                <th>B</th>
+                                <th>A && B</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="false">false</td>
+                                <td class="false">false</td>
+                                <td class="false">false</td>
+                            </tr>
+                            <tr>
+                                <td class="false">false</td>
+                                <td class="true">true</td>
+                                <td class="false">false</td>
+                            </tr>
+                            <tr>
+                                <td class="true">true</td>
+                                <td class="false">false</td>
+                                <td class="false">false</td>
+                            </tr>
+                            <tr>
+                                <td class="true">true</td>
+                                <td class="true">true</td>
+                                <td class="true">true</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- Interactive AND -->
+                    <div class="input-group">
+                        <label id="interactive-and-label">Interactive AND:</label>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="andTableA" onchange="updateAndTableResult()">
+                            <span id="andTableALabel">false</span>
+                        </div>
+                        <span class="operator-symbol" id="andTableOperator">&&</span>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="andTableB" onchange="updateAndTableResult()">
+                            <span id="andTableBLabel">false</span>
+                        </div>
+                        <span id="andTableEquals">=</span>
+                        <span class="result-value" id="andTableResult">false</span>
+                    </div>
+
+                    <!-- OR Truth Table -->
+                    <h3 id="or-truth-table-title">OR Truth Table</h3>
+                    <table class="truth-table">
+                        <thead>
+                            <tr>
+                                <th>A</th>
+                                <th>B</th>
+                                <th>A || B</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="false">false</td>
+                                <td class="false">false</td>
+                                <td class="false">false</td>
+                            </tr>
+                            <tr>
+                                <td class="false">false</td>
+                                <td class="true">true</td>
+                                <td class="true">true</td>
+                            </tr>
+                            <tr>
+                                <td class="true">true</td>
+                                <td class="false">false</td>
+                                <td class="true">true</td>
+                            </tr>
+                            <tr>
+                                <td class="true">true</td>
+                                <td class="true">true</td>
+                                <td class="true">true</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- Interactive OR -->
+                    <div class="input-group">
+                        <label id="interactive-or-label">Interactive OR:</label>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="orTableA" onchange="updateOrTableResult()">
+                            <span id="orTableALabel">false</span>
+                        </div>
+                        <span class="operator-symbol" id="orTableOperator">||</span>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="orTableB" onchange="updateOrTableResult()">
+                            <span id="orTableBLabel">false</span>
+                        </div>
+                        <span id="orTableEquals">=</span>
+                        <span class="result-value" id="orTableResult">false</span>
+                    </div>
+
+                    <!-- NOT Truth Table -->
+                    <h3 id="not-truth-table-title">NOT Truth Table</h3>
+                    <table class="truth-table">
+                        <thead>
+                            <tr>
+                                <th>A</th>
+                                <th>!A</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="false">false</td>
+                                <td class="true">true</td>
+                            </tr>
+                            <tr>
+                                <td class="true">true</td>
+                                <td class="false">false</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- Interactive NOT -->
+                    <div class="input-group">
+                        <label id="interactive-not-label">Interactive NOT:</label>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="notTableA" onchange="updateNotTableResult()">
+                            <span id="notTableALabel">false</span>
+                        </div>
+                        <span class="operator-symbol" id="notTableOperator">!</span>
+                        <span id="notTableEquals">=</span>
+                        <span class="result-value" id="notTableResult">true</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Reset Section -->
+            <div class="section">
+                <button class="reset-btn" onclick="resetAll()" id="reset-btn">🔄 Reset All Values</button>
+            </div>
+
+        </div> <!-- End Demo Tab -->
+
+        <!-- Quiz Tab Content -->
+        <div id="quiz" class="tab-content">
+            <h2 id="quiz-title">Quiz: Test Your Logic Knowledge</h2>
+            <div id="quiz-container" class="quiz-container">
+                <!-- Quiz content will be generated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p id="footer-text">Created for the <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript for Testers</a> course | by <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a></p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Language translations
+        const translations = {
+            en: {
+                title: "🧠 TypeScript Logic Operators Interactive Demo",
+                tabDemo: "Demo",
+                tabQuiz: "Quiz",
+                andTitle: "Logical AND",
+                andDescription: "Both conditions must be true for the result to be true.",
+                andConditionA: "Condition A:",
+                andConditionB: "Condition B:",
+                andResultTitle: "Result: A && B",
+                andResultLabel: "Result:",
+                orTitle: "Logical OR",
+                orDescription: "At least one condition must be true for the result to be true.",
+                orConditionA: "Condition A:",
+                orConditionB: "Condition B:",
+                orResultTitle: "Result: A || B",
+                orResultLabel: "Result:",
+                notTitle: "Logical NOT",
+                notDescription: "Reverses the boolean value: true becomes false, false becomes true.",
+                notOriginalLabel: "Original Value:",
+                notResultTitle: "Result: !Original",
+                notResultLabel: "Result:",
+                clubTitle: "Real-World Scenario: Club Entry",
+                clubDescription: "Can you enter the club? You need to be an adult (age ≥ 18) AND be a member, OR have a valid ID.",
+                clubFormula: "Formula:",
+                clubAgeLabel: "Age:",
+                clubMemberLabel: "Is Member:",
+                clubIdLabel: "Has Valid ID:",
+                clubAnalysisTitle: "Club Entry Analysis",
+                clubAdultLabel: "Is Adult (age ≥ 18):",
+                clubMemberAnalysisLabel: "Is Member:",
+                clubAdultMemberLabel: "Adult AND Member:",
+                clubIdAnalysisLabel: "Has Valid ID:",
+                clubCanEnterLabel: "Can Enter Club:",
+                logicPlaygroundTitle: "Logic Operator Playground",
+                logicPlaygroundDesc: "Explore and experiment with logic operators interactively below.",
+                toggleAdvancedShow: "🔧 Show Logic Operator Playground",
+                toggleAdvancedHide: "🔧 Hide Logic Operator Playground",
+                resetBtn: "🔄 Reset All Values",
+                footerText: 'Created for the <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript for Testers</a> course | by <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a>',
+                interactiveAndLabel: "Interactive AND:",
+                interactiveOrLabel: "Interactive OR:",
+                interactiveNotLabel: "Interactive NOT:",
+                andOperator: "&&",
+                orOperator: "||",
+                notOperator: "!",
+                equals: "=",
+                quizTitle: "Quiz: Test Your Logic Knowledge",
+                quizQuestion: "What is the result of this expression?",
+                quizProgress: "Question {current} of {total}",
+                quizTrue: "true",
+                quizFalse: "false",
+                quizCorrect: "Correct!",
+                quizIncorrect: "Incorrect!",
+                quizScore: "Your Score: {score} out of {total}",
+                quizRestart: "Restart Quiz",
+                quizReview: "Review Your Answers",
+                quizYourAnswer: "Your answer:",
+                quizCorrectAnswer: "Correct answer:"
+            },
+            pl: {
+                title: "🧠 Interaktywna Demonstracja Operatorów Logicznych TypeScript",
+                tabDemo: "Demo",
+                tabQuiz: "Quiz",
+                andTitle: "Logiczne AND",
+                andDescription: "Oba warunki muszą być prawdziwe, aby wynik był prawdziwy.",
+                andConditionA: "Warunek A:",
+                andConditionB: "Warunek B:",
+                andResultTitle: "Wynik: A && B",
+                andResultLabel: "Wynik:",
+                orTitle: "Logiczne OR",
+                orDescription: "Przynajmniej jeden warunek musi być prawdziwy, aby wynik był prawdziwy.",
+                orConditionA: "Warunek A:",
+                orConditionB: "Warunek B:",
+                orResultTitle: "Wynik: A || B",
+                orResultLabel: "Wynik:",
+                notTitle: "Logiczne NOT",
+                notDescription: "Odwraca wartość logiczną: true staje się false, false staje się true.",
+                notOriginalLabel: "Wartość oryginalna:",
+                notResultTitle: "Wynik: !Oryginał",
+                notResultLabel: "Wynik:",
+                clubTitle: "Scenariusz z życia: Wejście do klubu",
+                clubDescription: "Czy możesz wejść do klubu? Musisz być dorosły (wiek ≥ 18) ORAZ być członkiem, LUB mieć ważny dowód.",
+                clubFormula: "Formuła:",
+                clubAgeLabel: "Wiek:",
+                clubMemberLabel: "Czy członek:",
+                clubIdLabel: "Ma ważny dowód:",
+                clubAnalysisTitle: "Analiza wejścia do klubu",
+                clubAdultLabel: "Czy dorosły (wiek ≥ 18):",
+                clubMemberAnalysisLabel: "Czy członek:",
+                clubAdultMemberLabel: "Dorosły ORAZ Członek:",
+                clubIdAnalysisLabel: "Ma ważny dowód:",
+                clubCanEnterLabel: "Może wejść do klubu:",
+                logicPlaygroundTitle: "Plac zabaw operatorów logicznych",
+                logicPlaygroundDesc: "Poznaj i eksperymentuj z operatorami logicznymi poniżej.",
+                toggleAdvancedShow: "🔧 Pokaż plac zabaw z operatorami",
+                toggleAdvancedHide: "🔧 Ukryj plac zabaw z operatorami",
+                resetBtn: "🔄 Resetuj wszystkie wartości",
+                footerText: 'Utworzone dla kursu <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript dla Testera</a> | przez <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a>',
+                interactiveAndLabel: "Interaktywne AND:",
+                interactiveOrLabel: "Interaktywne OR:",
+                interactiveNotLabel: "Interaktywne NOT:",
+                andOperator: "&&",
+                orOperator: "||",
+                notOperator: "!",
+                equals: "=",
+                quizTitle: "Quiz: Sprawdź swoją wiedzę o operatorach logicznych",
+                quizQuestion: "Jaki jest wynik tego wyrażenia?",
+                quizProgress: "Pytanie {current} z {total}",
+                quizTrue: "prawda",
+                quizFalse: "fałsz",
+                quizCorrect: "Poprawnie!",
+                quizIncorrect: "Niepoprawnie!",
+                quizScore: "Twój wynik: {score} z {total}",
+                quizRestart: "Uruchom quiz ponownie",
+                quizReview: "Przejrzyj swoje odpowiedzi",
+                quizYourAnswer: "Twoja odpowiedź:",
+                quizCorrectAnswer: "Poprawna odpowiedź:"
+            }
+        };
+
+        let currentLanguage = 'en';
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`lang-${lang}`).classList.add('active');
+
+            // Update text content
+            const t = translations[lang];
+            document.getElementById('main-title').textContent = t.title;
+            document.getElementById('tab-demo').textContent = t.tabDemo;
+            document.getElementById('tab-quiz').textContent = t.tabQuiz;
+            document.getElementById('and-title').textContent = t.andTitle;
+            document.getElementById('and-description').textContent = t.andDescription;
+            document.getElementById('and-condition-a').textContent = t.andConditionA;
+            document.getElementById('and-condition-b').textContent = t.andConditionB;
+            document.getElementById('and-result-title').textContent = t.andResultTitle;
+            document.getElementById('and-result-label').textContent = t.andResultLabel;
+
+            document.getElementById('or-title').textContent = t.orTitle;
+            document.getElementById('or-description').textContent = t.orDescription;
+            document.getElementById('or-condition-a').textContent = t.orConditionA;
+            document.getElementById('or-condition-b').textContent = t.orConditionB;
+            document.getElementById('or-result-title').textContent = t.orResultTitle;
+            document.getElementById('or-result-label').textContent = t.orResultLabel;
+
+            document.getElementById('not-title').textContent = t.notTitle;
+            document.getElementById('not-description').textContent = t.notDescription;
+            document.getElementById('not-original-label').textContent = t.notOriginalLabel;
+            document.getElementById('not-result-title').textContent = t.notResultTitle;
+            document.getElementById('not-result-label').textContent = t.notResultLabel;
+
+            document.getElementById('club-title').textContent = t.clubTitle;
+            document.getElementById('club-description').textContent = t.clubDescription;
+            document.getElementById('club-formula').textContent = t.clubFormula;
+            document.getElementById('club-age-label').textContent = t.clubAgeLabel;
+            document.getElementById('club-member-label').textContent = t.clubMemberLabel;
+            document.getElementById('club-id-label').textContent = t.clubIdLabel;
+            document.getElementById('club-analysis-title').textContent = t.clubAnalysisTitle;
+            document.getElementById('club-adult-label').textContent = t.clubAdultLabel;
+            document.getElementById('club-member-analysis-label').textContent = t.clubMemberLabel;
+            document.getElementById('club-adult-member-label').textContent = t.clubAdultMemberLabel;
+            document.getElementById('club-id-analysis-label').textContent = t.clubIdAnalysisLabel;
+            document.getElementById('club-can-enter-label').innerHTML = '<strong>' + t.clubCanEnterLabel + '</strong>';
+
+            document.getElementById('logic-playground-title').textContent = t.logicPlaygroundTitle;
+            document.getElementById('logic-playground-desc').textContent = t.logicPlaygroundDesc;
+            // Playground interactive labels and operators
+            document.getElementById('interactive-and-label').textContent = t.interactiveAndLabel;
+            document.getElementById('interactive-or-label').textContent = t.interactiveOrLabel;
+            document.getElementById('interactive-not-label').textContent = t.interactiveNotLabel;
+            document.getElementById('andTableOperator').textContent = t.andOperator;
+            document.getElementById('orTableOperator').textContent = t.orOperator;
+            document.getElementById('notTableOperator').textContent = t.notOperator;
+            document.getElementById('andTableEquals').textContent = t.equals;
+            document.getElementById('orTableEquals').textContent = t.equals;
+            document.getElementById('notTableEquals').textContent = t.equals;
+
+            document.getElementById('quiz-title').textContent = t.quizTitle;
+            document.getElementById('reset-btn').textContent = t.resetBtn;
+            document.getElementById('footer-text').innerHTML = t.footerText;
+            document.getElementById('main-desc_text').innerHTML = t.footerText;
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function () {
+            updateAndResults();
+            updateOrResults();
+            updateNotResults();
+            updateClubResults();
+        });
+
+        // Update AND operation results
+        function updateAndResults() {
+            const a = document.getElementById('andA').checked;
+            const b = document.getElementById('andB').checked;
+            const result = a && b;
+
+            document.getElementById('andALabel').textContent = a.toString();
+            document.getElementById('andBLabel').textContent = b.toString();
+            document.getElementById('andResult').textContent = result.toString();
+            document.getElementById('andResult').className = 'result-value ' + (result ? 'true' : 'false');
+
+            // Update the result item background
+            const resultItem = document.getElementById('andResult').closest('.result-item');
+            resultItem.className = 'result-item ' + (result ? 'true' : 'false');
+        }
+
+        // Update OR operation results
+        function updateOrResults() {
+            const a = document.getElementById('orA').checked;
+            const b = document.getElementById('orB').checked;
+            const result = a || b;
+
+            document.getElementById('orALabel').textContent = a.toString();
+            document.getElementById('orBLabel').textContent = b.toString();
+            document.getElementById('orResult').textContent = result.toString();
+            document.getElementById('orResult').className = 'result-value ' + (result ? 'true' : 'false');
+
+            // Update the result item background
+            const resultItem = document.getElementById('orResult').closest('.result-item');
+            resultItem.className = 'result-item ' + (result ? 'true' : 'false');
+        }
+
+        // Update NOT operation results
+        function updateNotResults() {
+            const input = document.getElementById('notInput').checked;
+            const result = !input;
+
+            document.getElementById('notInputLabel').textContent = input.toString();
+            document.getElementById('notResult').textContent = result.toString();
+            document.getElementById('notResult').className = 'result-value ' + (result ? 'true' : 'false');
+
+            // Update the result item background
+            const resultItem = document.getElementById('notResult').closest('.result-item');
+            resultItem.className = 'result-item ' + (result ? 'true' : 'false');
+        }
+
+        // Update club scenario results
+        function updateClubResults() {
+            const age = parseInt(document.getElementById('age').value) || 0;
+            const isMember = document.getElementById('isMember').checked;
+            const hasValidID = document.getElementById('hasValidID').checked;
+            const isAdult = age >= 18;
+            const adultAndMember = isAdult && isMember;
+            const canEnter = adultAndMember || hasValidID;
+
+            document.getElementById('isMemberLabel').textContent = isMember.toString();
+            document.getElementById('hasValidIDLabel').textContent = hasValidID.toString();
+
+            document.getElementById('isAdult').textContent = isAdult.toString();
+            document.getElementById('isAdult').className = 'result-value ' + (isAdult ? 'true' : 'false');
+            const isAdultItem = document.getElementById('isAdult').closest('.result-item');
+            isAdultItem.className = 'result-item ' + (isAdult ? 'true' : 'false');
+
+            // New: isMemberAnalysis
+            document.getElementById('isMemberAnalysis').textContent = isMember.toString();
+            document.getElementById('isMemberAnalysis').className = 'result-value ' + (isMember ? 'true' : 'false');
+            const isMemberItem = document.getElementById('isMemberAnalysis').closest('.result-item');
+            isMemberItem.className = 'result-item ' + (isMember ? 'true' : 'false');
+
+            document.getElementById('adultAndMember').textContent = adultAndMember.toString();
+            document.getElementById('adultAndMember').className = 'result-value ' + (adultAndMember ? 'true' : 'false');
+            const adultAndMemberItem = document.getElementById('adultAndMember').closest('.result-item');
+            adultAndMemberItem.className = 'result-item ' + (adultAndMember ? 'true' : 'false');
+
+            document.getElementById('hasValidIDAnalysis').textContent = hasValidID.toString();
+            document.getElementById('hasValidIDAnalysis').className = 'result-value ' + (hasValidID ? 'true' : 'false');
+            const hasValidIDItem = document.getElementById('hasValidIDAnalysis').closest('.result-item');
+            hasValidIDItem.className = 'result-item ' + (hasValidID ? 'true' : 'false');
+
+            document.getElementById('canEnterClub').textContent = canEnter.toString();
+            document.getElementById('canEnterClub').className = 'result-value ' + (canEnter ? 'true' : 'false');
+            const canEnterItem = document.getElementById('canEnterClub').closest('.result-item');
+            canEnterItem.className = 'result-item ' + (canEnter ? 'true' : 'false');
+        }
+
+        const clubExplanations = {
+            en: {
+                isAdult: 'True if age is 18 or older.',
+                isMember: 'True if the person is a club member.',
+                adultAndMember: 'True if both "Is Adult" and "Is Member" are true (age ≥ 18 AND member).',
+                hasValidID: 'True if the person has a valid ID (regardless of age or membership).',
+                canEnterClub: 'True if (Is Adult AND Is Member) OR Has Valid ID. This is the final club entry rule.'
+            },
+            pl: {
+                isAdult: 'Prawda, jeśli wiek to co najmniej 18 lat.',
+                isMember: 'Prawda, jeśli osoba jest członkiem klubu.',
+                adultAndMember: 'Prawda, jeśli zarówno "Czy dorosły" jak i "Czy członek" są prawdziwe (wiek ≥ 18 ORAZ członek).',
+                hasValidID: 'Prawda, jeśli osoba ma ważny dowód (niezależnie od wieku czy członkostwa).',
+                canEnterClub: 'Prawda, jeśli (Czy dorosły ORAZ Czy członek) LUB Ma ważny dowód. To końcowa reguła wejścia do klubu.'
+            }
+        };
+
+        function updateClubExplanations() {
+            const lang = currentLanguage;
+            document.getElementById('club-adult-row').title = clubExplanations[lang].isAdult;
+            document.getElementById('explain-isAdult').textContent = clubExplanations[lang].isAdult;
+            document.getElementById('club-member-row').title = clubExplanations[lang].isMember;
+            document.getElementById('explain-isMember').textContent = clubExplanations[lang].isMember;
+            document.getElementById('club-adult-member-row').title = clubExplanations[lang].adultAndMember;
+            document.getElementById('explain-adultAndMember').textContent = clubExplanations[lang].adultAndMember;
+            document.getElementById('club-id-analysis-row').title = clubExplanations[lang].hasValidID;
+            document.getElementById('explain-hasValidID').textContent = clubExplanations[lang].hasValidID;
+            document.getElementById('club-can-enter-row').title = clubExplanations[lang].canEnterClub;
+            document.getElementById('explain-canEnterClub').textContent = clubExplanations[lang].canEnterClub;
+        }
+
+        // Call on language switch and DOMContentLoaded
+        const origSwitchLanguage = switchLanguage;
+        switchLanguage = function (lang) {
+            origSwitchLanguage(lang);
+            updateClubExplanations();
+        };
+        document.addEventListener('DOMContentLoaded', updateClubExplanations);
+
+        // Toggle advanced section visibility
+        function toggleAdvanced() {
+            const section = document.getElementById('advancedSection');
+            const button = document.getElementById('toggle-advanced-btn');
+            const t = translations[currentLanguage];
+
+            if (section.style.display === 'none' || section.style.display === '') {
+                section.style.display = 'block';
+                button.textContent = t.toggleAdvancedHide;
+            } else {
+                section.style.display = 'none';
+                button.textContent = t.toggleAdvancedShow;
+            }
+        }
+
+        // Reset all inputs to default values
+        function resetAll() {
+            // Reset AND section
+            document.getElementById('andA').checked = false;
+            document.getElementById('andB').checked = false;
+
+            // Reset OR section
+            document.getElementById('orA').checked = false;
+            document.getElementById('orB').checked = false;
+
+            // Reset NOT section
+            document.getElementById('notInput').checked = false;
+
+            // Reset club scenario
+            document.getElementById('age').value = 20;
+            document.getElementById('isMember').checked = true;
+            document.getElementById('hasValidID').checked = true;
+
+            // Update all results
+            updateAndResults();
+            updateOrResults();
+            updateNotResults();
+            updateClubResults();
+        }
+
+        // --- Interactive Truth Table Logic ---
+        function updateAndTableResult() {
+            const a = document.getElementById('andTableA').checked;
+            const b = document.getElementById('andTableB').checked;
+            const result = a && b;
+            document.getElementById('andTableALabel').textContent = a.toString();
+            document.getElementById('andTableBLabel').textContent = b.toString();
+            document.getElementById('andTableResult').textContent = result.toString();
+            document.getElementById('andTableResult').className = 'result-value ' + (result ? 'true' : 'false');
+        }
+        function updateOrTableResult() {
+            const a = document.getElementById('orTableA').checked;
+            const b = document.getElementById('orTableB').checked;
+            const result = a || b;
+            document.getElementById('orTableALabel').textContent = a.toString();
+            document.getElementById('orTableBLabel').textContent = b.toString();
+            document.getElementById('orTableResult').textContent = result.toString();
+            document.getElementById('orTableResult').className = 'result-value ' + (result ? 'true' : 'false');
+        }
+        function updateNotTableResult() {
+            const a = document.getElementById('notTableA').checked;
+            const result = !a;
+            document.getElementById('notTableALabel').textContent = a.toString();
+            document.getElementById('notTableResult').textContent = result.toString();
+            document.getElementById('notTableResult').className = 'result-value ' + (result ? 'true' : 'false');
+        }
+        // Initialize interactive truth tables on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', function () {
+            updateAndTableResult();
+            updateOrTableResult();
+            updateNotTableResult();
+        });
+
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+
+            // Initialize quiz if quiz tab is selected
+            if (tabName === 'quiz') {
+                initializeQuiz();
+            }
+        }
+
+        // Quiz functionality
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let quizQuestions = [];
+        let userAnswers = [];
+        let quizFeedback = '';
+        let quizSelected = null;
+
+        function generateQuizQuestions() {
+            // Basic expressions (75% of questions)
+            const basicExpressions = [
+                // NOT operations
+                { expr: '!true', result: false },
+                { expr: '!false', result: true },
+                { expr: '!!true', result: true },
+                { expr: '!!false', result: false },
+
+                // AND operations
+                { expr: 'true && true', result: true },
+                { expr: 'true && false', result: false },
+                { expr: 'false && true', result: false },
+                { expr: 'false && false', result: false },
+
+                // OR operations
+                { expr: 'true || true', result: true },
+                { expr: 'true || false', result: true },
+                { expr: 'false || true', result: true },
+                { expr: 'false || false', result: false },
+
+                // Mixed NOT with AND/OR
+                { expr: '!true && false', result: false },
+                { expr: '!false || true', result: true },
+                { expr: 'true && !false', result: true },
+                { expr: 'false || !true', result: false },
+                { expr: '!(true && false)', result: true },
+                { expr: '!(false || false)', result: true },
+                { expr: '!true || !false', result: true },
+                { expr: '!true && !false', result: false },
+
+                // Simple parentheses
+                { expr: '!(true || false)', result: false },
+                { expr: '!(false && false)', result: true },
+                { expr: '(true && false)', result: false },
+                { expr: '(false || true)', result: true }
+            ];
+
+            // Complex multi-operator expressions (25% of questions)
+            const complexExpressions = [
+                // Multiple operators with mixed AND/OR
+                { expr: 'true && true || false', result: true },
+                { expr: 'false || true && false', result: false },
+                { expr: 'true || false && true', result: true },
+                { expr: 'false && true || true', result: true },
+                { expr: 'true && false || false', result: false },
+                { expr: 'false || false && true', result: false },
+                { expr: 'true || true && false', result: true },
+                { expr: 'false && false || true', result: true },
+                { expr: 'true && true || true', result: true },
+                { expr: 'false || false && false', result: false },
+                { expr: 'false || false || true', result: true },
+                { expr: 'true && false || true', result: true },
+                { expr: 'false || true && true', result: true },
+                { expr: 'false && true && true', result: false },
+                { expr: 'false && false && true', result: false },
+
+                // Complex with NOT operators
+                { expr: '!true && false || true', result: true },
+                { expr: 'true || !false && false', result: true },
+                { expr: '!false || true && false', result: true },
+                { expr: 'false && !true || true', result: true },
+                { expr: '!true || !false && true', result: true },
+                { expr: 'true && !true || false', result: false },
+                { expr: 'false || !false && true', result: true },
+                { expr: '!true && !false || false', result: false },
+                { expr: '!(true && false) || true', result: true },
+                { expr: '!(false || true) && false', result: false },
+                { expr: '!(true || false) && true', result: false },
+                { expr: '!(false && true) || false', result: true },
+                { expr: '!(false && false) || true', result: true },
+
+                // Complex parentheses expressions
+                { expr: '(true || false) && true', result: true },
+                { expr: '(false && true) || false', result: false },
+                { expr: '(true && false) || (true || false)', result: true },
+                { expr: '(false || false) && (true && true)', result: false },
+                { expr: '(true || false) && (false || true)', result: true },
+                { expr: '(false && true) || (true && false)', result: false },
+                { expr: '!(true && false) || false', result: true },
+                { expr: '!(false || true) && true', result: false },
+
+                // Very complex expressions
+                { expr: '(true || false) && !(false && true)', result: true },
+                { expr: '!(true && false) || (false && true)', result: true },
+                { expr: '(true && !false) || (false || !true)', result: true },
+                { expr: '!(false || false) && (true || false)', result: true },
+                { expr: '(true || false) && !(true && false)', result: true },
+                { expr: '!(true || false) || (true && true)', result: true },
+
+                // Additional variations
+                { expr: '(!true && false) || (true && !false)', result: true },
+                { expr: '!(true && (false || true))', result: false },
+                { expr: '(!false || false) && (true || !true)', result: true },
+                { expr: '(!true || false) && (!false || true)', result: true },
+                { expr: '!(true && false) && (false || true)', result: true },
+                { expr: '((true && false) || (!false && true))', result: true },
+                { expr: '!(false && (true || false))', result: true },
+                { expr: '(!true && !false) || (true && false)', result: false },
+                { expr: '(!false && true) && !(true && false)', result: true },
+                { expr: '((true || false) && (!true || false))', result: false },
+                { expr: '!(true && (!false || false))', result: false },
+                { expr: '(!true || (false && true)) && true', result: false },
+                { expr: '((true && true) || false) && !false', result: true },
+                { expr: '!(false || (true && false))', result: true },
+                { expr: '(!true && (false || true)) || true', result: true },
+                { expr: '((true || false) && (true && !false))', result: true },
+                { expr: '(!false && !true) || (false && true)', result: false },
+                { expr: '!(true && false) && (!false || false)', result: true },
+                { expr: '((true && false) || (!true && true))', result: false },
+                { expr: '(!true || false) && (true && !false)', result: false },
+                { expr: '((true || false) && (!false && true))', result: true },
+                { expr: '!(false && (!true || true))', result: true },
+                { expr: '(!true && false) || (!false && true)', result: true },
+                { expr: '((true && !false) && (!true || false))', result: false },
+            ];
+
+            // Select 7-8 basic questions (75%) and 2-3 complex questions (25%)
+            const shuffledBasic = basicExpressions.sort(() => Math.random() - 0.5);
+            const shuffledComplex = complexExpressions.sort(() => Math.random() - 0.5);
+
+            const selectedBasic = shuffledBasic.slice(0, 7);
+            const selectedComplex = shuffledComplex.slice(0, 3);
+
+            // Combine and shuffle final selection
+            const allQuestions = [...selectedBasic, ...selectedComplex];
+            return allQuestions.sort(() => Math.random() - 0.5);
+        }
+
+        function initializeQuiz() {
+            if (quizQuestions.length === 0) {
+                quizQuestions = generateQuizQuestions();
+                currentQuestionIndex = 0;
+                score = 0;
+                userAnswers = [];
+                showQuestion();
+            }
+        }
+
+        function showQuestion() {
+            const container = document.getElementById('quiz-container');
+            const t = translations[currentLanguage];
+
+            if (currentQuestionIndex >= quizQuestions.length) {
+                showResults();
+                return;
+            }
+
+            const question = quizQuestions[currentQuestionIndex];
+            const progress = ((currentQuestionIndex) / quizQuestions.length) * 100;
+
+            // Determine which button is selected
+            let trueSelected = quizSelected === true ? ' selected' : '';
+            let falseSelected = quizSelected === false ? ' selected' : '';
+
+            container.innerHTML = `
+                <div class="quiz-progress">
+                    <div>${t.quizProgress.replace('{current}', currentQuestionIndex + 1).replace('{total}', quizQuestions.length)}</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${progress}%"></div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="question-title">${t.quizQuestion}</div>
+                    <div class="expression-display">${question.expr}</div>
+                    <div class="answer-buttons">
+                        <button class="quiz-btn true-btn${trueSelected}" onclick="submitAnswer(true)" ${quizFeedback ? 'disabled' : ''}>
+                            ${t.quizTrue}
+                        </button>
+                        <button class="quiz-btn false-btn${falseSelected}" onclick="submitAnswer(false)" ${quizFeedback ? 'disabled' : ''}>
+                            ${t.quizFalse}
+                        </button>
+                    </div>
+                    ${quizFeedback}
+                </div>
+            `;
+        }
+
+        function submitAnswer(userAnswer) {
+            const question = quizQuestions[currentQuestionIndex];
+            const correct = userAnswer === question.result;
+
+            if (correct) {
+                score++;
+            }
+
+            userAnswers.push({
+                question: question,
+                userAnswer: userAnswer,
+                correct: correct
+            });
+
+            // Show feedback and mark selected
+            quizSelected = userAnswer;
+            const t = translations[currentLanguage];
+            quizFeedback = `<div class=\"quiz-feedback ${correct ? 'correct' : 'incorrect'}\">${correct ? '✅ ' + t.quizCorrect : '✗ ' + t.quizIncorrect}</div>`;
+            quizFeedback += `<button class=\"next-question-btn\" onclick=\"nextQuestion()\">Next Question</button>`;
+            showQuestion();
+        }
+
+        function nextQuestion() {
+            quizFeedback = '';
+            quizSelected = null;
+            currentQuestionIndex++;
+            showQuestion();
+        }
+
+        function showResults() {
+            const container = document.getElementById('quiz-container');
+            const t = translations[currentLanguage];
+
+            let reviewHTML = '';
+            userAnswers.forEach((answer, index) => {
+                const statusClass = answer.correct ? 'correct' : 'incorrect';
+                const userAnswerText = answer.userAnswer ? t.quizTrue : t.quizFalse;
+                const correctAnswerText = answer.question.result ? t.quizTrue : t.quizFalse;
+
+                reviewHTML += `
+                    <div class="answer-item ${statusClass}">
+                        <strong>Q${index + 1}:</strong> ${answer.question.expr}<br>
+                        <strong>${t.quizYourAnswer}</strong> ${userAnswerText}<br>
+                        <strong>${t.quizCorrectAnswer}</strong> ${correctAnswerText}
+                    </div>
+                `;
+            });
+
+            container.innerHTML = `
+                <div class="quiz-results">
+                    <div class="score-display">
+                        ${t.quizScore.replace('{score}', score).replace('{total}', quizQuestions.length)}
+                    </div>
+                    <button class="quiz-restart-btn" onclick="restartQuiz()">
+                        ${t.quizRestart}
+                    </button>
+                    <h3>${t.quizReview}</h3>
+                    <div class="answer-review">
+                        ${reviewHTML}
+                    </div>
+                </div>
+            `;
+        }
+
+        function restartQuiz() {
+            quizQuestions = [];
+            currentQuestionIndex = 0;
+            score = 0;
+            userAnswers = [];
+            quizFeedback = '';
+            quizSelected = null;
+            initializeQuiz();
+        }
+    </script>
+</body>
+
+</html>

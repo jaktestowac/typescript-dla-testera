@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "module": "ESNext",
+        "target": "ESNext",
+        "moduleResolution": "Node",
+        "noImplicitAny": true,
+        "strict": true,
+        "isolatedModules": true
+    },
+    "files": ["theory/0-base/1-hello-world.ts"]
+}
