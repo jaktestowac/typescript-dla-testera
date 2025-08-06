@@ -12,8 +12,7 @@ You'll work through theory, examples, and hands-on exercises to build a strong f
 
 > [!IMPORTANT]
 > Check out our free **YouTube** series from this course:
->
-> <a href="https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa" target="_blank"><div align="center"><img src="./assets/typescript-dla-testera-za-darmo-tsx.jpg" alt="TypeScript Logo" height="300"/></div></a>
+> [![TypeScript for Tester](./assets/typescript-dla-testera-za-darmo-tsx.jpg)](https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa)
 
 > [!TIP]
 > 🧠 This is a **condensed overview** of TypeScript focused on the most important features commonly used in test automation. If you want to go deeper, check out the additional materials and courses listed below:
@@ -278,7 +277,7 @@ This project uses tsx to run .ts files without compilation. It's ideal for fast 
 > [!IMPORTANT]
 > Check out our free **YouTube** series from this course:
 >
-> <a href="https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa" target="_blank"><div align="center"><img src="./assets/typescript-dla-testera-za-darmo-tsx.jpg" alt="TypeScript Logo" height="300"/></div></a>
+> [![TypeScript for Tester](./assets/typescript-dla-testera-za-darmo-tsx.jpg)](https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa)
 
 # 📞 Contact & Support
 

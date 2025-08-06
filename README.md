@@ -12,8 +12,7 @@ Wspólnie przeprowadzimy Cię przez teorię, przykładami i praktycznymi ćwicze
 
 > [!IMPORTANT]
 > Sprawdź nasze darmowe nagrania z tego kursu na **YouTube**:
->
-> <a href="https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa" target="_blank"><div align="center"><img src="./assets/typescript-dla-testera-za-darmo-tsx.jpg" alt="TypeScript Logo" height="300"/></div></a>
+> [![TypeScript for Tester](./assets/typescript-dla-testera-za-darmo-tsx.jpg)](https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa)
 
 > [!TIP]
 > 🧠 To jest **skrócony przegląd** języka TypeScript skupiony na najważniejszych funkcjach powszechnie używanych w automatyzacji testów. Jeśli chcesz zgłębić temat, sprawdź dodatkowe materiały i kursy wymienione poniżej:
@@ -272,7 +271,7 @@ Ten projekt używa tsx do uruchamiania plików .ts bez kompilacji. Jest idealny 
 > [!IMPORTANT]
 > Sprawdź nasze darmowe nagrania z tego kursu na **YouTube**:
 >
-> <a href="https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa" target="_blank"><div align="center"><img src="./assets/typescript-dla-testera-za-darmo-tsx.jpg" alt="TypeScript Logo" height="300"/></div></a>
+> [![TypeScript for Tester](./assets/typescript-dla-testera-za-darmo-tsx.jpg)](https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa)
 
 # 📞 Kontakt i wsparcie
 
