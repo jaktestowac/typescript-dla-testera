@@ -1,76 +1,81 @@
-# TypeScript for Testers 🧪
+# TypeScript dla Testerów - Ekspresowe Podstawy 🧪
 
 > [!TIP]
-> 💡 Choose your language:
+> 💡 Wybierz swój język:
 >
-> - 🇬🇧 [English](./README.md)
-> - 🇵🇱 [Polski](./README.pl.md)
+> - 🇬🇧 [English](./README.eng.md)
+> - 🇵🇱 [Polski](./README.md)
 
-Welcome to **TypeScript for a Tester** - a practical guide designed specifically for software testers who want to learn TypeScript!
+Witamy w **TypeScript dla Testera** - praktycznym przewodniku zaprojektowany specjalnie dla testerów, którzy chcą nauczyć się programować w języku TypeScript!
 
-You'll work through theory, examples, and hands-on exercises to build a strong foundation in TypeScript. **No prior programming experience is required** – we'll start from the very basics and guide you step by step.
+Wspólnie przeprowadzimy Cię przez teorię, przykładami i praktycznymi ćwiczeniami, aby zbudować solidne podstawy w TypeScript. **Nie jest wymagane żadne wcześniejsze doświadczenie programistyczne** – zaczniemy od samych podstaw i poprowadzimy Cię krok po kroku.
+
+> [!IMPORTANT]
+> Sprawdź nasze darmowe nagrania z tego kursu na **YouTube**:
+>
+> <a href="https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa" target="_blank"><div align="center"><img src="./assets/typescript-dla-testera-za-darmo-tsx.jpg" alt="TypeScript Logo" height="300"/></div></a>
 
 > [!TIP]
-> 🧠 This is a **condensed overview** of TypeScript focused on the most important features commonly used in test automation. If you want to go deeper, check out the additional materials and courses listed below:
+> 🧠 To jest **skrócony przegląd** języka TypeScript skupiony na najważniejszych funkcjach powszechnie używanych w automatyzacji testów. Jeśli chcesz zgłębić temat, sprawdź dodatkowe materiały i kursy wymienione poniżej:
 >
-> - 🇵🇱 Full course - [**JavaScript and TypeScript for Testers**](https://jaktestowac.pl/js-ts/)
-> - 🇵🇱 Full course - [**Professional Test Automation with Playwright**](https://jaktestowac.pl/playwright/)
-> - 🇵🇱 Full course - [**Back-end Test Automation**](https://jaktestowac.pl/api/)
+> - 🇵🇱 [**JavaScript i TypeScript dla Testerów**](https://jaktestowac.pl/js-ts/)
+> - 🇵🇱 [**Profesjonalna Automatyzacja Testów z Playwright**](https://jaktestowac.pl/playwright/)
+> - 🇵🇱 [**Automatyzacja REST API i back-endu**](https://jaktestowac.pl/api/)
 
 ---
 
-# Table of Contents
+# Spis treści
 
-- [📚 What You'll Learn](#-what-youll-learn)
-- [🎯 Target Audience](#-target-audience)
-- [📋 Prerequisites](#-prerequisites)
-- [🚀 Getting Started](#-getting-started)
-    - [1. Clone this repository](#1-clone-this-repository)
-    - [2. Install dependencies](#2-install-dependencies)
-    - [3. Verify your setup](#3-verify-your-setup)
-    - [4. Run your first TypeScript example](#4-run-your-first-typescript-example)
-- [�️ Learning Path](#️-learning-path)
-- [🧭 How to Study](#-how-to-study)
-- [🎯 Progress Tracking](#-progress-tracking)
-- [�💡 PRO TIP: How to quickly run TypeScript files?](#-pro-tip-how-to-quickly-run-typescript-files)
-    - [Using Code Runner VS Code extension](#using-code-runner-vs-code-extension)
-    - [Using tsx](#using-tsx)
-- [⚒️ Project Structure](#️-project-structure)
-- [🛠️ Troubleshooting](#️-troubleshooting)
-- [📘 Overview](#-overview)
+- [📚 Czego się nauczysz](#-czego-się-nauczysz)
+- [🎯 Grupa docelowa](#-grupa-docelowa)
+- [📋 Wymagania wstępne](#-wymagania-wstępne)
+- [🚀 Pierwsze kroki](#-pierwsze-kroki)
+    - [1. Sklonuj to repozytorium](#1-sklonuj-to-repozytorium)
+    - [2. Zainstaluj zależności](#2-zainstaluj-zależności)
+    - [3. Zweryfikuj swoją konfigurację](#3-zweryfikuj-swoją-konfigurację)
+    - [4. Uruchom swój pierwszy przykład TypeScript](#4-uruchom-swój-pierwszy-przykład-typescript)
+- [🗺️ Ścieżka nauki](#️-ścieżka-nauki)
+- [🧭 Jak się uczyć](#-jak-się-uczyć)
+- [🎯 Śledzenie postępów](#-śledzenie-postępów)
+- [💡 WSKAZÓWKA: Jak szybko uruchamiać pliki TypeScript?](#-wskazówka-jak-szybko-uruchamiać-pliki-typescript)
+    - [Używając rozszerzenia Code Runner w VS Code](#używając-rozszerzenia-code-runner-w-vs-code)
+    - [Używając tsx](#używając-tsx)
+- [⚒️ Struktura projektu](#️-struktura-projektu)
+- [📝 Ćwiczenia](#-ćwiczenia)
+- [🛠️ Rozwiązywanie problemów](#-rozwiązywanie-problemów)
+- [📘 Przegląd](#-przegląd)
     - [JavaScript vs. TypeScript](#javascript-vs-typescript)
     - [TypeScript](#typescript)
     - [TSX (TypeScript Executor)](#tsx-typescript-executor)
-- [📚 Links and Resources](#-links-and-resources)
-- [📞 Contact & Support](#-contact--support)
-- [📚 Learning Resources](#-learning-resources)
-    - [🇵🇱 Polish Resources](#-polish-resources)
-    - [🇬🇧 English Resources](#-english-resources)
-- [📝 Exercises](#-exercises)
+- [📚 Linki i zasoby](#-linki-i-zasoby)
+- [📞 Kontakt i wsparcie](#-kontakt-i-wsparcie)
+- [📚 Materiały do nauki](#-materiały-do-nauki)
+    - [🇵🇱 Polskie zasoby](#-polskie-zasoby)
+    - [🇬🇧 Angielskie zasoby](#-angielskie-zasoby)
 
-# 📚 What You'll Learn
+# 📚 Czego się nauczysz
 
-This repository will teach you the **essential TypeScript concepts** that are commonly used in test automation.  
-You'll also learn the **very basics of programming**, so you don't need any technical background to start.
+To repozytorium pomoże Ci **zrozumieć podstawowe koncepcje TypeScript**, które są powszechnie używane w automatyzacji testów.  
+Nauczysz się również **podstaw programowania**, więc nie potrzebujesz żadnego technicznego background'u, aby zacząć!
 
-As a tester, learning TypeScript will help you:
+Jako tester, nauka TypeScript pomoże Ci:
 
-- **Read and understand** code with confidence
-- **Write better test automation** scripts
-- **Collaborate effectively** with developers and automation engineers
+- **Czytać i rozumieć** kod z pewnością siebie
+- **Pisać lepsze skrypty** automatyzacji testów
+- **Efektywnie współpracować** z programistami i inżynierami automatyzacji
 
-# 🎯 Target Audience
+# 🎯 Grupa docelowa
 
-- Manual testers starting their automation journey
-- QA engineers expanding their automation skills
-- Test automation engineers working with TypeScript projects
-- Anyone in testing who wants to level up their technical skills
+- Testerzy manualni rozpoczynający swoją przygodę z automatyzacją
+- Inżynierowie QA rozszerzający swoje umiejętności automatyzacji
+- Inżynierowie automatyzacji testów pracujący z projektami TypeScript
+- Każdy w testowaniu, kto chce podnieść swoje umiejętności techniczne
 
-# 📋 Prerequisites
+# 📋 Wymagania wstępne
 
-Installed on your machine:
+Czego potrzebujesz na swoim komputerze:
 
-- **VS Code** - a code editor - https://code.visualstudio.com/
+- **VS Code** - edytor kodu - https://code.visualstudio.com/
 - **Node.js** (LTS v22.17.0) https://nodejs.org/
 
 <div align="center" style="display: flex; gap: 100px; justify-content: center;">
@@ -78,163 +83,156 @@ Installed on your machine:
 <img src="./assets/nodejs-logo.png" alt="Node.js Logo" height="100"/>
 </div>
 
-# 🚀 Getting Started
+# 🚀 Pierwsze kroki
 
-## 1. Clone this repository
+## 1. Sklonuj to repozytorium
 
 ```bash
 git clone <repository-url>
-cd typescript-dla-testera
+cd typescript-for-testers
 ```
 
-## 2. Install dependencies
+## 2. Zainstaluj zależności
 
 ```bash
 npm install
 ```
 
-## 3. Verify your setup
+## 3. Zweryfikuj swoją konfigurację
 
 ```bash
-# Check if Node.js is installed
+# Sprawdź czy Node.js jest zainstalowany
 node --version
 
-# Check if npm is installed
+# Sprawdź czy npm jest zainstalowany
 npm --version
 
-# Install project dependencies
+# Zainstaluj zależności projektu
 npm install
 ```
 
-## 4. Run your first TypeScript example
+## 4. Uruchom swój pierwszy przykład TypeScript
 
 ```bash
-# Run the hello world example
-npm run t0s1
+# Uruchom przykład hello world
+npm run t0e1
 
-# Or run it directly with tsx
+# Lub uruchom go bezpośrednio z tsx
 npx tsx theory/0-base/1-hello-world.ts
 ```
 
-> [!TIP]
-> 💡 What is `tsx`? [tsx](https://tsx.is/)
-> `tsx` is a tool that allows you to run TypeScript files directly without needing to compile them first.
-> It runs your TypeScript code with modern and sensible defaults, making it user-friendly and especially great for beginners.
+# 💡 WSKAZÓWKA: Jak szybko uruchamiać pliki TypeScript?
+
+## Używając rozszerzenia Code Runner w VS Code
 
 > [!TIP]
-> 💡 What is `npx`? [npx](https://docs.npmjs.com/cli/v11/commands/npx)
-> It is a package runner tool that comes with npm. It allows you to run Node.js packages without installing them globally.
+> 💡 To najłatwiejszy sposób na uruchamianie plików TypeScript w VS Code!
 
-# 💡 PRO TIP: How to quickly run TypeScript files?
+Możesz również użyć rozszerzenia **Code Runner** w VS Code, aby uruchamiać pliki TypeScript bezpośrednio!
 
-## Using Code Runner VS Code extension
+1. Zainstaluj [rozszerzenie Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner).
+2. Otwórz plik TypeScript (np. `theory/0-base/01-hello-world.ts`).
+3. Aby uruchomić:
 
-> [!TIP]
-> 💡 This is the easiest way to run TypeScript files in VS Code!
+- kliknij prawym przyciskiem myszy i wybierz **Run Code**
+- użyj skrótu `Ctrl + Alt + N` (Windows/Linux) lub `Cmd + Option + N` (Mac).
 
-You can also use the **Code Runner** extension in VS Code to run TypeScript files directly!
+To wykona plik TypeScript używając `tsx` automatycznie!
 
-1. Install the [Code Runner extension](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner).
-2. Open a TypeScript file (e.g., `theory/0-base/01-hello-world.ts`).
-3. To run:
+## Używając tsx
 
-- click right mouse button and select **Run Code**
-- use the shortcut `Ctrl + Alt + N` (Windows/Linux) or `Cmd + Option + N` (Mac).
-
-This will execute the TypeScript file using `tsx` automatically!
-
-## Using tsx
-
-You can run TypeScript files directly using `tsx` without compiling them first.
-This is great for quick testing and learning!
+Możesz uruchamiać pliki TypeScript bezpośrednio używając `tsx` bez wcześniejszej kompilacji.
+To świetne rozwiązanie do szybkiego testowania i nauki!
 
 ```bash
 npx tsx <file.ts>
 ```
 
-For example, to run the first TypeScript example:
+Na przykład, aby uruchomić pierwszy przykład TypeScript:
 
 ```bash
 npx tsx theory/0-base/01-hello-world.ts
 ```
 
-# ⚒️ Project Structure
+# ⚒️ Struktura projektu
 
 > [!TIP]
-> 📖 **Looking for the full syllabus and lesson index?**
-> Check out [theory/README.md](theory/README.md) for a detailed list of all lessons and modules in the course!
+> 📖 **Szukasz pełnego programu kursu i spisu lekcji?**
+> Zajrzyj do [theory/README.md](theory/README.md), gdzie znajdziesz szczegółowy spis wszystkich lekcji i modułów!
 
 ```
-typescript-for-testers/
-├── README.md               # Project documentation (English)
-├── README.pl.md            # Project documentation (Polish)
-├── package.json            # Project configuration and npm scripts
-├── tsconfig.json           # TypeScript configuration
-├── assets/                 # Images and logos
-├── theory/                 # TypeScript learning modules with examples
-│   ├── README.md           # Course README syllabus and lesson index
-│   ├── 0-base/             # Getting started
-│   ├── 1-variables-and-types/  # Variables and basic types
-│   ├── 2-operators-and-expressions/  # Operators and expressions
-│   ├── 3-conditionals/     # Conditional statements
-│   ├── 4-arrays-and-loops/ # Arrays and loops
-│   ├── 5-functions/        # Functions and parameters
-│   ├── 6-async-await/      # Asynchronous programming
-│   ├── 7-modules-and-ecosystem/  # Modules and packages
-│   ├── 8-objects-interfaces/  # Objects and interfaces
-│   └── 9-ts-features/      # Advanced TypeScript features
-└── exercises/              # Practice exercises (work in progress)
-    ├── 0-base/             # Basic exercises
-    └── 1-variables-and-types/  # Variable exercises
+typescript-dla-testera/
+├── README.md               # Dokumentacja projektu (angielski)
+├── README.pl.md            # Dokumentacja projektu (polski)
+├── package.json            # Konfiguracja projektu i skrypty npm
+├── tsconfig.json           # Konfiguracja TypeScript
+├── assets/                 # Obrazy i loga
+├── theory/                 # Moduły nauki TypeScript z przykładami
+│   ├── SYLLABUS.md         # Program kursu i indeks lekcji
+│   ├── 0-base/             # Pierwsze kroki
+│   ├── 1-variables-and-types/  # Zmienne i podstawowe typy
+│   ├── 2-operators-and-expressions/  # Operatory i wyrażenia
+│   ├── 3-conditionals/     # Instrukcje warunkowe
+│   ├── 4-arrays-and-loops/ # Tablice i pętle
+│   ├── 5-functions/        # Funkcje i parametry
+│   ├── 6-async-await/      # Programowanie asynchroniczne
+│   ├── 7-modules-and-ecosystem/  # Moduły i pakiety
+│   ├── 8-objects-interfaces/  # Obiekty i interfejsy
+│   └── 9-ts-features/      # Zaawansowane funkcje TypeScript
+└── exercises/              # Ćwiczenia praktyczne (w trakcie przygotowania)
+    ├── 0-base/             # Podstawowe ćwiczenia
+    └── 1-variables-and-types/  # Ćwiczenia ze zmiennymi
 ```
 
-# 📝 Exercises
+# 📝 Ćwiczenia
 
-Looking to practice what you've learned?
+Chcesz przećwiczyć to, czego się nauczyłeś?
 
-The `exercises/` directory contains practical, hands-on tasks designed to help you apply and reinforce each concept from the course. Exercises are grouped by topic, mirroring the course structure. Each exercise encourages you to experiment, make mistakes, and learn by doing—an essential part of mastering programming. Solutions are provided in each section so you can check your work and understand different approaches.
+Katalog `exercises/` zawiera praktyczne zadania i wyzwania, które pomogą Ci utrwalić i zastosować wiedzę z kursu.
 
-# 🛠️ Troubleshooting
+Ćwiczenia są pogrupowane tematycznie, zgodnie ze strukturą kursu. Każde zadanie zachęca do eksperymentowania, popełniania błędów i nauki przez praktykę. W każdej sekcji znajdziesz również rozwiązania, abyś mógł sprawdzić swoje odpowiedzi i poznać różne podejścia.
 
-## Common Issues and Solutions
+# 🛠️ Rozwiązywanie problemów
 
-**Issue**: `node: command not found`  
-**Solution**: Install Node.js from https://nodejs.org/
+## Typowe problemy i rozwiązania
 
-**Issue**: `npx tsx: command not found`  
-**Solution**: Run `npm install` in the project directory
+**Problem**: `node: command not found`  
+**Rozwiązanie**: Zainstaluj Node.js z https://nodejs.org/
 
-**Issue**: TypeScript errors in VS Code  
-**Solution**: Install the TypeScript extension and check if `tsconfig.json` exists
+**Problem**: `npx tsx: command not found`  
+**Rozwiązanie**: Uruchom `npm install` w katalogu projektu
 
-**Issue**: Code Runner not working  
-**Solution**:
+**Problem**: Błędy TypeScript w VS Code  
+**Rozwiązanie**: Zainstaluj rozszerzenie TypeScript i sprawdź czy `tsconfig.json` istnieje
 
-1. Install the Code Runner extension
-2. Check if tsx is installed: `npm list tsx`
-3. Restart VS Code
+**Problem**: Code Runner nie działa  
+**Rozwiązanie**:
+
+1. Zainstaluj rozszerzenie Code Runner
+2. Sprawdź czy tsx jest zainstalowany: `npm list tsx`
+3. Uruchom ponownie VS Code
 
 ---
 
-# 📘 Overview
+# 📘 Przegląd
 
 ## JavaScript vs. TypeScript
 
-Before we dive into TypeScript, it's helpful to understand **JavaScript** – the language TypeScript is built on.
+Zanim zagłębimy się w TypeScript, warto zrozumieć **JavaScript** – język, na którym zbudowany jest TypeScript!
 
 <div align="center">
 <img src="./assets/javascript-logo.png" alt="JavaScript Logo" height="100"/>
 </div>
 
-**JavaScript** is the most widely used programming language for the web!
+**JavaScript** to najpopularniejszy język programowania na świecie!
 
-It runs in the browser and on servers (via Node.js), allowing developers to build interactive websites, backend services, and even automated tests.
+Działa w przeglądarce i na serwerach (poprzez Node.js), pozwalając programistom budować interaktywne strony internetowe, usługi backendowe, a nawet testy.
 
-**TypeScript** builds on top of JavaScript by adding static typing and modern features that help you catch bugs earlier and write more maintainable code.
+**TypeScript** bazuje na JavaScript, dodając statyczne typowanie i nowoczesne funkcje, które pomagają wyłapywać błędy wcześniej i pisać kod, który jest łatwiejszy w utrzymaniu.
 
-If you don't know JavaScript yet – no worries!
+Jeśli nie znasz jeszcze JavaScript – nie martw się!
 
-This course will teach you the basics of both JavaScript and TypeScript as you go.
+Ten kurs nauczy Cię podstaw zarówno JavaScript, jak i TypeScript w trakcie nauki.
 
 <div align="center">
 <img src="./assets/typescript-logo.png" alt="TypeScript Logo" height="100"/>
@@ -242,77 +240,83 @@ This course will teach you the basics of both JavaScript and TypeScript as you g
 
 ## TypeScript
 
-TypeScript is a **superset** of JavaScript.
+TypeScript to **rozszerzenie** języka JavaScript.
 
-It introduces static typing, modern language features, and powerful tooling to help developers and testers write safer, more maintainable code - especially in test automation projects.
+Wprowadza statyczne typowanie, nowoczesne funkcje językowe i potężne narzędzia, które pomagają programistom i testerom pisać bezpieczniejszy, łatwiejszy w utrzymaniu kod - szczególnie w projektach automatyzacji testów.
 
 > [!TIP]
-> 🧠 This is a condensed overview of TypeScript focused on the most relevant features used in test automation. For a deeper dive, check out our full courses at [JavaScript and TypeScript for Testers](https://jaktestowac.pl/js-ts/)
+> 🧠 To jest skrócony materiał o TypeScript!
+> Skupiamy się tutaj na najważniejszych funkcjach używanych w automatyzacji testów. Aby zgłębić temat, sprawdź nasze pełne kursy [JavaScript i TypeScript dla Testera](https://jaktestowac.pl/js-ts/).
 
-Key features include:
+Kluczowe funkcje obejmują:
 
-- **Type Safety** - Catch errors early at compile time instead of runtime
-- **Structured Code** - Use interfaces, enums, and modules for clear contracts and reusable components
-- **Better Reusability** - Create flexible and type-safe logic with generics and type aliases
-- **Smarter Editor Support** - Enjoy rich autocompletion, inline documentation, and type checking
-- **Tooling Integration** - Work with ESLint, Prettier, and testing frameworks
-- **Customization** - Configure settings via tsconfig.json
-- **Strong Ecosystem** - Use popular libraries with first-class TypeScript support
+- **Bezpieczeństwo typów** - Wyłapuj błędy wcześnie w czasie kompilacji zamiast w czasie wykonania
+- **Ustrukturyzowany kod** - Używaj interfejsów, enums i modułów dla jasnych kontraktów i komponentów wielokrotnego użytku
+- **Lepsza możliwość ponownego użycia** - Twórz elastyczną i type-safe logikę z generics i aliasami typów
+- **Inteligentniejsze wsparcie edytora** - Ciesz się bogatym autouzupełnianiem, dokumentacją inline i sprawdzaniem typów
+- **Integracja z narzędziami** - Pracuj z ESLint, Prettier i frameworkami testowymi
+- **Dostosowywanie** - Konfiguruj ustawienia poprzez tsconfig.json
+- **Silny ekosystem** - Używaj popularnych bibliotek z pierwszorzędnym wsparciem TypeScript
 
 ## TSX (TypeScript Executor)
 
-**Tsx** is a modern TypeScript execution environment that allows you to run TypeScript files directly without needing to compile them first. It provides a fast and efficient way to execute TypeScript code, making it ideal for testing and prototyping.
+**Tsx** to nowoczesne środowisko wykonawcze TypeScript, które pozwala uruchamiać pliki TypeScript bezpośrednio bez potrzeby wcześniejszej kompilacji. Zapewnia szybki i efektywny sposób wykonywania kodu TypeScript, co czyni go idealnym do testowania i prototypowania.
 
-This project uses tsx to run .ts files without compilation. It's ideal for fast feedback and test-driven learning.
+Ten projekt używa tsx do uruchamiania plików .ts bez kompilacji. Jest idealny do szybkiego feedback'u i nauki programowania.
 
-# 📚 Links and Resources
+# 📚 Linki i zasoby
 
-- [TypeScript](https://www.typescriptlang.org) - TypeScript documentation
-- [Tsx](https://tsx.is/) - A TypeScript execution environment
+- [TypeScript](https://www.typescriptlang.org) - Dokumentacja TypeScript
+- [Tsx](https://tsx.is/) - Środowisko wykonawcze TypeScript
 
-# 📞 Contact & Support
+> [!IMPORTANT]
+> Sprawdź nasze darmowe nagrania z tego kursu na **YouTube**:
+>
+> <a href="https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa" target="_blank"><div align="center"><img src="./assets/typescript-dla-testera-za-darmo-tsx.jpg" alt="TypeScript Logo" height="300"/></div></a>
 
-Feel free to reach out to us:
+# 📞 Kontakt i wsparcie
 
-- 🌐 **Website**: [jaktestowac.pl](https://jaktestowac.pl)
+Skontaktuj się z nami:
+
+- 🌐 **Strona internetowa**: [jaktestowac.pl](https://jaktestowac.pl)
 - 💼 **LinkedIn**: [jaktestowac.pl](https://www.linkedin.com/company/jaktestowac/)
-- 💬 **Discord**: [Polish Playwright Community](https://discord.gg/mUAqQ7FUaZ)
-- 📧 **Support**: Check our website for contact details
+- 💬 **Discord**: [Polska społeczność Playwright](https://discord.gg/mUAqQ7FUaZ)
+- 📧 **Wsparcie**: Sprawdź naszą stronę internetową, aby uzyskać dane kontaktowe
 
 ---
 
-# 📚 Learning Resources
+# 📚 Materiały do nauki
 
-We have gathered a collection of resources to help you learn and master Playwright, both in Polish and English. Whether you're a beginner or an advanced user, these resources will help you enhance your skills and knowledge.
+Zebraliśmy kolekcję zasobów, które pomogą Ci nauczyć się i opanować Playwright, zarówno w języku polskim, jak i angielskim. Niezależnie od tego, czy jesteś początkującym, czy zaawansowanym użytkownikiem, te zasoby pomogą Ci poszerzyć umiejętności i wiedzę.
 
-## 🇵🇱 Polish Resources
+## 🇵🇱 Polskie zasoby
 
-- [JavaScript and TypeScript for Testers](https://jaktestowac.pl/js-ts/) - Comprehensive (13h+) course on JavaScript and TypeScript for testers, with practical examples and exercises
-- [Professional Test Automation with Playwright](https://jaktestowac.pl/playwright/) - Comprehensive (100h+) course on Playwright, test automation, CI/CD and test architecture
-- [Back-end Test Automation](https://jaktestowac.pl/api/) - Comprehensive (45h+) course on Back-end Test Automation with Postman, Mocha, Chai, and Supertest
-- [Free Playwright Resources](https://jaktestowac.pl/darmowy-playwright/) - Comprehensive and Free Polish learning materials
-- [Playwright Basics](https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2TCB__K7NP5XARaCzZYn7) - YouTube series (Polish)
-- [Playwright Elements](https://www.youtube.com/playlist?list=PLfKhn9AcZ-cAcpd-XN4pKeo-l4YK35FDA) - Advanced concepts (Polish)
-- [Playwright MCP](https://www.youtube.com/playlist?list=PLfKhn9AcZ-cCqD34AG5YRejujaBqCBgl4) - MCP course (Polish)
-- [Discord Community](https://discord.gg/mUAqQ7FUaZ) - First Polish Playwright community!
-- [Playwright Info](https://playwright.info/) - first and only Polish Playwright blog
+- [JavaScript i TypeScript dla Testera](https://jaktestowac.pl/js-ts/) - Kurs o JavaScript i TypeScript dla testerów, z praktycznymi przykładami i ćwiczeniami
+- [Profesjonalna Automatyzacja z Playwright](https://jaktestowac.pl/playwright/) - Kompleksowy, ponad 100 godzinny materiał o projektowaniu frameworka, CI/CD, architekturze testów, wzorcach i dobrych praktykach
+- [Darmowe zasoby Playwright](https://jaktestowac.pl/darmowy-playwright/) - Kompleksowe polskie materiały edukacyjne
+- [Podstawy Playwright](https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2TCB__K7NP5XARaCzZYn7) - Seria YouTube (polski)
+- [Playwright Elements](https://www.youtube.com/playlist?list=PLfKhn9AcZ-cAcpd-XN4pKeo-l4YK35FDA) - Zaawansowane koncepcje (polski)
+- [Automatyzacja back-endu z REST API](https://jaktestowac.pl/api/) - Kompleksowy (45h+) kurs o automatyzacji testów back-endu z Postman, Mocha, Chai i Supertest
+- [Playwright MCP](https://www.youtube.com/playlist?list=PLfKhn9AcZ-cCqD34AG5YRejujaBqCBgl4) - Kurs MCP (polski)
+- [Społeczność Discord](https://discord.gg/mUAqQ7FUaZ) - Pierwsza polska społeczność Playwright!
+- [Playwright Info](https://playwright.info/) - pierwszy i jedyny polski blog o Playwright
 
-## 🇬🇧 English Resources
+## 🇬🇧 Angielskie zasoby
 
-- [VS Code Extensions](https://marketplace.visualstudio.com/publishers/jaktestowac-pl) - Our free Playwright plugins
-- [Playwright Documentation](https://playwright.dev/docs/intro) - Official documentation
-- [Playwright GitHub](https://github.com/microsoft/playwright) - Source code and issues
+- [Rozszerzenia VS Code](https://marketplace.visualstudio.com/publishers/jaktestowac-pl) - Nasze darmowe wtyczki Playwright
+- [Dokumentacja Playwright](https://playwright.dev/docs/intro) - Oficjalna dokumentacja
+- [Playwright GitHub](https://github.com/microsoft/playwright) - Kod źródłowy i zgłoszenia problemów
 
-_PS. For more resources and updates, follow us on our [website](https://jaktestowac.pl) and [GitHub](https://github.com/jaktestowac)._
-
----
-
-**Happy testing and automation!** 🚀
-
-**jaktestowac.pl Team** ❤️💚
-
-_PS. For more resources and updates, follow us on our [website](https://jaktestowac.pl) and [GitHub](https://github.com/jaktestowac)._
+_PS. Aby uzyskać więcej zasobów i aktualizacji, śledź nas na naszej [stronie internetowej](https://jaktestowac.pl) i [GitHub](https://github.com/jaktestowac)._
 
 ---
 
-_Built with ❤️💚 for the Playwright and test automation community_
+**Miłego testowania i automatyzacji testów!** 🚀
+
+**Zespół jaktestowac.pl** ❤️💚
+
+_PS. Aby uzyskać więcej zasobów i aktualizacji, śledź nas na naszej [stronie internetowej](https://jaktestowac.pl) i [GitHub](https://github.com/jaktestowac)._
+
+---
+
+_Zbudowane z ❤️💚 dla społeczności Playwright i automatyzacji testów_
