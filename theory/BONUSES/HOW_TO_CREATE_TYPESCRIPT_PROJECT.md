@@ -70,7 +70,7 @@ npm init -y
 
 This command creates a `package.json` file with default settings.
 
-## Step 4: Install TypeScript
+## Step 4: Install TypeScript and @types/node
 
 Install TypeScript in your project by running the following command:
 
@@ -79,6 +79,15 @@ npm install typescript
 ```
 
 This command installs TypeScript as a local dependency in your project. You can also install it globally by adding the `-g` flag, but it's generally recommended to keep it local to the project.
+
+We will also install `@types/node` to get types for Node.js:
+
+```bash
+npm install @types/node
+```
+
+> [!TIP]
+> Installing `@types/node` provides types for the built-in Node.js modules, which is useful if you plan to use Node.js in your TypeScript project.
 
 ## Step 5: Create Your First TypeScript File
 

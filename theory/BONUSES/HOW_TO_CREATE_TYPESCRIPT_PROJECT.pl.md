@@ -18,7 +18,7 @@ Skupiamy się na najważniejszych elementach, aby szybko zacząć, nie przytłac
 1. [Krok 1: Zainstaluj Node.js](#krok-1-zainstaluj-nodejs)
 2. [Krok 2: Przygotuj nowy katalog](#krok-2-przygotuj-nowy-katalog)
 3. [Krok 3: Zainicjuj projekt z npm](#krok-3-zainicjuj-projekt-z-npm)
-4. [Krok 4: Zainstaluj TypeScript](#krok-4-zainstaluj-typescript)
+4. [Krok 4: Zainstaluj TypeScript i @types/node](#krok-4-zainstaluj-typescript-i-@typesnode)
 5. [Krok 5: Utwórz swój pierwszy plik TypeScript](#krok-5-utwórz-swoj-pierwszy-plik-typescript)
 6. [Krok 6: Uruchom skrypt](#krok-6-uruchom-skrypt)
     - [Opcja 1: Uruchom TypeScript z `tsx` (bez kompilacji)](#opcja-1-uruchom-typescript-z-tsx-bez-kompilacji)
@@ -70,7 +70,7 @@ npm init -y
 
 Ta komenda tworzy plik `package.json` z domyślnymi ustawieniami.
 
-## Krok 4: Zainstaluj TypeScript
+## Krok 4: Zainstaluj TypeScript i @types/node
 
 Zainstaluj TypeScript w swoim projekcie, uruchamiając następującą komendę:
 
@@ -79,6 +79,15 @@ npm install typescript
 ```
 
 Ta komenda instaluje TypeScript jako lokalną zależność w Twoim projekcie. Możesz także zainstalować go globalnie, dodając flagę `-g`, ale generalnie zaleca się trzymanie go lokalnie w projekcie.
+
+Zainstalujemy również `@types/node`, aby uzyskać typy dla Node.js:
+```bash
+npm install @types/node
+```
+
+> [!TIP]
+> Instalacja `@types/node` zapewnia typy dla wbudowanych modułów Node.js, co jest przydatne, jeśli planujesz używać Node.js w swoim projekcie TypeScript.
+
 
 ## Krok 5: Utwórz swój pierwszy plik TypeScript
 
