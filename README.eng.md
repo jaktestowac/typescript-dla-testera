@@ -312,8 +312,6 @@ We have gathered a collection of resources to help you learn and master Playwrig
 - [Playwright Documentation](https://playwright.dev/docs/intro) - Official documentation
 - [Playwright GitHub](https://github.com/microsoft/playwright) - Source code and issues
 
-_PS. For more resources and updates, follow us on our [website](https://jaktestowac.pl) and [GitHub](https://github.com/jaktestowac)._
-
 ---
 
 **Happy testing and automation!** 🚀

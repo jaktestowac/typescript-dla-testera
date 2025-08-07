@@ -306,8 +306,6 @@ Zebraliśmy kolekcję zasobów, które pomogą Ci nauczyć się i opanować Play
 - [Dokumentacja Playwright](https://playwright.dev/docs/intro) - Oficjalna dokumentacja
 - [Playwright GitHub](https://github.com/microsoft/playwright) - Kod źródłowy i zgłoszenia problemów
 
-_PS. Aby uzyskać więcej zasobów i aktualizacji, śledź nas na naszej [stronie internetowej](https://jaktestowac.pl) i [GitHub](https://github.com/jaktestowac)._
-
 ---
 
 **Miłego testowania i automatyzacji testów!** 🚀
