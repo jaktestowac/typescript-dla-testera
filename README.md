@@ -87,8 +87,8 @@ Czego potrzebujesz na swoim komputerze:
 ## 1. Sklonuj to repozytorium
 
 ```bash
-git clone <repository-url>
-cd typescript-for-testers
+git clone https://github.com/jaktestowac/typescript-dla-testera
+cd typescript-dla-testera
 ```
 
 ## 2. Zainstaluj zależności
@@ -114,7 +114,7 @@ npm install
 
 ```bash
 # Uruchom przykład hello world
-npm run t0e1
+npm run t0s1
 
 # Lub uruchom go bezpośrednio z tsx
 npx tsx theory/0-base/1-hello-world.ts
@@ -130,7 +130,7 @@ npx tsx theory/0-base/1-hello-world.ts
 Możesz również użyć rozszerzenia **Code Runner** w VS Code, aby uruchamiać pliki TypeScript bezpośrednio!
 
 1. Zainstaluj [rozszerzenie Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner).
-2. Otwórz plik TypeScript (np. `theory/0-base/01-hello-world.ts`).
+2. Otwórz plik TypeScript (np. `theory/0-base/1-hello-world.ts`).
 3. Aby uruchomić:
 
 - kliknij prawym przyciskiem myszy i wybierz **Run Code**
@@ -150,7 +150,7 @@ npx tsx <file.ts>
 Na przykład, aby uruchomić pierwszy przykład TypeScript:
 
 ```bash
-npx tsx theory/0-base/01-hello-world.ts
+npx tsx theory/0-base/1-hello-world.ts
 ```
 
 # ⚒️ Struktura projektu
@@ -161,26 +161,26 @@ npx tsx theory/0-base/01-hello-world.ts
 
 ```
 typescript-dla-testera/
-├── README.md               # Dokumentacja projektu (angielski)
-├── README.pl.md            # Dokumentacja projektu (polski)
+├── README.eng.md           # Dokumentacja projektu (angielski)
+├── README.md               # Dokumentacja projektu (polski)
 ├── package.json            # Konfiguracja projektu i skrypty npm
 ├── tsconfig.json           # Konfiguracja TypeScript
 ├── assets/                 # Obrazy i loga
 ├── theory/                 # Moduły nauki TypeScript z przykładami
-│   ├── SYLLABUS.md         # Program kursu i indeks lekcji
+│   ├── README.md           # Program kursu i indeks lekcji
 │   ├── 0-base/             # Pierwsze kroki
-│   ├── 1-variables-and-types/  # Zmienne i podstawowe typy
-│   ├── 2-operators-and-expressions/  # Operatory i wyrażenia
-│   ├── 3-conditionals/     # Instrukcje warunkowe
-│   ├── 4-arrays-and-loops/ # Tablice i pętle
-│   ├── 5-functions/        # Funkcje i parametry
-│   ├── 6-async-await/      # Programowanie asynchroniczne
-│   ├── 7-modules-and-ecosystem/  # Moduły i pakiety
-│   ├── 8-objects-interfaces/  # Obiekty i interfejsy
-│   └── 9-ts-features/      # Zaawansowane funkcje TypeScript
-└── exercises/              # Ćwiczenia praktyczne (w trakcie przygotowania)
-    ├── 0-base/             # Podstawowe ćwiczenia
-    └── 1-variables-and-types/  # Ćwiczenia ze zmiennymi
+│   ├── 1-variables-and-types/
+│   ├── 2-operators-and-expressions/
+│   ├── 3-conditionals/
+│   ├── 4-arrays-and-loops/
+│   ├── 5-functions/
+│   ├── 6-objects-interfaces/
+│   ├── 7-modules-and-ecosystem/
+│   ├── 8-async-await/
+│   └── 9-ts-features/
+└── exercises/              # Ćwiczenia praktyczne
+    ├── 0-base/
+    └── 1-variables-and-types/
 ```
 
 # 📝 Ćwiczenia

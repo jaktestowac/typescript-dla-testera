@@ -33,10 +33,10 @@ You'll work through theory, examples, and hands-on exercises to build a strong f
     - [2. Install dependencies](#2-install-dependencies)
     - [3. Verify your setup](#3-verify-your-setup)
     - [4. Run your first TypeScript example](#4-run-your-first-typescript-example)
-- [�️ Learning Path](#️-learning-path)
+- [🗺️ Learning Path](#️-learning-path)
 - [🧭 How to Study](#-how-to-study)
 - [🎯 Progress Tracking](#-progress-tracking)
-- [�💡 PRO TIP: How to quickly run TypeScript files?](#-pro-tip-how-to-quickly-run-typescript-files)
+- [💡 PRO TIP: How to quickly run TypeScript files?](#-pro-tip-how-to-quickly-run-typescript-files)
     - [Using Code Runner VS Code extension](#using-code-runner-vs-code-extension)
     - [Using tsx](#using-tsx)
 - [⚒️ Project Structure](#️-project-structure)
@@ -87,7 +87,7 @@ Installed on your machine:
 ## 1. Clone this repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/jaktestowac/typescript-dla-testera
 cd typescript-dla-testera
 ```
 
@@ -139,7 +139,7 @@ npx tsx theory/0-base/1-hello-world.ts
 You can also use the **Code Runner** extension in VS Code to run TypeScript files directly!
 
 1. Install the [Code Runner extension](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner).
-2. Open a TypeScript file (e.g., `theory/0-base/01-hello-world.ts`).
+2. Open a TypeScript file (e.g., `theory/0-base/1-hello-world.ts`).
 3. To run:
 
 - click right mouse button and select **Run Code**
@@ -159,7 +159,7 @@ npx tsx <file.ts>
 For example, to run the first TypeScript example:
 
 ```bash
-npx tsx theory/0-base/01-hello-world.ts
+npx tsx theory/0-base/1-hello-world.ts
 ```
 
 # ⚒️ Project Structure
@@ -169,25 +169,25 @@ npx tsx theory/0-base/01-hello-world.ts
 > Check out [theory/README.md](theory/README.md) for a detailed list of all lessons and modules in the course!
 
 ```
-typescript-for-testers/
-├── README.md               # Project documentation (English)
-├── README.pl.md            # Project documentation (Polish)
+typescript-dla-testera/
+├── README.eng.md           # Project documentation (English)
+├── README.md               # Project documentation (Polish)
 ├── package.json            # Project configuration and npm scripts
 ├── tsconfig.json           # TypeScript configuration
 ├── assets/                 # Images and logos
 ├── theory/                 # TypeScript learning modules with examples
 │   ├── README.md           # Course README syllabus and lesson index
 │   ├── 0-base/             # Getting started
-│   ├── 1-variables-and-types/  # Variables and basic types
-│   ├── 2-operators-and-expressions/  # Operators and expressions
-│   ├── 3-conditionals/     # Conditional statements
-│   ├── 4-arrays-and-loops/ # Arrays and loops
-│   ├── 5-functions/        # Functions and parameters
-│   ├── 6-async-await/      # Asynchronous programming
-│   ├── 7-modules-and-ecosystem/  # Modules and packages
-│   ├── 8-objects-interfaces/  # Objects and interfaces
-│   └── 9-ts-features/      # Advanced TypeScript features
-└── exercises/              # Practice exercises (work in progress)
+│   ├── 1-variables-and-types/              # Variables and basic types
+│   ├── 2-operators-and-expressions/        # Operators and expressions
+│   ├── 3-conditionals/                     # Conditional statements
+│   ├── 4-arrays-and-loops/                 # Arrays and loops
+│   ├── 5-functions/                        # Functions and parameters
+│   ├── 6-objects-interfaces/               # Objects and interfaces
+│   ├── 7-modules-and-ecosystem/            # Modules and packages
+│   ├── 8-async-await/                      # Asynchronous programming
+│   └── 9-ts-features/                      # Advanced TypeScript features
+└── exercises/              # Practice exercises
     ├── 0-base/             # Basic exercises
     └── 1-variables-and-types/  # Variable exercises
 ```

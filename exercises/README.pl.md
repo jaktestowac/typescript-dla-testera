@@ -3,8 +3,8 @@
 > [!TIP]
 > 💡 Wybierz swój język:
 >
-> - 🇬🇧 [English](./exercises/README.md)
-> - 🇵🇱 [Polski](./exercises/README.pl.md)
+> - 🇬🇧 [English](./README.md)
+> - 🇵🇱 [Polski](./README.pl.md)
 
 Ten katalog zawiera praktyczne ćwiczenia z TypeScript oraz rozwiązania do każdego tematu kursu. Ćwicz tutaj, aby utrwalić swoją wiedzę!
 

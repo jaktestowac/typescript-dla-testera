@@ -3,8 +3,8 @@
 > [!TIP]
 > 💡 Wybierz swój język:
 >
-> - 🇬🇧 [English](./theory/README.md)
-> - 🇵🇱 [Polski](./theory/README.pl.md)
+> - 🇬🇧 [English](./README.md)
+> - 🇵🇱 [Polski](./README.pl.md)
 
 ## Sekcja 0: Wprowadzenie
 

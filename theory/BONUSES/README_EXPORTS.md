@@ -3,8 +3,8 @@
 > [!TIP]
 > 💡 Choose your language:
 >
-> - 🇬🇧 [English](./theory/BONUSES/README_EXPORTS.md)
-> - 🇵🇱 [Polski](./theory/BONUSES/README_EXPORTS.pl.md)
+> - 🇬🇧 [English](./README_EXPORTS.md)
+> - 🇵🇱 [Polski](./README_EXPORTS.pl.md)
 
 ## 🔧 Understanding `export {}` - The Module Trick
 

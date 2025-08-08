@@ -3,8 +3,8 @@
 > [!TIP]
 > 💡 Wybierz swój język:
 >
-> - 🇬🇧 [English](./theory/BONUSES/README_EXPORTS.md)
-> - 🇵🇱 [Polski](./theory/BONUSES/README_EXPORTS.pl.md)
+> - 🇬🇧 [English](./README_EXPORTS.md)
+> - 🇵🇱 [Polski](./README_EXPORTS.pl.md)
 
 ## 🔧 Zrozumienie `export {}` – Sztuczka z Modułem
 
@@ -214,14 +214,14 @@ export function hello() {
 
 ### 🎓 Szybka ściąga
 
-| Typ pliku            | Potrzebuje `export {}`? | Dlaczego?                |
-| -------------------- | ---------------------- | ------------------------ |
-| Ćwiczenie edukacyjne | ✅ Tak                 | Niezależna praktyka      |
-| Samodzielny skrypt   | ✅ Tak                 | Brak importów/eksportów  |
-| Moduł z eksportami   | ❌ Nie                 | Już jest modułem         |
-| Moduł z importami    | ❌ Nie                 | Już jest modułem         |
-| Test Playwright      | ❌ Nie                 | Framework to obsługuje   |
-| Test Jest            | ❌ Nie                 | Framework to obsługuje   |
+| Typ pliku            | Potrzebuje `export {}`? | Dlaczego?               |
+| -------------------- | ----------------------- | ----------------------- |
+| Ćwiczenie edukacyjne | ✅ Tak                  | Niezależna praktyka     |
+| Samodzielny skrypt   | ✅ Tak                  | Brak importów/eksportów |
+| Moduł z eksportami   | ❌ Nie                  | Już jest modułem        |
+| Moduł z importami    | ❌ Nie                  | Już jest modułem        |
+| Test Playwright      | ❌ Nie                  | Framework to obsługuje  |
+| Test Jest            | ❌ Nie                  | Framework to obsługuje  |
 
 ### 💭 Zapamiętaj
 
@@ -234,4 +234,4 @@ export function hello() {
 
 **Miłego kodowania! 🚀**
 
-_Linia `export {}` to jak zamknięcie Twojego kodu w bezpiecznym pudełku – utrzymuje go w porządku i zapobiega konfliktom z innym kodem._ 
+_Linia `export {}` to jak zamknięcie Twojego kodu w bezpiecznym pudełku – utrzymuje go w porządku i zapobiega konfliktom z innym kodem._

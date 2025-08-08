@@ -3,8 +3,8 @@
 > [!TIP]
 > 💡 Wybierz swój język:
 >
-> - 🇬🇧 [English](./theory/BONUSES/HOW_TO_CREATE_TYPESCRIPT_PROJECT.md)
-> - 🇵🇱 [Polski](./theory/BONUSES/HOW_TO_CREATE_TYPESCRIPT_PROJECT.pl.md)
+> - 🇬🇧 [English](./HOW_TO_CREATE_TYPESCRIPT_PROJECT.md)
+> - 🇵🇱 [Polski](./HOW_TO_CREATE_TYPESCRIPT_PROJECT.pl.md)
 
 Ten dokument zawiera **prosty** i **szybki** przewodnik krok po kroku do tworzenia projektu TypeScript od podstaw.
 
