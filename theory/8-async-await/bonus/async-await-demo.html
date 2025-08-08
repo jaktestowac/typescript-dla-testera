@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async/Await Interactive Demonstration by jaktestowac.pl</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .footer {
+            margin-top: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 2px solid #007bff;
+            font-size: 14px;
+        }
+
+        .footer p {
+            margin: 2px 0;
+            color: #666;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        .section h2 {
+            color: #007bff;
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .demo-area {
+            background: #f8f9fa;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .code-example {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #4a5568;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .code-example::before {
+            content: 'JavaScript/TypeScript';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 11px;
+            color: #a0aec0;
+            background: #2d3748;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: normal;
+        }
+
+        /* Syntax highlighting for code examples */
+        .code-example .keyword {
+            color: #ff7b72;
+            font-weight: bold;
+        }
+
+        .code-example .function-name {
+            color: #d2a8ff;
+        }
+
+        .code-example .string {
+            color: #a5d6ff;
+        }
+
+        .code-example .comment {
+            color: #8b949e;
+            font-style: italic;
+        }
+
+        .code-example .operator {
+            color: #ff7b72;
+        }
+
+        .code-example .variable {
+            color: #ffa657;
+        }
+
+        .code-example .property {
+            color: #79c0ff;
+        }
+
+        .code-example .number {
+            color: #79c0ff;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .demo-button {
+            padding: 12px 24px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .demo-button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        }
+
+        .demo-button:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .output {
+            background: #1a202c;
+            color: #68d391;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            min-height: 100px;
+            max-height: 300px;
+            overflow-y: auto;
+            border-left: 4px solid #68d391;
+        }
+
+        .loading {
+            color: #ffd700;
+        }
+
+        .error {
+            color: #fc8181;
+        }
+
+        .success {
+            color: #68d391;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-item {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            background: white;
+        }
+
+        .comparison-item h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+
+        .delay-input {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 100px;
+            margin: 0 10px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .explanation {
+            background: #e7f3ff;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border-radius: 6px 6px 0 0;
+            margin-right: 2px;
+        }
+
+        .tab.active {
+            background: #007bff;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .async-sequence {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .sequence-step {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .sequence-step.active {
+            border-color: #007bff;
+            background: #e7f3ff;
+            transform: scale(1.02);
+        }
+
+        .sequence-step.completed {
+            border-color: #28a745;
+            background: #d4edda;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .demo-button {
+                width: 100%;
+            }
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 1000;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e0e0e0;
+        }
+
+        .lang-btn {
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 90px;
+            justify-content: center;
+        }
+
+        .flag-emoji {
+            font-size: 20px;
+        }
+
+        .lang-btn.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+            transform: scale(1.05);
+        }
+
+        .lang-btn:hover {
+            background: #e9ecef;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .lang-btn.active:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="language-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('en')" id="lang-en"><span class="flag-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#071b65"></rect>
+                    <path d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z" fill="#fff"></path>
+                    <path d="M22.25,19h-2.5l9.934,7.947c.387-.353,.704-.777,.929-1.257l-8.363-6.691Z" fill="#b92932"></path>
+                    <path d="M1.387,6.309l8.363,6.691h2.5L2.316,5.053c-.387,.353-.704,.777-.929,1.257Z" fill="#b92932"></path>
+                    <path d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z" fill="#fff"></path>
+                    <rect x="13" y="4" width="6" height="24" fill="#fff"></rect>
+                    <rect x="1" y="13" width="30" height="6" fill="#fff"></rect>
+                    <rect x="14" y="4" width="4" height="24" fill="#b92932"></rect>
+                    <rect x="14" y="1" width="4" height="30" transform="translate(32) rotate(90)" fill="#b92932"></rect>
+                    <path d="M28.222,4.21l-9.222,7.376v1.414h.75l9.943-7.94c-.419-.384-.918-.671-1.471-.85Z" fill="#b92932"></path>
+                    <path d="M2.328,26.957c.414,.374,.904,.656,1.447,.832l9.225-7.38v-1.408h-.75L2.328,26.957Z" fill="#b92932"></path>
+                    <path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path>
+                    <path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+                </svg></span> EN</button>
+        <button class="lang-btn" onclick="switchLanguage('pl')" id="lang-pl"><span class="flag-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <path d="M1,24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V15H1v9Z" fill="#cb2e40"></path>
+                    <path d="M27,4H5c-2.209,0-4,1.791-4,4v8H31V8c0-2.209-1.791-4-4-4Z" fill="#fff"></path>
+                    <path d="M5,28H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4ZM2,8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8Z" opacity=".15"></path>
+                    <path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+                </svg></span> PL</button>
+    </div>
+    <div class="container">
+        <div style="display:flex; justify-content:flex-end; margin-bottom:10px;">
+        </div>
+        <h1 id="mainTitle">🚀 Async/Await Interactive Demo</h1>
+        <div id="main-desc" style="font-size:13px; color:#555; text-align:center; margin-bottom:10px;">
+            <span id="main-desc-text">Created for the <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript for Testers</a> course | by <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a></span>
+        </div>
+
+        <div class="explanation">
+            <h3 id="welcomeTitle">Welcome to the Async/Await Learning Platform!</h3>
+            <p id="welcomeDesc">This interactive demo will help you understand how asynchronous JavaScript/TypeScript works.
+                You'll see the difference between callbacks, promises, and async/await, and learn why async/await
+                makes code much easier to read and write.</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" id="tab-basics" onclick="showTab('basics')">Basics</button>
+            <button class="tab" id="tab-comparison" onclick="showTab('comparison')">Comparison</button>
+            <button class="tab" id="tab-sequential" onclick="showTab('sequential')">Sequential Tasks</button>
+            <button class="tab" id="tab-parallel" onclick="showTab('parallel')">Parallel Tasks</button>
+            <button class="tab" id="tab-error-handling" onclick="showTab('error-handling')">Error Handling</button>
+        </div>
+
+        <!-- Basics Tab -->
+        <div id="basics" class="tab-content active">
+            <div class="section">
+                <h2 id="basicsTitle">🎯 Basic Async/Await Demo</h2>
+
+                <div class="explanation">
+                    <p><strong id="whatIsAsyncAwait">What is async/await?</strong></p>
+                    <p id="asyncAwaitDesc">Async/await is a way to write asynchronous code that looks like synchronous code.
+                        Instead of using callbacks or .then() chains, you can use the <code>await</code> keyword
+                        to wait for a Promise to resolve.</p>
+                </div>
+
+                <div class="input-group">
+                    <label id="delayLabel">Delay (seconds):</label>
+                    <input type="number" id="basicDelay" class="delay-input" value="2" min="1" max="10">
+                    <label id="dataLabel">Data to fetch:</label>
+                    <select id="dataType">
+                        <option value="user">User Profile</option>
+                        <option value="posts">Blog Posts</option>
+                        <option value="comments">Comments</option>
+                        <option value="weather">Weather Data</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button class="demo-button" onclick="demoCallbacks()">Use Callbacks</button>
+                    <button class="demo-button" onclick="demoPromises()">Use Promises</button>
+                    <button class="demo-button" onclick="demoAsyncAwait()">Use Async/Await</button>
+                    <button class="demo-button" onclick="clearOutput('basicOutput')">Clear</button>
+                </div>
+
+                <div class="demo-area">
+                    <h3 id="outputLabel">Output:</h3>
+                    <div id="basicOutput" class="output">Ready to run demos...</div>
+                </div>
+
+                <h3>Basic Example</h3>
+                <div class="code-example">
+                    <pre><code><span class="comment">// Example: Async/Await vs Promises</span>
+<span class="keyword">async</span> <span class="keyword">function</span> <span class="function-name">fetchData</span>() {
+    <span class="keyword">try</span> {
+        <span class="keyword">const</span> <span class="variable">result</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">getData</span>();
+        <span class="property">console</span>.<span class="function-name">log</span>(<span class="variable">result</span>);
+    } <span class="keyword">catch</span> (<span class="variable">error</span>) {
+        <span class="property">console</span>.<span class="function-name">error</span>(<span class="variable">error</span>);
+    }
+}
+
+<span class="comment">// vs Promises:</span>
+<span class="keyword">function</span> <span class="function-name">fetchDataWithPromises</span>() {
+    <span class="function-name">getData</span>()
+        .<span class="function-name">then</span>(<span class="variable">result</span> <span class="operator">=></span> <span class="property">console</span>.<span class="function-name">log</span>(<span class="variable">result</span>))
+        .<span class="function-name">catch</span>(<span class="variable">error</span> <span class="operator">=></span> <span class="property">console</span>.<span class="function-name">error</span>(<span class="variable">error</span>));
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Tab -->
+        <div id="comparison" class="tab-content">
+            <div class="section">
+                <h2 id="comparisonTitle">⚖️ Side-by-Side Comparison</h2>
+
+                <div class="explanation">
+                    <p><strong id="whyComparisonMatters">Why does this comparison matter?</strong></p>
+                    <p id="comparisonDesc">This demonstration shows the evolution of JavaScript asynchronous programming. You'll see how the same functionality can be implemented using different approaches, and understand why async/await became the preferred method.</p>
+
+                    <p><strong id="keyDifferences">Key Differences:</strong></p>
+                    <ul>
+                        <li><strong id="callbacksDifference">Callbacks:</strong> The original way - can lead to "callback hell" with nested functions</li>
+                        <li><strong id="asyncDifference">Async/Await:</strong> Modern approach - makes asynchronous code look synchronous</li>
+                    </ul>
+                </div>
+
+                <div class="input-group">
+                    <label id="taskComplexityLabel">Task complexity:</label>
+                    <select id="taskComplexity">
+                        <option value="simple">Simple (1 step) - Basic API call</option>
+                        <option value="medium">Medium (3 steps) - Multiple dependent calls</option>
+                        <option value="complex">Complex (5 steps) - Deep nesting scenario</option>
+                    </select>
+                </div>
+
+                <div class="comparison-container">
+                    <div class="comparison-item">
+                        <h3 id="callbackTitle">🔄 Callbacks</h3>
+                        <p><strong id="callbackDesc">The Traditional Way</strong></p>
+                        <p id="callbackText">Using callback functions to handle asynchronous operations. Notice how the code becomes harder to read as complexity increases.</p>
+
+                        <div class="code-example" id="callbackCodeExample">
+                            <pre><code><span class="comment">// Callback approach</span>
+<span class="keyword">function</span> <span class="function-name">fetchDataWithCallbacks</span>(<span class="variable">callback</span>) {
+    <span class="function-name">setTimeout</span>(() => {
+        <span class="variable">callback</span>(<span class="keyword">null</span>, <span class="string">'Task 1 complete'</span>);
+    }, <span class="number">1000</span>);
+}</code></pre>
+                        </div>
+
+                        <button class="demo-button" onclick="runCallbackExample()">Run Callback Version</button>
+                        <div id="callbackOutput" class="output">Click to run...</div>
+                    </div>
+                    <div class="comparison-item">
+                        <h3 id="asyncTitle">🎯 Async/Await</h3>
+                        <p><strong id="asyncDesc">The Modern Way</strong></p>
+                        <p id="asyncText">Using async/await syntax that makes asynchronous code look and behave like synchronous code. Much easier to read and maintain!</p>
+
+                        <div class="code-example" id="asyncAwaitCodeExample">
+                            <pre><code><span class="comment">// Async/await approach</span>
+<span class="keyword">async</span> <span class="keyword">function</span> <span class="function-name">fetchDataWithAsyncAwait</span>() {
+    <span class="keyword">const</span> <span class="variable">result</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">delay</span>(<span class="number">1000</span>);
+    <span class="keyword">return</span> <span class="string">'Task 1 complete'</span>;
+}</code></pre>
+                        </div>
+
+                        <button class="demo-button" onclick="runAsyncAwaitExample()">Run Async/Await Version</button>
+                        <div id="asyncAwaitOutput" class="output">Click to run...</div>
+                    </div>
+                </div>
+
+                <div class="explanation">
+                    <h4>🔍 What to Notice:</h4>
+                    <ul>
+                        <li><strong>Readability:</strong> Async/await reads like normal, sequential code</li>
+                        <li><strong>Error Handling:</strong> Try/catch works naturally with async/await</li>
+                        <li><strong>Nesting:</strong> Callbacks create deep nesting ("callback hell"), async/await stays flat</li>
+                        <li><strong>Debugging:</strong> Async/await provides better stack traces and debugging experience</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sequential Tasks Tab -->
+        <div id="sequential" class="tab-content">
+            <div class="section">
+                <h2>📋 Sequential Task Execution</h2>
+
+                <div class="explanation">
+                    <p>Sometimes you need to run tasks one after another, where each task depends on the previous one.
+                        Async/await makes this much cleaner than callback hell!</p>
+                </div>
+
+                <div class="button-group">
+                    <button class="demo-button" onclick="runSequentialTasks()">Run Sequential Tasks</button>
+                    <button class="demo-button" onclick="clearOutput('sequentialOutput')">Clear</button>
+                </div>
+
+                <div class="async-sequence" id="sequenceSteps">
+                    <div class="sequence-step">1. Authenticate user</div>
+                    <div class="sequence-step">2. Fetch user profile</div>
+                    <div class="sequence-step">3. Load user preferences</div>
+                    <div class="sequence-step">4. Get personalized content</div>
+                    <div class="sequence-step">5. Display dashboard</div>
+                </div>
+
+                <div class="demo-area">
+                    <h3>Output:</h3>
+                    <div id="sequentialOutput" class="output">Ready to run sequential tasks...</div>
+                </div>
+
+                <h3>Sequential Example</h3>
+                <div class="code-example">
+                    <pre><code><span class="comment">// Sequential execution with async/await</span>
+<span class="keyword">async</span> <span class="keyword">function</span> <span class="function-name">loadUserDashboard</span>() {
+    <span class="keyword">try</span> {
+        <span class="keyword">const</span> <span class="variable">auth</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">authenticateUser</span>();
+        <span class="keyword">const</span> <span class="variable">profile</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">fetchUserProfile</span>(<span class="variable">auth</span>.<span class="property">token</span>);
+        <span class="keyword">const</span> <span class="variable">preferences</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">loadUserPreferences</span>(<span class="variable">profile</span>.<span class="property">id</span>);
+        <span class="keyword">const</span> <span class="variable">content</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">getPersonalizedContent</span>(<span class="variable">preferences</span>);
+        <span class="keyword">await</span> <span class="function-name">displayDashboard</span>(<span class="variable">content</span>);
+    } <span class="keyword">catch</span> (<span class="variable">error</span>) {
+        <span class="property">console</span>.<span class="function-name">error</span>(<span class="string">'Failed to load dashboard:'</span>, <span class="variable">error</span>);
+    }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Parallel Tasks Tab -->
+        <div id="parallel" class="tab-content">
+            <div class="section">
+                <h2>⚡ Parallel Task Execution</h2>
+
+                <div class="explanation">
+                    <p><strong>Real-world scenario:</strong> When tasks don't depend on each other, you can run them in parallel to save significant time. Each API call in real applications takes unpredictable time!</p>
+
+                    <p><strong>Key concepts:</strong></p>
+                    <ul>
+                        <li><strong>Random timing:</strong> Each task has different, unpredictable execution time (like real APIs)</li>
+                        <li><strong>Parallel advantage:</strong> Total time = longest individual task (not sum of all)</li>
+                        <li><strong>Promise.all():</strong> Waits for ALL tasks to complete, but runs them simultaneously</li>
+                        <li><strong>Efficiency:</strong> Can be 2-4x faster than sequential execution!</li>
+                    </ul>
+                </div>
+
+                <div class="button-group">
+                    <button class="demo-button" onclick="runParallelTasks()">Run Parallel Tasks</button>
+                    <button class="demo-button" onclick="runSequentialComparison()">Run Sequential (Slow)</button>
+                    <button class="demo-button" onclick="clearOutput('parallelOutput')">Clear</button>
+                </div>
+
+                <div class="demo-area">
+                    <div class="progress-bar">
+                        <div id="parallelProgress" class="progress-fill"></div>
+                    </div>
+                    <h3>Output:</h3>
+                    <div id="parallelOutput" class="output">Ready to run parallel tasks...</div>
+                </div>
+
+                <h3>Parallel Example</h3>
+                <div class="code-example">
+                    <pre><code><span class="comment">// Parallel execution with Promise.all() - Random timing!</span>
+<span class="keyword">async</span> <span class="keyword">function</span> <span class="function-name">loadAppData</span>() {
+    <span class="keyword">try</span> {
+        <span class="comment">// Each API call takes a different, unpredictable time</span>
+        <span class="keyword">const</span> [<span class="variable">userData</span>, <span class="variable">settings</span>, <span class="variable">notifications</span>, <span class="variable">weather</span>] <span class="operator">=</span> <span class="keyword">await</span> <span class="property">Promise</span>.<span class="function-name">all</span>([
+            <span class="function-name">fetchUserData</span>(),      <span class="comment">// ~1.2s (random)</span>
+            <span class="function-name">fetchUserSettings</span>(), <span class="comment">// ~2.8s (random)</span>
+            <span class="function-name">fetchNotifications</span>(),<span class="comment">// ~0.9s (random)</span>
+            <span class="function-name">fetchWeatherData</span>()   <span class="comment">// ~3.1s (random)</span>
+        ]);
+
+        <span class="comment">// Total time = longest task (~3.1s), not sum!</span>
+        <span class="keyword">return</span> { <span class="variable">userData</span>, <span class="variable">settings</span>, <span class="variable">notifications</span>, <span class="variable">weather</span> };
+    } <span class="keyword">catch</span> (<span class="variable">error</span>) {
+        <span class="property">console</span>.<span class="function-name">error</span>(<span class="string">'Failed to load app data:'</span>, <span class="variable">error</span>);
+    }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Handling Tab -->
+        <div id="error-handling" class="tab-content">
+            <div class="section">
+                <h2>🛡️ Error Handling with Async/Await</h2>
+
+                <div class="explanation">
+                    <p>Learn how to properly handle errors in async/await code using try/catch blocks.
+                        See how this compares to error handling with promises and callbacks.</p>
+                </div>
+
+                <div class="input-group">
+                    <label>Simulation:</label>
+                    <select id="errorScenario">
+                        <option value="success">All Success</option>
+                        <option value="network">Network Error</option>
+                        <option value="timeout">Timeout Error</option>
+                        <option value="auth">Authentication Error</option>
+                        <option value="mixed">Mixed Results</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button class="demo-button" onclick="demoErrorHandling()">Run Error Demo</button>
+                    <button class="demo-button" onclick="clearOutput('errorOutput')">Clear</button>
+                </div>
+
+                <div class="demo-area">
+                    <h3>Output:</h3>
+                    <div id="errorOutput" class="output">Ready to test error handling...</div>
+                </div>
+
+                <h3>Error Handling Example</h3>
+                <div class="code-example">
+                    <pre><code><span class="comment">// Error handling with async/await</span>
+<span class="keyword">async</span> <span class="keyword">function</span> <span class="function-name">robustDataFetch</span>() {
+    <span class="keyword">try</span> {
+        <span class="keyword">const</span> <span class="variable">data</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">fetchCriticalData</span>();
+        <span class="keyword">return</span> <span class="variable">data</span>;
+    } <span class="keyword">catch</span> (<span class="variable">error</span>) {
+        <span class="keyword">if</span> (<span class="variable">error</span>.<span class="property">code</span> <span class="operator">===</span> <span class="string">'NETWORK_ERROR'</span>) {
+            <span class="keyword">return</span> <span class="keyword">await</span> <span class="function-name">fetchFromCache</span>();
+        } <span class="keyword">else</span> <span class="keyword">if</span> (<span class="variable">error</span>.<span class="property">code</span> <span class="operator">===</span> <span class="string">'TIMEOUT'</span>) {
+            <span class="keyword">return</span> <span class="keyword">await</span> <span class="function-name">retryWithBackoff</span>();
+        } <span class="keyword">else</span> {
+            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="function-name">Error</span>(<span class="string">`Unhandled error: </span><span class="operator">${</span><span class="variable">error</span>.<span class="property">message</span><span class="operator">}</span><span class="string">`</span>);
+        }
+    }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p id="footer-text">Created for the <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript for Testers</a> course | by <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a></p>
+    </footer>
+
+    <script>
+        // Tab switching functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab');
+            tabButtons.forEach(button => button.classList.remove('active'));
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab button
+            event.target.classList.add('active');
+        }
+
+        // Utility functions
+        function log(outputId, message, className = '') {
+            const output = document.getElementById(outputId);
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.className = className;
+            logEntry.textContent = `[${timestamp}] ${message}`;
+            output.appendChild(logEntry);
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function clearOutput(outputId) {
+            document.getElementById(outputId).innerHTML = 'Output cleared...';
+        }
+
+        // Button management functions
+        function disableAllDemoButtons() {
+            const buttons = document.querySelectorAll('.demo-button');
+            buttons.forEach(button => {
+                button.disabled = true;
+            });
+        }
+
+        function enableAllDemoButtons() {
+            const buttons = document.querySelectorAll('.demo-button');
+            buttons.forEach(button => {
+                button.disabled = false;
+            });
+        }
+
+        // Wrapper function to handle button states for async operations
+        async function runWithButtonDisabling(asyncFunction) {
+            disableAllDemoButtons();
+            try {
+                await asyncFunction();
+            } catch (error) {
+                console.error('Demo error:', error);
+            } finally {
+                enableAllDemoButtons();
+            }
+        }
+
+        // Simulate async operations
+        function simulateApiCall(data, delay = 2000, shouldFail = false) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (shouldFail) {
+                        reject(new Error(`Failed to fetch ${data}`));
+                    } else {
+                        resolve(`✅ ${data} loaded successfully`);
+                    }
+                }, delay);
+            });
+        }
+
+        // Basic demos
+        function demoCallbacks() {
+            runWithButtonDisabling(async () => {
+                const delay = document.getElementById('basicDelay').value * 1000;
+                const dataType = document.getElementById('dataType').value;
+
+                clearOutput('basicOutput');
+                log('basicOutput', '🔄 Starting callback demo...');
+
+                await new Promise((resolve) => {
+                    function fetchWithCallback(callback) {
+                        log('basicOutput', '📡 Making API call...');
+                        setTimeout(() => {
+                            callback(null, `✅ ${dataType} data received via callback`);
+                        }, delay);
+                    }
+
+                    fetchWithCallback((error, result) => {
+                        if (error) {
+                            log('basicOutput', `❌ Error: ${error}`, 'error');
+                        } else {
+                            log('basicOutput', result, 'success');
+                            log('basicOutput', '✨ Callback demo completed!');
+                        }
+                        resolve();
+                    });
+                });
+            });
+        }
+
+        function demoPromises() {
+            runWithButtonDisabling(async () => {
+                const delay = document.getElementById('basicDelay').value * 1000;
+                const dataType = document.getElementById('dataType').value;
+
+                clearOutput('basicOutput');
+                log('basicOutput', '🔄 Starting promise demo...');
+
+                try {
+                    const result = await simulateApiCall(dataType, delay);
+                    log('basicOutput', result, 'success');
+                    log('basicOutput', '✨ Promise demo completed!');
+                } catch (error) {
+                    log('basicOutput', `❌ Error: ${error.message}`, 'error');
+                }
+            });
+        }
+
+        function demoAsyncAwait() {
+            runWithButtonDisabling(async () => {
+                const delay = document.getElementById('basicDelay').value * 1000;
+                const dataType = document.getElementById('dataType').value;
+
+                clearOutput('basicOutput');
+                log('basicOutput', '🔄 Starting async/await demo...');
+
+                try {
+                    const result = await simulateApiCall(dataType, delay);
+                    log('basicOutput', result, 'success');
+                    log('basicOutput', '✨ Async/await demo completed!');
+                } catch (error) {
+                    log('basicOutput', `❌ Error: ${error.message}`, 'error');
+                }
+            });
+        }
+
+        // Comparison demos
+        function updateCodeExamples() {
+            const complexity = document.getElementById('taskComplexity').value;
+            const callbackCodeExample = document.getElementById('callbackCodeExample');
+            const asyncAwaitCodeExample = document.getElementById('asyncAwaitCodeExample');
+
+            if (complexity === 'simple') {
+                callbackCodeExample.innerHTML = `<pre><code><span class="comment">// Simple callback - just one async operation</span>
+<span class="keyword">function</span> <span class="function-name">fetchUserData</span>(<span class="variable">callback</span>) {
+    <span class="function-name">setTimeout</span>(() => {
+        <span class="variable">callback</span>(<span class="keyword">null</span>, <span class="string>'User data loaded'</span>);
+    }, <span class="number">1000</span>);
+}
+
+<span class="function-name">fetchUserData</span>((<span class="variable">error</span>, <span class="variable">data</span>) => {
+    <span class="property">console</span>.<span class="function-name">log</span>(<span class="variable">data</span>);
+});</code></pre>`;
+
+                asyncAwaitCodeExample.innerHTML = `<pre><code><span class="comment">// Simple async/await - clean and readable</span>
+<span class="keyword">async</span> <span class="keyword">function</span> <span class="function-name">fetchUserData</span>() {
+    <span class="keyword">await</span> <span class="function-name">delay</span>(<span class="number">1000</span>);
+    <span class="keyword">return</span> <span class="string>'User data loaded'</span>;
+}
+
+<span class="keyword">const</span> <span class="variable">data</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">fetchUserData</span>();
+<span class="property">console</span>.<span class="function-name">log</span>(<span class="variable">data</span>);</code></pre>`;
+
+            } else if (complexity === 'medium') {
+                callbackCodeExample.innerHTML = `<pre><code><span class="comment">// Medium complexity - callback hell begins</span>
+<span class="function-name">fetchUser</span>(<span class="variable">userId</span>, (<span class="variable">err</span>, <span class="variable">user</span>) => {
+    <span class="keyword">if</span> (<span class="variable">err</span>) <span class="keyword">return</span> <span class="function-name">handleError</span>(<span class="variable">err</span>);
+    
+    <span class="function-name">fetchProfile</span>(<span class="variable">user</span>.<span class="property">id</span>, (<span class="variable">err</span>, <span class="variable">profile</span>) => {
+        <span class="keyword">if</span> (<span class="variable">err</span>) <span class="keyword">return</span> <span class="function-name">handleError</span>(<span class="variable">err</span>);
+        
+        <span class="function-name">fetchPreferences</span>(<span class="variable">profile</span>.<span class="property">id</span>, (<span class="variable">err</span>, <span class="variable">prefs</span>) => {
+            <span class="keyword">if</span> (<span class="variable">err</span>) <span class="keyword">return</span> <span class="function-name">handleError</span>(<span class="variable">err</span>);
+            <span class="property">console</span>.<span class="function-name">log</span>(<span class="string">'All data loaded!'</span>);
+        });
+    });
+});</code></pre>`;
+
+                asyncAwaitCodeExample.innerHTML = `<pre><code><span class="comment">// Medium complexity - still clean with async/await</span>
+<span class="keyword">async</span> <span class="keyword">function</span> <span class="function-name">loadUserData</span>(<span class="variable">userId</span>) {
+    <span class="keyword">try</span> {
+        <span class="keyword">const</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">fetchUser</span>(<span class="variable">userId</span>);
+        <span class="keyword">const</span> <span class="variable">profile</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">fetchProfile</span>(<span class="variable">user</span>.<span class="property">id</span>);
+        <span class="keyword">const</span> <span class="variable">prefs</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">fetchPreferences</span>(<span class="variable">profile</span>.<span class="property">id</span>);
+        
+        <span class="property">console</span>.<span class="function-name">log</span>(<span class="string>'All data loaded!'</span>);
+        <span class="keyword">return</span> { <span class="variable">user</span>, <span class="variable">profile</span>, <span class="variable">prefs</span> };
+    } <span class="keyword">catch</span> (<span class="variable">error</span>) {
+        <span class="function-name">handleError</span>(<span class="variable">error</span>);
+    }
+}</code></pre>`;
+
+            } else {
+                callbackCodeExample.innerHTML = `<pre><code><span class="comment">// Complex - deep callback hell nightmare</span>
+<span class="function-name">authenticate</span>(<span class="variable">credentials</span>, (<span class="variable">err</span>, <span class="variable">auth</span>) => {
+    <span class="keyword">if</span> (<span class="variable">err</span>) <span class="keyword">return</span> <span class="function-name">handleError</span>(<span class="variable">err</span>);
+    <span class="function-name">fetchUser</span>(<span class="variable">auth</span>.<span class="property">token</span>, (<span class="variable">err</span>, <span class="variable">user</span>) => {
+        <span class="keyword">if</span> (<span class="variable">err</span>) <span class="keyword">return</span> <span class="function-name">handleError</span>(<span class="variable">err</span>);
+        <span class="function-name">fetchProfile</span>(<span class="variable">user</span>.<span class="property">id</span>, (<span class="variable">err</span>, <span class="variable">profile</span>) => {
+            <span class="keyword">if</span> (<span class="variable">err</span>) <span class="keyword">return</span> <span class="function-name">handleError</span>(<span class="variable">err</span>);
+            <span class="function-name">fetchSettings</span>(<span class="variable">user</span>.<span class="property">id</span>, (<span class="variable">err</span>, <span class="variable">settings</span>) => {
+                <span class="keyword">if</span> (<span class="variable">err</span>) <span class="keyword">return</span> <span class="function-name">handleError</span>(<span class="variable">err</span>);
+                <span class="function-name">fetchNotifications</span>(<span class="variable">user</span>.<span class="property">id</span>, (<span class="variable">err</span>, <span class="variable">notifs</span>) => {
+                    <span class="keyword">if</span> (<span class="variable">err</span>) <span class="keyword">return</span> <span class="function-name">handleError</span>(<span class="variable">err</span>);
+                    <span class="property">console</span>.<span class="function-name">log</span>(<span class="string">'😵💫 Finally done!'</span>);
+                });
+            });
+        });
+    });
+});</code></pre>`;
+
+                asyncAwaitCodeExample.innerHTML = `<pre><code><span class="comment">// Complex - still readable with async/await</span>
+<span class="keyword">async</span> <span class="keyword">function</span> <span class="function-name">loadCompleteUserData</span>(<span class="variable">credentials</span>) {
+    <span class="keyword">try</span> {
+        <span class="keyword">const</span> <span class="variable">auth</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">authenticate</span>(<span class="variable">credentials</span>);
+        <span class="keyword">const</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">fetchUser</span>(<span class="variable">auth</span>.<span class="property">token</span>);
+        <span class="keyword">const</span> <span class="variable">profile</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">fetchProfile</span>(<span class="variable">user</span>.<span class="property">id</span>);
+        <span class="keyword">const</span> <span class="variable">settings</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">fetchSettings</span>(<span class="variable">user</span>.<span class="property">id</span>);
+        <span class="keyword">const</span> <span class="variable">notifs</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function-name">fetchNotifications</span>(<span class="variable">user</span>.<span class="property">id</span>);
+        
+        <span class="property">console</span>.<span class="function-name">log</span>(<span class="string>'🎉 All done and still readable!'</span>);
+        <span class="keyword">return</span> { <span class="variable">auth</span>, <span class="variable">user</span>, <span class="variable">profile</span>, <span class="variable">settings</span>, <span class="variable">notifs</span> };
+    } <span class="keyword">catch</span> (<span class="variable">error</span>) {
+        <span class="function-name">handleError</span>(<span class="variable">error</span>);
+    }
+}</code></pre>`;
+            }
+        }
+
+        function runCallbackExample() {
+            runWithButtonDisabling(async () => {
+                const complexity = document.getElementById('taskComplexity').value;
+                clearOutput('callbackOutput');
+
+                log('callbackOutput', '🔄 Running callback version...');
+
+                if (complexity === 'simple') {
+                    await new Promise(resolve => {
+                        setTimeout(() => {
+                            log('callbackOutput', '✅ Task 1 complete', 'success');
+                            log('callbackOutput', '✨ Simple but imagine if you need more steps...');
+                            resolve();
+                        }, 1000);
+                    });
+                } else if (complexity === 'medium') {
+                    // Callback hell simulation
+                    await new Promise(resolve => {
+                        setTimeout(() => {
+                            log('callbackOutput', '✅ Task 1 complete', 'success');
+                            setTimeout(() => {
+                                log('callbackOutput', '✅ Task 2 complete', 'success');
+                                setTimeout(() => {
+                                    log('callbackOutput', '✅ Task 3 complete', 'success');
+                                    log('callbackOutput', '😵 Notice the nested callbacks - this is "callback hell"!');
+                                    resolve();
+                                }, 1000);
+                            }, 1000);
+                        }, 1000);
+                    });
+                } else {
+                    // Even deeper callback hell
+                    await new Promise(resolve => {
+                        let depth = 0;
+                        function nextCallback() {
+                            depth++;
+                            log('callbackOutput', `✅ Task ${depth} complete`, 'success');
+                            if (depth < 5) {
+                                setTimeout(nextCallback, 500);
+                            } else {
+                                log('callbackOutput', '😵💫 Deep callback hell - hard to read and maintain!');
+                                log('callbackOutput', '❌ Error handling becomes very complex with nested callbacks');
+                                resolve();
+                            }
+                        }
+                        setTimeout(nextCallback, 500);
+                    });
+                }
+            });
+        }
+
+        function runAsyncAwaitExample() {
+            runWithButtonDisabling(async () => {
+                const complexity = document.getElementById('taskComplexity').value;
+                clearOutput('asyncAwaitOutput');
+
+                log('asyncAwaitOutput', '🔄 Running async/await version...');
+
+                try {
+                    if (complexity === 'simple') {
+                        await simulateApiCall('Task 1', 1000);
+                        log('asyncAwaitOutput', '✅ Task 1 complete', 'success');
+                        log('asyncAwaitOutput', '✨ Clean and readable - no nested callbacks!');
+                    } else if (complexity === 'medium') {
+                        for (let i = 1; i <= 3; i++) {
+                            await simulateApiCall(`Task ${i}`, 1000);
+                            log('asyncAwaitOutput', `✅ Task ${i} complete`, 'success');
+                        }
+                        log('asyncAwaitOutput', '😌 Still clean and readable - no callback hell!');
+                        log('asyncAwaitOutput', '✅ Error handling is simple with try/catch');
+                    } else {
+                        for (let i = 1; i <= 5; i++) {
+                            await simulateApiCall(`Task ${i}`, 500);
+                            log('asyncAwaitOutput', `✅ Task ${i} complete`, 'success');
+                        }
+                        log('asyncAwaitOutput', '🎉 Even complex scenarios remain readable!');
+                        log('asyncAwaitOutput', '💪 Easy to debug, maintain, and understand');
+                    }
+                } catch (error) {
+                    log('asyncAwaitOutput', `❌ Error: ${error.message}`, 'error');
+                    log('asyncAwaitOutput', '✅ Errors caught cleanly with try/catch!');
+                }
+            });
+        }
+
+        // Add event listener to update code examples when complexity changes
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize code examples
+            updateCodeExamples();
+
+            // Update code examples when complexity changes
+            document.getElementById('taskComplexity').addEventListener('change', updateCodeExamples);
+
+            log('basicOutput', '🚀 Async/Await demo ready!');
+            log('basicOutput', '👆 Choose options above and click buttons to see async/await in action!');
+        });
+
+        // Sequential tasks demo
+        function runSequentialTasks() {
+            runWithButtonDisabling(async () => {
+                clearOutput('sequentialOutput');
+                const steps = document.querySelectorAll('.sequence-step');
+
+                // Reset all steps
+                steps.forEach(step => {
+                    step.classList.remove('active', 'completed');
+                });
+
+                log('sequentialOutput', '🔄 Starting sequential task execution...');
+
+                const tasks = [
+                    'Authenticate user',
+                    'Fetch user profile',
+                    'Load user preferences',
+                    'Get personalized content',
+                    'Display dashboard'
+                ];
+
+                try {
+                    for (let i = 0; i < tasks.length; i++) {
+                        // Mark current step as active
+                        steps[i].classList.add('active');
+                        log('sequentialOutput', `🔄 ${tasks[i]}...`, 'loading');
+
+                        await simulateApiCall(tasks[i], 1500);
+
+                        // Mark step as completed
+                        steps[i].classList.remove('active');
+                        steps[i].classList.add('completed');
+                        log('sequentialOutput', `✅ ${tasks[i]} completed`, 'success');
+                    }
+
+                    log('sequentialOutput', '🎉 All sequential tasks completed!');
+                } catch (error) {
+                    log('sequentialOutput', `❌ Error: ${error.message}`, 'error');
+                }
+            });
+        }
+
+        // Parallel tasks demo
+        function runParallelTasks() {
+            runWithButtonDisabling(async () => {
+                clearOutput('parallelOutput');
+                const progressBar = document.getElementById('parallelProgress');
+                progressBar.style.width = '0%';
+
+                log('parallelOutput', '⚡ Starting parallel task execution...');
+
+                // Generate random delays between 800ms and 3500ms for each task
+                const taskConfigs = [
+                    { name: 'User data', delay: Math.floor(Math.random() * 1500) + 1500 },
+                    { name: 'User settings', delay: Math.floor(Math.random() * 1500) + 1500 },
+                    { name: 'Notifications', delay: Math.floor(Math.random() * 1500) + 1500 },
+                    { name: 'Weather data', delay: Math.floor(Math.random() * 1500) + 1500 }
+                ];
+
+                // Log the expected times to show unpredictability
+                taskConfigs.forEach((config, index) => {
+                    log('parallelOutput', `📋 Task ${index + 1} (${config.name}) - Expected: ${(config.delay / 1000).toFixed(1)}s`);
+                });
+                log('parallelOutput', '🎲 Notice: Each run will have different random timings!');
+
+                const startTime = Date.now();
+                const maxDelay = Math.max(...taskConfigs.map(c => c.delay));
+
+                try {
+                    // Simulate progress updates based on the longest expected task
+                    const progressInterval = setInterval(() => {
+                        const elapsed = Date.now() - startTime;
+                        const progress = Math.min((elapsed / maxDelay) * 100, 100);
+                        progressBar.style.width = progress + '%';
+                    }, 100);
+
+                    log('parallelOutput', '⏳ All tasks running in parallel...');
+
+                    // Launch all tasks and log as soon as each finishes
+                    const tasks = taskConfigs.map((config, idx) =>
+                        simulateApiCall(config.name, config.delay)
+                            .then(result => {
+                                log('parallelOutput', `✅ ${config.name} finished: ${result}`, 'success');
+                                return result;
+                            })
+                            .catch(error => {
+                                log('parallelOutput', `❌ ${config.name} failed: ${error.message}`, 'error');
+                                throw error;
+                            })
+                    );
+
+                    await Promise.allSettled(tasks);
+                    clearInterval(progressInterval);
+                    progressBar.style.width = '100%';
+
+                    const duration = ((Date.now() - startTime) / 1000).toFixed(1);
+                    log('parallelOutput', `⚡ All parallel tasks completed in ${duration}s!`);
+                    log('parallelOutput', `💡 Total time = longest task (not sum of all tasks)`);
+                } catch (error) {
+                    log('parallelOutput', `❌ Error: ${error.message}`, 'error');
+                }
+            });
+        }
+
+        function runSequentialComparison() {
+            runWithButtonDisabling(async () => {
+                clearOutput('parallelOutput');
+                const progressBar = document.getElementById('parallelProgress');
+                progressBar.style.width = '0%';
+
+                log('parallelOutput', '🐌 Starting sequential execution for comparison...');
+
+                // Generate random delays between 800ms and 3500ms for each task
+                const taskConfigs = [
+                    { name: 'User data', delay: Math.floor(Math.random() * 2700) + 800 },
+                    { name: 'User settings', delay: Math.floor(Math.random() * 2700) + 800 },
+                    { name: 'Notifications', delay: Math.floor(Math.random() * 2700) + 800 },
+                    { name: 'Weather data', delay: Math.floor(Math.random() * 2700) + 800 }
+                ];
+
+                // Log the expected times
+                taskConfigs.forEach((config, index) => {
+                    log('parallelOutput', `📋 Task ${index + 1} (${config.name}) - Will take: ${(config.delay / 1000).toFixed(1)}s`);
+                });
+
+                const totalExpectedTime = taskConfigs.reduce((sum, config) => sum + config.delay, 0);
+                log('parallelOutput', `⏱️ Expected total time: ${(totalExpectedTime / 1000).toFixed(1)}s (sum of all tasks)`);
+
+                const startTime = Date.now();
+
+                try {
+                    for (let i = 0; i < taskConfigs.length; i++) {
+                        const config = taskConfigs[i];
+                        log('parallelOutput', `🔄 Starting ${config.name}...`, 'loading');
+
+                        const result = await simulateApiCall(config.name, config.delay);
+                        log('parallelOutput', result, 'success');
+
+                        const progress = ((i + 1) / taskConfigs.length) * 100;
+                        progressBar.style.width = progress + '%';
+                    }
+
+                    const duration = ((Date.now() - startTime) / 1000).toFixed(1);
+                    log('parallelOutput', `🐌 Sequential execution took ${duration}s`);
+                    log('parallelOutput', `❌ Much slower! Each task waits for the previous to complete`);
+                    log('parallelOutput', `💡 Sequential time = sum of all individual task times`);
+                } catch (error) {
+                    log('parallelOutput', `❌ Error: ${error.message}`, 'error');
+                }
+            });
+        }
+
+        // Error handling demo
+        function demoErrorHandling() {
+            runWithButtonDisabling(async () => {
+                const scenario = document.getElementById('errorScenario').value;
+                clearOutput('errorOutput');
+
+                log('errorOutput', '🛡️ Testing error handling scenarios...');
+
+                try {
+                    switch (scenario) {
+                        case 'success':
+                            const successResult = await simulateApiCall('All data', 1000, false);
+                            log('errorOutput', successResult, 'success');
+                            break;
+
+                        case 'network':
+                            await simulateApiCall('Network data', 1000, true);
+                            break;
+
+                        case 'timeout':
+                            log('errorOutput', '⏱️ Simulating timeout...', 'loading');
+                            await new Promise((resolve, reject) => {
+                                setTimeout(() => reject(new Error('Request timeout')), 3000);
+                            });
+                            break;
+
+                        case 'auth':
+                            throw new Error('Authentication failed - invalid credentials');
+
+                        case 'mixed':
+                            const tasks = [
+                                simulateApiCall('Data 1', 1000, false),
+                                simulateApiCall('Data 2', 1000, true),
+                                simulateApiCall('Data 3', 1000, false)
+                            ];
+
+                            for (let i = 0; i < tasks.length; i++) {
+                                try {
+                                    const result = await tasks[i];
+                                    log('errorOutput', result, 'success');
+                                } catch (error) {
+                                    log('errorOutput', `❌ Task ${i + 1} failed: ${error.message}`, 'error');
+                                    log('errorOutput', '🔄 Continuing with next task...');
+                                }
+                            }
+                            break;
+                    }
+
+                    if (scenario !== 'mixed') {
+                        log('errorOutput', '✨ Error handling demo completed!');
+                    }
+                } catch (error) {
+                    log('errorOutput', `❌ Caught error: ${error.message}`, 'error');
+                    log('errorOutput', '✅ Error was properly handled with try/catch!');
+                }
+            });
+        }
+
+        // --- TRANSLATION OBJECT ---
+        const translations = {
+            en: {
+                mainTitle: "🚀 Async/Await Interactive Demo",
+                "main-desc-text": 'Created for the <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript for Testers</a> course | by <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a>',
+                welcomeTitle: "Welcome to the Async/Await Learning Platform!",
+                welcomeDesc: "This interactive demo will help you understand how asynchronous JavaScript/TypeScript works. You'll see the difference between callbacks, promises, and async/await, and learn why async/await makes code much easier to read and write.",
+                tab_basics: "Basics",
+                tab_comparison: "Comparison",
+                tab_sequential: "Sequential Tasks",
+                tab_parallel: "Parallel Tasks",
+                tab_error_handling: "Error Handling",
+                basicsTitle: "🎯 Basic Async/Await Demo",
+                whatIsAsyncAwait: "What is async/await?",
+                asyncAwaitDesc: "Async/await is a way to write asynchronous code that looks like synchronous code. Instead of using callbacks or .then() chains, you can use the <code>await</code> keyword to wait for a Promise to resolve.",
+                delayLabel: "Delay (seconds):",
+                dataLabel: "Data to fetch:",
+                outputLabel: "Output:",
+                callbackTitle: "🔄 Callbacks",
+                callbackDesc: "The Traditional Way",
+                callbackText: "Using callback functions to handle asynchronous operations. Notice how the code becomes harder to read as complexity increases.",
+                asyncTitle: "🎯 Async/Await",
+                asyncDesc: "The Modern Way",
+                asyncText: "Using async/await syntax that makes asynchronous code look and behave like synchronous code. Much easier to read and maintain!",
+                comparisonTitle: "⚖️ Side-by-Side Comparison",
+                whyComparisonMatters: "Why does this comparison matter?",
+                comparisonDesc: "This demonstration shows the evolution of JavaScript asynchronous programming. You'll see how the same functionality can be implemented using different approaches, and understand why async/await became the preferred method.",
+                keyDifferences: "Key Differences:",
+                callbacksDifference: "Callbacks:",
+                asyncDifference: "Async/Await:",
+                taskComplexityLabel: "Task complexity:",
+                callbackOutput: "Click to run...",
+                asyncAwaitOutput: "Click to run...",
+                noticeWhat: "🔍 What to Notice:",
+                readability: "Readability:",
+                errorHandling: "Error Handling:",
+                nesting: "Nesting:",
+                debugging: "Debugging:",
+                readabilityDesc: "Async/await reads like normal, sequential code",
+                errorHandlingDesc: "Try/catch works naturally with async/await",
+                nestingDesc: "Callbacks create deep nesting (\"callback hell\"), async/await stays flat",
+                debuggingDesc: "Async/await provides better stack traces and debugging experience",
+                sequentialTitle: "📋 Sequential Task Execution",
+                sequentialExplanation: "Sometimes you need to run tasks one after another, where each task depends on the previous one. Async/await makes this much cleaner than callback hell!",
+                runSequentialTasks: "Run Sequential Tasks",
+                clear: "Clear",
+                sequentialOutput: "Ready to run sequential tasks...",
+                sequentialExample: "Sequential Example",
+                parallelTitle: "⚡ Parallel Task Execution",
+                parallelExplanation: "<strong>Real-world scenario:</strong> When tasks don't depend on each other, you can run them in parallel to save significant time. Each API call in real applications takes unpredictable time!",
+                keyConcepts: "Key concepts:",
+                randomTiming: "Random timing:",
+                parallelAdvantage: "Parallel advantage:",
+                promiseAll: "Promise.all():",
+                efficiency: "Efficiency:",
+                randomTimingDesc: "Each task has different, unpredictable execution time (like real APIs)",
+                parallelAdvantageDesc: "Total time = longest individual task (not sum of all)",
+                promiseAllDesc: "Waits for ALL tasks to complete, but runs them simultaneously",
+                efficiencyDesc: "Can be 2-4x faster than sequential execution!",
+                runParallelTasks: "Run Parallel Tasks",
+                runSequentialComparison: "Run Sequential (Slow)",
+                parallelOutput: "Ready to run parallel tasks...",
+                parallelExample: "Parallel Example",
+                errorHandlingTitle: "🛡️ Error Handling with Async/Await",
+                errorHandlingExplanation: "Learn how to properly handle errors in async/await code using try/catch blocks. See how this compares to error handling with promises and callbacks.",
+                simulation: "Simulation:",
+                allSuccess: "All Success",
+                networkError: "Network Error",
+                timeoutError: "Timeout Error",
+                authError: "Authentication Error",
+                mixedResults: "Mixed Results",
+                runErrorDemo: "Run Error Demo",
+                errorOutput: "Ready to test error handling...",
+                errorHandlingExample: "Error Handling Example",
+                footerText: 'Created for the <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript for Testers</a> course | by <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a>',
+            },
+            pl: {
+                mainTitle: "🚀 Interaktywne Demo Async/Await",
+                "main-desc-text": 'Stworzone dla kursu <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript dla Testera</a> | by <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a>',
+                welcomeTitle: "Witamy na platformie nauki Async/Await!",
+                welcomeDesc: "To interaktywne demo pomoże Ci zrozumieć, jak działa asynchroniczność w JavaScript/TypeScript. Zobaczysz różnice między callbackami, promesami i async/await oraz dowiesz się, dlaczego async/await ułatwia czytanie i pisanie kodu.",
+                tab_basics: "Podstawy",
+                tab_comparison: "Porównanie",
+                tab_sequential: "Zadania sekwencyjne",
+                tab_parallel: "Zadania równoległe",
+                tab_error_handling: "Obsługa błędów",
+                basicsTitle: "🎯 Podstawowe demo Async/Await",
+                whatIsAsyncAwait: "Czym jest async/await?",
+                asyncAwaitDesc: "Async/await to sposób pisania asynchronicznego kodu, który wygląda jak synchroniczny. Zamiast callbacków lub łańcuchów .then(), możesz użyć słowa kluczowego <code>await</code>, aby poczekać na rozwiązanie Promisy.",
+                delayLabel: "Opóźnienie (sekundy):",
+                dataLabel: "Dane do pobrania:",
+                outputLabel: "Wynik:",
+                callbackTitle: "🔄 Callbacki",
+                callbackDesc: "Tradycyjny sposób",
+                callbackText: "Używanie funkcji callback do obsługi operacji asynchronicznych. Zwróć uwagę, jak kod staje się trudniejszy do czytania wraz ze wzrostem złożoności.",
+                asyncTitle: "🎯 Async/Await",
+                asyncDesc: "Nowoczesny sposób",
+                asyncText: "Używanie składni async/await sprawia, że kod asynchroniczny wygląda i zachowuje się jak synchroniczny. Dużo łatwiejszy do czytania i utrzymania!",
+                comparisonTitle: "⚖️ Porównanie side-by-side",
+                whyComparisonMatters: "Dlaczego to porównanie jest ważne?",
+                comparisonDesc: "To demo pokazuje ewolucję asynchroniczności w JavaScript. Zobaczysz, jak tę samą funkcjonalność można zaimplementować różnymi sposobami i zrozumiesz, dlaczego async/await stał się preferowaną metodą.",
+                keyDifferences: "Kluczowe różnice:",
+                callbacksDifference: "Callbacki:",
+                asyncDifference: "Async/Await:",
+                taskComplexityLabel: "Złożoność zadania:",
+                callbackOutput: "Kliknij, aby uruchomić...",
+                asyncAwaitOutput: "Kliknij, aby uruchomić...",
+                noticeWhat: "🔍 Na co zwrócić uwagę:",
+                readability: "Czytelność:",
+                errorHandling: "Obsługa błędów:",
+                nesting: "Zagnieżdżanie:",
+                debugging: "Debugowanie:",
+                readabilityDesc: "Async/await czyta się jak zwykły, sekwencyjny kod",
+                errorHandlingDesc: "Try/catch działa naturalnie z async/await",
+                nestingDesc: "Callbacki tworzą głębokie zagnieżdżenia (\"callback hell\"), async/await pozostaje płaski",
+                debuggingDesc: "Async/await zapewnia lepsze stack trace'y i łatwiejsze debugowanie",
+                sequentialTitle: "📋 Wykonywanie zadań sekwencyjnych",
+                sequentialExplanation: "Czasami musisz wykonać zadania jedno po drugim, gdzie każde zależy od poprzedniego. Async/await sprawia, że to dużo czytelniejsze niż callback hell!",
+                runSequentialTasks: "Uruchom zadania sekwencyjne",
+                clear: "Wyczyść",
+                sequentialOutput: "Gotowe do uruchomienia zadań sekwencyjnych...",
+                sequentialExample: "Przykład sekwencyjny",
+                parallelTitle: "⚡ Wykonywanie zadań równoległych",
+                parallelExplanation: "<strong>Przykład z życia:</strong> Gdy zadania nie zależą od siebie, możesz je uruchomić równolegle, by zaoszczędzić czas. Jednak pamiętaj, że każda operacja może zakończyć się w różnym czasie!",
+                keyConcepts: "Kluczowe pojęcia:",
+                randomTiming: "Losowy czas:",
+                parallelAdvantage: "Zaleta równoległości:",
+                promiseAll: "Promise.all():",
+                efficiency: "Wydajność:",
+                randomTimingDesc: "Każde zadanie ma inny, nieprzewidywalny czas wykonania (jak prawdziwe API)",
+                parallelAdvantageDesc: "Czas całkowity = najdłuższe zadanie (nie suma wszystkich)",
+                promiseAllDesc: "Czeka na WSZYSTKIE zadania, ale uruchamia je jednocześnie",
+                efficiencyDesc: "Może być 2-4x szybsze niż wykonanie sekwencyjne!",
+                runParallelTasks: "Uruchom zadania równoległe",
+                runSequentialComparison: "Uruchom sekwencyjnie (wolno)",
+                parallelOutput: "Gotowe do uruchomienia zadań równoległych...",
+                parallelExample: "Przykład z równoległością",
+                errorHandlingTitle: "🛡️ Obsługa błędów z Async/Await",
+                errorHandlingExplanation: "Dowiedz się, jak poprawnie obsługiwać błędy w kodzie async/await za pomocą bloków try/catch. Zobacz, jak to wygląda w porównaniu do obsługi błędów w promesach i callbackach.",
+                simulation: "Symulacja:",
+                allSuccess: "Wszystko OK",
+                networkError: "Błąd sieci",
+                timeoutError: "Błąd timeout",
+                authError: "Błąd autoryzacji",
+                mixedResults: "Wyniki mieszane",
+                runErrorDemo: "Uruchom demo błędów",
+                errorOutput: "Gotowe do testowania obsługi błędów...",
+                errorHandlingExample: "Przykład obsługi błędów",
+                footerText: 'Stworzone dla kursu <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript dla Testera</a> | by <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a>',
+            }
+        };
+
+        // --- LANGUAGE SWITCHER LOGIC ---
+        function switchLanguage(lang) {
+            // Set active button
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-pl').classList.toggle('active', lang === 'pl');
+
+            // Get translations
+            const t = translations[lang];
+
+            // Main UI
+            if (document.getElementById('mainTitle')) document.getElementById('mainTitle').textContent = t.mainTitle;
+            if (document.getElementById('main-desc-text')) document.getElementById('main-desc-text').innerHTML = t["main-desc-text"];
+            if (document.getElementById('welcomeTitle')) document.getElementById('welcomeTitle').textContent = t.welcomeTitle;
+            if (document.getElementById('welcomeDesc')) document.getElementById('welcomeDesc').textContent = t.welcomeDesc;
+
+            // Tabs
+            if (document.getElementById('tab-basics')) document.getElementById('tab-basics').textContent = t.tab_basics;
+            if (document.getElementById('tab-comparison')) document.getElementById('tab-comparison').textContent = t.tab_comparison;
+            if (document.getElementById('tab-sequential')) document.getElementById('tab-sequential').textContent = t.tab_sequential;
+            if (document.getElementById('tab-parallel')) document.getElementById('tab-parallel').textContent = t.tab_parallel;
+            if (document.getElementById('tab-error-handling')) document.getElementById('tab-error-handling').textContent = t.tab_error_handling;
+
+            // Basics Tab
+            if (document.getElementById('basicsTitle')) document.getElementById('basicsTitle').textContent = t.basicsTitle;
+            if (document.getElementById('whatIsAsyncAwait')) document.getElementById('whatIsAsyncAwait').textContent = t.whatIsAsyncAwait;
+            if (document.getElementById('asyncAwaitDesc')) document.getElementById('asyncAwaitDesc').innerHTML = t.asyncAwaitDesc;
+            if (document.getElementById('delayLabel')) document.getElementById('delayLabel').textContent = t.delayLabel;
+            if (document.getElementById('dataLabel')) document.getElementById('dataLabel').textContent = t.dataLabel;
+            if (document.getElementById('outputLabel')) document.getElementById('outputLabel').textContent = t.outputLabel;
+
+            // Comparison Tab
+            if (document.getElementById('comparisonTitle')) document.getElementById('comparisonTitle').textContent = t.comparisonTitle;
+            if (document.getElementById('whyComparisonMatters')) document.getElementById('whyComparisonMatters').textContent = t.whyComparisonMatters;
+            if (document.getElementById('comparisonDesc')) document.getElementById('comparisonDesc').textContent = t.comparisonDesc;
+            if (document.getElementById('keyDifferences')) document.getElementById('keyDifferences').textContent = t.keyDifferences;
+            if (document.getElementById('callbacksDifference')) document.getElementById('callbacksDifference').textContent = t.callbacksDifference;
+            if (document.getElementById('asyncDifference')) document.getElementById('asyncDifference').textContent = t.asyncDifference;
+            if (document.getElementById('taskComplexityLabel')) document.getElementById('taskComplexityLabel').textContent = t.taskComplexityLabel;
+            if (document.getElementById('callbackTitle')) document.getElementById('callbackTitle').textContent = t.callbackTitle;
+            if (document.getElementById('callbackDesc')) document.getElementById('callbackDesc').textContent = t.callbackDesc;
+            if (document.getElementById('callbackText')) document.getElementById('callbackText').textContent = t.callbackText;
+            if (document.getElementById('asyncTitle')) document.getElementById('asyncTitle').textContent = t.asyncTitle;
+            if (document.getElementById('asyncDesc')) document.getElementById('asyncDesc').textContent = t.asyncDesc;
+            if (document.getElementById('asyncText')) document.getElementById('asyncText').textContent = t.asyncText;
+            if (document.getElementById('asyncAwaitOutput')) document.getElementById('asyncAwaitOutput').textContent = t.asyncAwaitOutput;
+            if (document.getElementById('callbackOutput')) document.getElementById('callbackOutput').textContent = t.callbackOutput;
+            if (document.getElementById('noticeWhat')) document.getElementById('noticeWhat').textContent = t.noticeWhat;
+            if (document.getElementById('readability')) document.getElementById('readability').textContent = t.readability;
+            if (document.getElementById('errorHandling')) document.getElementById('errorHandling').textContent = t.errorHandling;
+            if (document.getElementById('nesting')) document.getElementById('nesting').textContent = t.nesting;
+            if (document.getElementById('debugging')) document.getElementById('debugging').textContent = t.debugging;
+            if (document.getElementById('readabilityDesc')) document.getElementById('readabilityDesc').textContent = t.readabilityDesc;
+            if (document.getElementById('errorHandlingDesc')) document.getElementById('errorHandlingDesc').textContent = t.errorHandlingDesc;
+            if (document.getElementById('nestingDesc')) document.getElementById('nestingDesc').textContent = t.nestingDesc;
+            if (document.getElementById('debuggingDesc')) document.getElementById('debuggingDesc').textContent = t.debuggingDesc;
+
+            // Sequential Tab
+            if (document.querySelector('#sequential h2')) document.querySelector('#sequential h2').textContent = t.sequentialTitle;
+            if (document.querySelector('#sequential .explanation p')) document.querySelector('#sequential .explanation p').textContent = t.sequentialExplanation;
+            if (document.querySelector('#sequential .button-group .demo-button')) document.querySelector('#sequential .button-group .demo-button').textContent = t.runSequentialTasks;
+            if (document.querySelector('#sequential .button-group .demo-button + .demo-button')) document.querySelector('#sequential .button-group .demo-button + .demo-button').textContent = t.clear;
+            if (document.querySelector('#sequential .demo-area h3')) document.querySelector('#sequential .demo-area h3').textContent = t.outputLabel;
+            if (document.getElementById('sequentialOutput')) document.getElementById('sequentialOutput').textContent = t.sequentialOutput;
+            if (document.querySelector('#sequential h3')) document.querySelector('#sequential h3').textContent = t.sequentialExample;
+
+            // Parallel Tab
+            if (document.querySelector('#parallel h2')) document.querySelector('#parallel h2').textContent = t.parallelTitle;
+            if (document.querySelector('#parallel .explanation p')) document.querySelector('#parallel .explanation p').innerHTML = t.parallelExplanation;
+            if (document.querySelector('#parallel .explanation strong')) document.querySelector('#parallel .explanation strong').textContent = t.keyConcepts;
+            const parallelUl = document.querySelectorAll('#parallel .explanation ul li');
+            if (parallelUl.length >= 4) {
+                parallelUl[0].innerHTML = `<strong>${t.randomTiming}</strong> ${t.randomTimingDesc}`;
+                parallelUl[1].innerHTML = `<strong>${t.parallelAdvantage}</strong> ${t.parallelAdvantageDesc}`;
+                parallelUl[2].innerHTML = `<strong>${t.promiseAll}</strong> ${t.promiseAllDesc}`;
+                parallelUl[3].innerHTML = `<strong>${t.efficiency}</strong> ${t.efficiencyDesc}`;
+            }
+            if (document.querySelector('#parallel .button-group .demo-button')) document.querySelector('#parallel .button-group .demo-button').textContent = t.runParallelTasks;
+            if (document.querySelector('#parallel .button-group .demo-button + .demo-button')) document.querySelector('#parallel .button-group .demo-button + .demo-button').textContent = t.runSequentialComparison;
+            if (document.querySelector('#parallel .button-group .demo-button + .demo-button + .demo-button')) document.querySelector('#parallel .button-group .demo-button + .demo-button + .demo-button').textContent = t.clear;
+            if (document.querySelector('#parallel .demo-area h3')) document.querySelector('#parallel .demo-area h3').textContent = t.outputLabel;
+            if (document.getElementById('parallelOutput')) document.getElementById('parallelOutput').textContent = t.parallelOutput;
+            if (document.querySelector('#parallel h3')) document.querySelector('#parallel h3').textContent = t.parallelExample;
+
+            // Error Handling Tab
+            if (document.querySelector('#error-handling h2')) document.querySelector('#error-handling h2').textContent = t.errorHandlingTitle;
+            if (document.querySelector('#error-handling .explanation p')) document.querySelector('#error-handling .explanation p').textContent = t.errorHandlingExplanation;
+            if (document.querySelector('#error-handling .input-group label')) document.querySelector('#error-handling .input-group label').textContent = t.simulation;
+            const errorSelect = document.getElementById('errorScenario');
+            if (errorSelect) {
+                errorSelect.options[0].text = t.allSuccess;
+                errorSelect.options[1].text = t.networkError;
+                errorSelect.options[2].text = t.timeoutError;
+                errorSelect.options[3].text = t.authError;
+                errorSelect.options[4].text = t.mixedResults;
+            }
+            if (document.querySelector('#error-handling .button-group .demo-button')) document.querySelector('#error-handling .button-group .demo-button').textContent = t.runErrorDemo;
+            if (document.querySelector('#error-handling .button-group .demo-button + .demo-button')) document.querySelector('#error-handling .button-group .demo-button + .demo-button').textContent = t.clear;
+            if (document.querySelector('#error-handling .demo-area h3')) document.querySelector('#error-handling .demo-area h3').textContent = t.outputLabel;
+            if (document.getElementById('errorOutput')) document.getElementById('errorOutput').textContent = t.errorOutput;
+            if (document.querySelector('#error-handling h3')) document.querySelector('#error-handling h3').textContent = t.errorHandlingExample;
+
+            // Footer
+            if (document.getElementById('footer-text')) document.getElementById('footer-text').innerHTML = t.footerText;
+        }
+    </script>
+</body>
+
+</html>
