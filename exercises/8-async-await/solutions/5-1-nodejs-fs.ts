@@ -13,7 +13,7 @@ export {} // Ignore this line
 // 3. Use await with fs.writeFile() to create 'test.txt' with content "Hello from Node.js!"
 // 4. Use await with fs.readFile() to read the file back (with 'utf8' encoding)
 // 5. Print "File content: " + the content that was read
-// 6. Call the function
+// 6. Call the function and handle any errors with try-catch
 
 // 💭 Questions to think about:
 // - What happens if the file doesn't exist when you try to read it?
@@ -34,9 +34,15 @@ import { promises as fs } from "fs" // Step 1: Import fs with promises
 
 async function readAndWriteFile() {
     // Step 2: Create async function
-    await fs.writeFile("test.txt", "Hello from Node.js!") // Step 3: Write file
-    const content = await fs.readFile("test.txt", "utf8") // Step 4: Read file
-    console.log("File content: " + content) // Step 5: Print content
+    try {
+        await fs.writeFile("test.txt", "Hello from Node.js!") // Step 3: Write file
+        const content = await fs.readFile("test.txt", "utf8") // Step 4: Read file
+        console.log("File content: " + content) // Step 5: Print content
+        console.log("File operations completed successfully!")
+    } catch (error: any) {
+        console.log("Error: " + error.message)
+    }
 }
-// Call the function to execute file operations
+
+// Call the function to execute file operations (Step 6)
 readAndWriteFile()

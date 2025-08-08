@@ -1,4 +1,4 @@
-// 🧪 Exercise 4.1: Ternary operator
+// 🧪 Exercise 5.1: Ternary operator
 // This exercise will help you practice the ternary operator.
 
 // -------------------------
@@ -25,4 +25,4 @@ export {} // Ignore this line
 // "Pass"
 // -------------------------
 
-// 👇 Your code here 👇 
+// 👇 Your code here 👇

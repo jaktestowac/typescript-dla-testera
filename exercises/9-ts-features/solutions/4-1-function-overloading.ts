@@ -1,4 +1,4 @@
-// 🧪 Exercise 5.1: Function overloading
+// 🧪 Exercise 4.1: Function overloading
 // This exercise will help you practice function overloading in TypeScript.
 
 // -------------------------

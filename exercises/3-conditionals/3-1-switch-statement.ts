@@ -1,4 +1,4 @@
-// 🧪 Exercise 6.1: Switch statement in functions
+// 🧪 Exercise 3.1: Switch statement in functions
 // This exercise will help you practice using switch statements within functions.
 
 // -------------------------

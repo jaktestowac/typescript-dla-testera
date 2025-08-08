@@ -1,4 +1,4 @@
-// 🧪 Exercise 4.1: Ternary operator
+// 🧪 Exercise 5.1: Ternary operator
 // This exercise will help you practice the ternary operator.
 
 // -------------------------
@@ -25,7 +25,7 @@ export {} // Ignore this line
 // "Pass"
 // -------------------------
 
-// 👇 Your code here 👇 
+// 👇 Your code here 👇
 const score = 75 // Step 1: Create a variable `score` and assign it the value 75
 const result = score >= 70 ? "Pass" : "Fail" // Step 2-5: Use ternary operator and store result
-console.log(result) // Step 6: Print the result 
+console.log(result) // Step 6: Print the result

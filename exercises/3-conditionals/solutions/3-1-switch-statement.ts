@@ -1,4 +1,4 @@
-// 🧪 Exercise 6.1: Switch statement in functions
+// 🧪 Exercise 3.1: Switch statement in functions
 // This exercise will help you practice using switch statements within functions.
 
 // -------------------------
@@ -40,43 +40,57 @@ export {} // Ignore this line
 // "Month 6 is Summer"
 // -------------------------
 
-// 👇 Your code here 👇 
+// 👇 Your code here 👇
 
-function getDayName(day: number): string { // Step 1: Create function getDayName
-  switch (day) { // Step 2: Use switch statement
-    case 1: return "Monday"
-    case 2: return "Tuesday"
-    case 3: return "Wednesday"
-    case 4: return "Thursday"
-    case 5: return "Friday"
-    case 6: return "Saturday"
-    case 7: return "Sunday"
-    default: return "Invalid day"
-  }
+function getDayName(day: number): string {
+    // Step 1: Create function getDayName
+    switch (
+        day // Step 2: Use switch statement
+    ) {
+        case 1:
+            return "Monday"
+        case 2:
+            return "Tuesday"
+        case 3:
+            return "Wednesday"
+        case 4:
+            return "Thursday"
+        case 5:
+            return "Friday"
+        case 6:
+            return "Saturday"
+        case 7:
+            return "Sunday"
+        default:
+            return "Invalid day"
+    }
 }
 
-function getSeason(month: number): string { // Step 3: Create function getSeason
-  switch (month) { // Step 4: Use switch statement for seasons
-    case 12:
-    case 1:
-    case 2:
-      return "Winter"
-    case 3:
-    case 4:
-    case 5:
-      return "Spring"
-    case 6:
-    case 7:
-    case 8:
-      return "Summer"
-    case 9:
-    case 10:
-    case 11:
-      return "Autumn"
-    default:
-      return "Invalid month"
-  }
+function getSeason(month: number): string {
+    // Step 3: Create function getSeason
+    switch (
+        month // Step 4: Use switch statement for seasons
+    ) {
+        case 12:
+        case 1:
+        case 2:
+            return "Winter"
+        case 3:
+        case 4:
+        case 5:
+            return "Spring"
+        case 6:
+        case 7:
+        case 8:
+            return "Summer"
+        case 9:
+        case 10:
+        case 11:
+            return "Autumn"
+        default:
+            return "Invalid month"
+    }
 }
 
 console.log(`Day 3 is ${getDayName(3)}`) // Step 5: Test and print
-console.log(`Month 6 is ${getSeason(6)}`) 
+console.log(`Month 6 is ${getSeason(6)}`)
