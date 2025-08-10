@@ -32,7 +32,12 @@ const product1: Product = {
 // ✅ So what’s the difference?
 // -------------------------
 // For now — you can treat them as **almost the same**
-// Later, when you learn more advanced topics, you'll see the real differences.
+// Main differences are:
+// - `interface` can be extended (like adding more properties later)
+// - `type` can be used for more complex types (like unions or intersections)
+// - `interface` is better for defining object shapes, while `type` can be used for other things too
+// - `type` can be used for primitive types, unions, and intersections
+// - `interface` is more readable for beginners when defining object shapes
 
 // 🧠 In practice:
 // - Use `interface` when working with objects (recommended for beginners)

@@ -39,7 +39,7 @@ console.log("User:", user)
 
 console.log("-------------------------")
 console.log("⚠️ Invalid Object (will not compile)")
-// console.log("-------------------------");
+console.log("-------------------------");
 
 // Uncommenting this will show an error:
 // const brokenUser: User = {

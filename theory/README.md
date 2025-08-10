@@ -21,6 +21,7 @@
 ## Section 2: Operators and Expressions
 
 - [S2.1 – Arithmetic Operators](./2-operators-and-expressions/1-arithmetic.ts)
+- [S2.1.2 – Increment/Decrement Operators](./2-operators-and-expressions/1.2-increment-decrement.ts)
 - [S2.2 – Comparison Operators](./2-operators-and-expressions/2-comparison.ts)
 - [S2.3 – Logical Operators](./2-operators-and-expressions/3-logic.ts)
 - [S2.4 – Error Handling](./2-operators-and-expressions/4-error-handling.ts)

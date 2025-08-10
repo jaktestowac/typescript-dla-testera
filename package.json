@@ -12,6 +12,7 @@
         "t1s4": "npx tsx theory/1-variables-and-types/4-union-types.ts",
         "t1s5": "npx tsx theory/1-variables-and-types/5-printing.ts",
         "t2s1": "npx tsx theory/2-operators-and-expressions/1-arithmetic.ts",
+        "t2s1.2": "npx tsx theory/2-operators-and-expressions/1.2-increment-decrement.ts",
         "t2s2": "npx tsx theory/2-operators-and-expressions/2-comparison.ts",
         "t2s3": "npx tsx theory/2-operators-and-expressions/3-logic.ts",
         "t2s4": "npx tsx theory/2-operators-and-expressions/4-error-handling.ts",
