@@ -29,10 +29,10 @@ Wspólnie przeprowadzimy Cię przez teorię, przykładami i praktycznymi ćwicze
 - [🎯 Grupa docelowa](#-grupa-docelowa)
 - [📋 Wymagania wstępne](#-wymagania-wstępne)
 - [🚀 Pierwsze kroki](#-pierwsze-kroki)
+    - [0. Zweryfikuj swoją konfigurację](#0-zweryfikuj-swoją-konfigurację)
     - [1. Sklonuj to repozytorium](#1-sklonuj-to-repozytorium)
     - [2. Zainstaluj zależności](#2-zainstaluj-zależności)
-    - [3. Zweryfikuj swoją konfigurację](#3-zweryfikuj-swoją-konfigurację)
-    - [4. Uruchom swój pierwszy przykład TypeScript](#4-uruchom-swój-pierwszy-przykład-typescript)
+    - [3. Uruchom swój pierwszy skrypt TypeScript](#3-uruchom-swój-pierwszy-skrypt-typescript)
 - [🗺️ Ścieżka nauki](#️-ścieżka-nauki)
 - [🧭 Jak się uczyć](#-jak-się-uczyć)
 - [🎯 Śledzenie postępów](#-śledzenie-postępów)
@@ -55,22 +55,24 @@ Wspólnie przeprowadzimy Cię przez teorię, przykładami i praktycznymi ćwicze
 # 📚 Czego się nauczysz
 
 To repozytorium pomoże Ci **zrozumieć podstawowe koncepcje TypeScript**, które są powszechnie używane w automatyzacji testów.  
-Nauczysz się również **podstaw programowania**, więc nie potrzebujesz żadnego technicznego background'u, aby zacząć!
+Nauczysz się również **podstaw programowania**!
+Więc nie potrzebujesz żadnego technicznego background'u, aby zacząć!
 
 Jako tester, nauka TypeScript pomoże Ci:
 
-- **Czytać i rozumieć** kod z pewnością siebie
-- **Pisać lepsze skrypty** automatyzacji testów
+- **Czytać i rozumieć** kod (zarówno testów automatycznych, jak i aplikacji)
+- **Tworzyć i modyfikować** proste skrypty
+- **Pisać lepsze skrypty** we frameworku
 - **Efektywnie współpracować** z programistami i inżynierami automatyzacji
 
 # 🎯 Grupa docelowa
 
-- Testerzy manualni rozpoczynający swoją przygodę z automatyzacją
-- Inżynierowie QA rozszerzający swoje umiejętności automatyzacji
-- Inżynierowie automatyzacji testów pracujący z projektami TypeScript
-- Każdy w testowaniu, kto chce podnieść swoje umiejętności techniczne
+- **Testerzy manualni** rozpoczynający swoją przygodę z automatyzacją
+- **Inżynierowie QA** rozszerzający swoje umiejętności automatyzacji
+- **Inżynierowie automatyzacji testów** pracujący z projektami TypeScript
+- **Każdy**, kto chce podnieść swoje umiejętności techniczne
 
-# 📋 Wymagania wstępne
+# 📋 Wymagania
 
 Czego potrzebujesz na swoim komputerze:
 
@@ -84,7 +86,21 @@ Czego potrzebujesz na swoim komputerze:
 
 # 🚀 Pierwsze kroki
 
+## 0. Zweryfikuj swoją konfigurację
+
+Upewnij się, że masz zainstalowane Node.js i npm (Node Package Manager). Możesz to sprawdzić, uruchamiając następujące polecenia w terminalu:
+
+```bash
+# Sprawdź czy Node.js jest zainstalowany
+node --version
+
+# Sprawdź czy npm jest zainstalowany
+npm --version
+```
+
 ## 1. Sklonuj to repozytorium
+
+W konsoli lub terminalu, przejdź do katalogu, w którym chcesz umieścić projekt, a następnie sklonuj repozytorium:
 
 ```bash
 git clone https://github.com/jaktestowac/typescript-dla-testera
@@ -93,29 +109,26 @@ cd typescript-dla-testera
 
 ## 2. Zainstaluj zależności
 
+Uruchom terminal w katalogu projektu i wpisz:
+
 ```bash
 npm install
 ```
 
-## 3. Zweryfikuj swoją konfigurację
+## 3. Uruchom swój pierwszy skrypt TypeScript
+
+Teraz jesteś gotowy, aby uruchomić swój pierwszy skrypt TypeScript!
+W katalogu `theory/0-base/` znajdziesz plik `1-hello-world.ts`, który jest prostym przykładem.
+Możesz go uruchomić na dwa sposoby:
 
 ```bash
-# Sprawdź czy Node.js jest zainstalowany
-node --version
-
-# Sprawdź czy npm jest zainstalowany
-npm --version
-
-# Zainstaluj zależności projektu
-npm install
-```
-
-## 4. Uruchom swój pierwszy przykład TypeScript
-
-```bash
-# Uruchom przykład hello world
+# Uruchom skrypt hello world
 npm run t0s1
+```
 
+lub uruchomić go bezpośrednio z `tsx`:
+
+```bash
 # Lub uruchom go bezpośrednio z tsx
 npx tsx theory/0-base/1-hello-world.ts
 ```

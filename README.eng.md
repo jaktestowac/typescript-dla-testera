@@ -29,10 +29,10 @@ You'll work through theory, examples, and hands-on exercises to build a strong f
 - [🎯 Target Audience](#-target-audience)
 - [📋 Prerequisites](#-prerequisites)
 - [🚀 Getting Started](#-getting-started)
+    - [0. Verify your setup](#0-verify-your-setup)
     - [1. Clone this repository](#1-clone-this-repository)
     - [2. Install dependencies](#2-install-dependencies)
-    - [3. Verify your setup](#3-verify-your-setup)
-    - [4. Run your first TypeScript example](#4-run-your-first-typescript-example)
+    - [3. Run your first TypeScript example](#3-run-your-first-typescript-example)
 - [🗺️ Learning Path](#️-learning-path)
 - [🧭 How to Study](#-how-to-study)
 - [🎯 Progress Tracking](#-progress-tracking)
@@ -84,20 +84,9 @@ Installed on your machine:
 
 # 🚀 Getting Started
 
-## 1. Clone this repository
+## 0. Verify your setup
 
-```bash
-git clone https://github.com/jaktestowac/typescript-dla-testera
-cd typescript-dla-testera
-```
-
-## 2. Install dependencies
-
-```bash
-npm install
-```
-
-## 3. Verify your setup
+Before you start, make sure you have Node.js and npm (Node Package Manager) installed on your machine. You can check this by running the following commands in your terminal:
 
 ```bash
 # Check if Node.js is installed
@@ -110,12 +99,35 @@ npm --version
 npm install
 ```
 
-## 4. Run your first TypeScript example
+## 1. Clone this repository
+
+In your terminal, navigate to the directory where you want to place the project, and then clone the repository:
+
+```bash
+git clone https://github.com/jaktestowac/typescript-dla-testera
+cd typescript-dla-testera
+```
+
+## 2. Install dependencies
+
+```bash
+npm install
+```
+
+## 3. Run your first TypeScript example
+
+Now you're ready to run your first TypeScript example!
+In the `theory/0-base/` directory, you'll find the `1-hello-world.ts` file, which is a simple example.
+You can run it in two ways:
 
 ```bash
 # Run the hello world example
 npm run t0s1
+```
 
+or run it directly with `tsx`:
+
+```bash
 # Or run it directly with tsx
 npx tsx theory/0-base/1-hello-world.ts
 ```
