@@ -5,9 +5,9 @@
 // -------------------------
 // ✏️ Method 1: String Concatenation (+)
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✏️ String Concatenation (+)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let name: string = "Alice"
 let age: number = 28
@@ -28,9 +28,9 @@ console.log("You are " + age + " years old.") // "You are 28 years old."
 // -------------------------
 // Template literals use backticks (`) and ${} to embed variables
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("💬 Template Literals")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log(`Hello, ${name}!`) // "Hello, Alice!"
 console.log(`You are ${age} years old.`) // "You are 28 years old."
@@ -48,9 +48,9 @@ console.log(`You are ${age} years old.`) // "You are 28 years old."
 // -------------------------
 // console.log can accept multiple arguments separated by commas
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🧱 Comma-separated values")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log("Hello,", name, "!") // "Hello, Alice !"
 console.log("You are", age, "years old.") // "You are 28 years old."

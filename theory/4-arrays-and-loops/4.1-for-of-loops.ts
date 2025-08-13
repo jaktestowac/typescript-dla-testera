@@ -1,73 +1,78 @@
-// 📘 Lesson: For-of Loops in TypeScript - Basics
+// 📘 Lesson: For-of Loops in TypeScript - Advanced
 // In this lesson, you'll learn how to use for-of loops to iterate through arrays and other iterable objects.
 
 // -------------------------
-// 🔄 What is a for-of loop?
-// -------------------------
-// A for-of loop is a modern way to iterate through arrays and other iterable objects.
-// It gives you direct access to the values (not the indices).
-
-console.log("\n-------------------------")
-console.log("🔄 Basic for-of loop")
-console.log("-------------------------\n")
-
-const colors = ["red", "green", "blue"]
-
-// Using for-of to get each color directly
-for (const color of colors) {
-    console.log("I like", color)
-}
-
-// -------------------------
-// 🔄 For-of vs traditional for loop
+// ⚠️ Important: const vs let in for-of
 // -------------------------
 console.log("\n-------------------------")
-console.log("🔄 For-of vs traditional for")
+console.log("⚠️ Const vs let in for-of")
 console.log("-------------------------\n")
 
-const fruits = ["apple", "banana", "orange"]
+const scores = [85, 92, 78, 96]
 
-// Traditional for loop (using index)
-console.log("Traditional for loop:")
-for (let i = 0; i < fruits.length; i++) {
-    console.log("Fruit at index", i, "is", fruits[i])
+// Using const (recommended) - you can't reassign the variable
+for (const score of scores) {
+    console.log("Score:", score)
+    // score = 100 // ❌ This would cause an error
 }
 
-// For-of loop (direct value access)
-console.log("For-of loop:")
-for (const fruit of fruits) {
-    console.log("Fruit:", fruit)
+// Using let - you can reassign (but usually don't need to)
+for (let score of scores) {
+    console.log("Score:", score)
+    // score = 100 // ✅ This works, but doesn't change the original array
 }
 
 // -------------------------
-// 🔄 For-of with strings
+// 🔄 For-of vs for-in
 // -------------------------
 console.log("\n-------------------------")
-console.log("🔄 For-of with strings")
+console.log("🔄 For-of vs for-in")
 console.log("-------------------------\n")
 
-const message = "Hello"
+const items = ["a", "b", "c"]
 
-for (const letter of message) {
-    console.log("Letter:", letter)
+// For-of: gets the values
+console.log("For-of (values):")
+for (const item of items) {
+    console.log("Value:", item)
+}
+
+// For-in: gets the indices (as strings)
+console.log("For-in (indices):")
+for (const index in items) {
+    console.log("Index:", index, "Value:", items[index])
 }
 
 // -------------------------
-// 🔄 For-of with numbers array
+// 🔄 For-of with objects (Object.values, Object.keys, Object.entries)
 // -------------------------
 console.log("\n-------------------------")
-console.log("🔄 For-of with numbers")
+console.log("🔄 For-of with objects")
 console.log("-------------------------\n")
 
-const numbers = [1, 2, 3, 4, 5]
-let sum = 0
-
-for (const num of numbers) {
-    sum += num
-    console.log("Adding", num, "- Total so far:", sum)
+const person = {
+    name: "Alice",
+    age: 30,
+    city: "New York"
 }
 
-console.log("Final sum:", sum)
+// Iterate through object values
+console.log("Object values:")
+for (const value of Object.values(person)) {
+    console.log("Value:", value)
+}
+
+// Iterate through object keys
+console.log("Object keys:")
+for (const key of Object.keys(person)) {
+    console.log("Key:", key)
+}
+
+// Iterate through object entries (key-value pairs)
+console.log("Object entries:")
+for (const [key, value] of Object.entries(person)) {
+    console.log(key + ":", value)
+}
 
 // -------------------------
 // 🧠 When to use for-of?

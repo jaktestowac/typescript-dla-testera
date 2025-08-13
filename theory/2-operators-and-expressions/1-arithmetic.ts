@@ -4,9 +4,9 @@
 // -------------------------
 // ➕ Addition
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("➕ Addition")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const apples = 3
 const bananas = 5
@@ -20,9 +20,9 @@ console.log("Total fruits:", totalFruits) // 8
 // -------------------------
 // ➖ Subtraction
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("➖ Subtraction")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const ageJohn = 30
 const ageAnna = 25
@@ -36,9 +36,9 @@ console.log("Age difference:", ageDifference) // 5
 // -------------------------
 // ✖️ Multiplication
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✖️ Multiplication")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const pricePerItem = 10
 const quantity = 4
@@ -52,9 +52,9 @@ console.log("Total price:", totalPrice) // 40
 // -------------------------
 // ➗ Division
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("➗ Division")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const totalMinutes = 90
 const minutesPerEpisode = 30
@@ -70,9 +70,9 @@ console.log("Episodes watched:", episodesWatched) // 3
 // -------------------------
 // The `%` operator returns the remainder after division
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔢 Modulo (Remainder)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const totalChocolates = 10
 const people = 3

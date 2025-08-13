@@ -25,9 +25,9 @@
 // -------------------------
 // Both conditions must be true for the result to be true.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🟢 Logical AND (&&)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const isAdult: boolean = true
 const hasID: boolean = true
@@ -50,9 +50,9 @@ console.log("Can enter event:", canEnterEvent) // false – one is false
 // -------------------------
 // Only one condition needs to be true for the result to be true.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔴 Logical OR (||)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const hasKey: boolean = false
 const knowsPassword: boolean = true
@@ -70,9 +70,9 @@ console.log("Can unlock door:", canUnlockDoor) // true – at least one is true
 // - `true` becomes `false`
 // - `false` becomes `true`
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🚫 Logical NOT (!)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let isOnline: boolean = false
 console.log("isOnline:", isOnline) // false
@@ -82,9 +82,9 @@ let isAvailable: boolean = true
 console.log("isAvailable:", isAvailable) // true
 console.log("isBusy:", !isAvailable) // false – the opposite of true
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🚀 Logical Operators in Action")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // Let's see how these operators can be used together in a real-world scenario.
 // use numbers to represent age and membership status

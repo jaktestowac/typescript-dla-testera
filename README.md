@@ -208,21 +208,32 @@ Katalog `exercises/` zawiera praktyczne zadania i wyzwania, które pomogą Ci ut
 
 ## Typowe problemy i rozwiązania
 
-**Problem**: `node: command not found`  
+🚨 **Problem**: `node: command not found`  
 **Rozwiązanie**: Zainstaluj Node.js z https://nodejs.org/
 
-**Problem**: `npx tsx: command not found`  
-**Rozwiązanie**: Uruchom `npm install` w katalogu projektu
+🚨 **Problem**: `npx tsx: command not found`  
+**Rozwiązanie**: Uruchom `npm install` w katalogu projektu lub zainstaluj `tsx` globalnie: `npm install -g tsx`
 
-**Problem**: Błędy TypeScript w VS Code  
-**Rozwiązanie**: Zainstaluj rozszerzenie TypeScript i sprawdź czy `tsconfig.json` istnieje
+🚨 **Problem**: Błędy TypeScript w VS Code  
+**Rozwiązanie**: Zainstaluj rozszerzenie TypeScript i sprawdź czy `tsconfig.json` istnieje w katalogu głównym projektu.
 
-**Problem**: Code Runner nie działa  
+🚨 **Problem**: Błędy podczas uruchamiania skryptów
+**Rozwiązanie**: Upewnij się, że używasz `npx tsx` do uruchamiania skryptów TypeScript.
+
+🚨 **Problem**: `npm run t0s1` nie działa
+**Rozwiązanie**: Sprawdź, czy skrypt jest poprawnie zdefiniowany w `package.json`.
+
+🚨 **Problem**: Code Runner nie działa  
 **Rozwiązanie**:
 
-1. Zainstaluj rozszerzenie Code Runner
+1. Zainstaluj rozszerzenie Code Runner z [marketplace](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
 2. Sprawdź czy tsx jest zainstalowany: `npm list tsx`
-3. Uruchom ponownie VS Code
+3. Sprawzd konfigurację Code Runner w ustawieniach VS Code:
+    - Otwórz ustawienia (Ctrl + ,)
+    - Wyszukaj `code-runner.executorMap`
+    - Upewnij się, że `typescript` jest ustawione na `npx tsx`
+4. Uruchom ponownie VS Code
+5. Upewnij się, że plik ma rozszerzenie `.ts`
 
 ---
 

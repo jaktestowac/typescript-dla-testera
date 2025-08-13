@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript/TypeScript Comparison Demonstration by jaktestowac.pl</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+
+        .tab {
+            padding: 8px 16px;
+            background: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border-radius: 6px 6px 0 0;
+            margin-right: 4px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .tab:last-child {
+            margin-right: 0;
+        }
+
+        .tab.active {
+            background: #007bff;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .comparison-table th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            position: sticky;
+            left: 0;
+            z-index: 5;
+        }
+
+        .comparison-table th:first-child {
+            z-index: 15;
+        }
+
+        .equal {
+            color: #28a745;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .not-equal {
+            color: #dc3545;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .value-display {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #666;
+            display: block;
+        }
+
+        .legend {
+            margin-top: 5px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .legend h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .legend-item {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 5px;
+        }
+
+        .legend p {
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
+
+        .table-container {
+            overflow: auto;
+            max-height: 1200px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .footer {
+            margin-top: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 2px solid #007bff;
+            font-size: 14px;
+        }
+
+        .footer p {
+            margin: 2px 0;
+            color: #666;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 1000;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e0e0e0;
+        }
+
+        .lang-btn {
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 90px;
+            justify-content: center;
+        }
+
+        .flag-emoji {
+            font-size: 20px;
+        }
+
+        .lang-btn.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+            transform: scale(1.05);
+        }
+
+        .lang-btn:hover {
+            background: #e9ecef;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .lang-btn.active:hover {
+            background: #0056b3;
+        }
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+
+        .custom-tooltip {
+            position: absolute;
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 10000;
+            max-width: 300px;
+            word-wrap: break-word;
+            white-space: normal;
+            pointer-events: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 12px;
+        }
+
+        .quiz-progress {
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 12px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #e9ecef;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 6px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            transition: width 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .quiz-question {
+            background: white;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 6px rgba(0, 123, 255, 0.1);
+        }
+
+        .question-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .comparison-display {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            text-align: center;
+            margin: 12px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 3px solid #007bff;
+        }
+
+        .comparison-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8px 0;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+        }
+
+        .comparison-row:hover {
+            background: #f8f9fa;
+            transform: translateY(-1px);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-expression {
+            font-family: 'Courier New', monospace;
+            font-size: 1em;
+            font-weight: bold;
+            flex: 1;
+        }
+
+        .answer-buttons {
+            display: flex;
+            gap: 6px;
+        }
+
+        .quiz-btn {
+            padding: 6px 12px;
+            border: 2px solid;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            min-width: 60px;
+        }
+
+        .quiz-btn.equal {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .quiz-btn.equal:hover {
+            background: #28a745;
+            color: white;
+        }
+
+        .quiz-btn.not-equal {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .quiz-btn.not-equal:hover {
+            background: #dc3545;
+            color: white;
+        }
+
+        .quiz-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .quiz-btn.selected {
+            box-shadow: 0 0 0 4px #002fff;
+            border-width: 4px;
+            outline: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quiz-results {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .score-display {
+            font-size: 1.6em;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 123, 255, 0.3);
+        }
+
+        .quiz-restart-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-restart-btn:hover {
+            background: #218838;
+            transform: translateY(-1px);
+        }
+
+        .answer-review {
+            text-align: left;
+            max-width: 700px;
+            margin: 15px auto;
+        }
+
+        .answer-item {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 10px;
+            margin: 6px 0;
+            font-size: 14px;
+        }
+
+        .answer-item.correct {
+            border-left: 3px solid #28a745;
+            background: #f8fff9;
+        }
+
+        .answer-item.incorrect {
+            border-left: 3px solid #dc3545;
+            background: #fff8f8;
+        }
+
+        #quiz h2 {
+            font-size: 1.4em;
+            margin: 10px 0 15px 0;
+            text-align: center;
+        }
+
+        #main-title {
+            margin-bottom: 0px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .quiz-feedback {
+            margin-top: 8px;
+            text-align: center;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 6px;
+            padding: 8px 0;
+            transition: background 0.3s, color 0.3s;
+            min-height: 32px;
+        }
+
+        .quiz-feedback.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #28a745;
+            box-shadow: 0 2px 6px rgba(40, 167, 69, 0.08);
+        }
+
+        .quiz-feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #dc3545;
+            box-shadow: 0 2px 6px rgba(220, 53, 69, 0.08);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="language-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('en')" id="lang-en"><span class="flag-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#071b65"></rect>
+                    <path d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z" fill="#fff"></path>
+                    <path d="M22.25,19h-2.5l9.934,7.947c.387-.353,.704-.777,.929-1.257l-8.363-6.691Z" fill="#b92932"></path>
+                    <path d="M1.387,6.309l8.363,6.691h2.5L2.316,5.053c-.387,.353-.704,.777-.929,1.257Z" fill="#b92932"></path>
+                    <path d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z" fill="#fff"></path>
+                    <rect x="13" y="4" width="6" height="24" fill="#fff"></rect>
+                    <rect x="1" y="13" width="30" height="6" fill="#fff"></rect>
+                    <rect x="14" y="4" width="4" height="24" fill="#b92932"></rect>
+                    <rect x="14" y="1" width="4" height="30" transform="translate(32) rotate(90)" fill="#b92932"></rect>
+                    <path d="M28.222,4.21l-9.222,7.376v1.414h.75l9.943-7.94c-.419-.384-.918-.671-1.471-.85Z" fill="#b92932"></path>
+                    <path d="M2.328,26.957c.414,.374,.904,.656,1.447,.832l9.225-7.38v-1.408h-.75L2.328,26.957Z" fill="#b92932"></path>
+                    <path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path>
+                    <path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+                </svg></span> EN</button>
+        <button class="lang-btn" onclick="switchLanguage('pl')" id="lang-pl"><span class="flag-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <path d="M1,24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V15H1v9Z" fill="#cb2e40"></path>
+                    <path d="M27,4H5c-2.209,0-4,1.791-4,4v8H31V8c0-2.209-1.791-4-4-4Z" fill="#fff"></path>
+                    <path d="M5,28H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4ZM2,8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8Z" opacity=".15"></path>
+                    <path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+                </svg></span> PL</button>
+    </div>
+
+    <div class="container">
+        <h1 id="main-title"></h1>
+        <div id="main-desc" style="font-size:13px; color:#555; text-align:center; margin-bottom:10px;">
+            <span id="main-desc-text"></span>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('truthy-falsy')" id="tab-truthy-falsy"></button>
+            <button class="tab" onclick="showTab('quiz')" id="tab-quiz"></button>
+        </div>
+
+        <div id="quiz" class="tab-content ">
+            <h2 id="quiz-title"></h2>
+            <div id="quiz-container" class="quiz-container">
+                <!-- Quiz content will be generated by JavaScript -->
+            </div>
+        </div>
+
+        <div id="truthy-falsy" class="tab-content active">
+            <h2 id="truthy-falsy-title"></h2>
+            <div class="table-container">
+                <table class="comparison-table" id="truthyFalsyTable">
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Type</th>
+                            <th>Truthy/Falsy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be generated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p id="footer-text"></p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Language translations
+        const translations = {
+            en: {
+                title: "Truthy/Falsy Demonstration",
+                tabLoose: "Loose Equality (==)",
+                tabStrict: "Strict Equality (===)",
+                tabQuiz: "Quiz",
+                tabTruthyFalsy: "Does the value evaluate to Truthy or Falsy?",
+                legendTitle: "Legend:",
+                legendEqual: "Values are equal",
+                legendNotEqual: "Values are not equal",
+                legendNoteLabel: "Note:",
+                legendNote: "This demonstrates how JavaScript/TypeScript handles equality comparisons with different types and values.",
+                legendTypeCoercionLabel: "Type coercion:",
+                legendTypeCoercion: "Automatic conversion of values from one type to another (e.g., string to number) during comparison. This is how JavaScript/TypeScript handles loose equality.",
+                looseTitle: "Loose Equality (==)",
+                strictTitle: "Strict Equality (===)",
+                footerText: 'Created for the <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript for Testers</a> course | by <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a>',
+                quizTitle: "Quiz: Test Your Truthy/Falsy Knowledge",
+                quizQuestion: "Are these values equal?",
+                quizProgress: "Question {current} of {total}",
+                quizLooseComparison: "Loose Equality (==)",
+                quizStrictComparison: "Strict Equality (===)",
+                quizEqual: "Equal",
+                quizNotEqual: "Not Equal",
+                quizNext: "Next Question",
+                quizFinish: "Finish Quiz",
+                quizScore: "Your score: {score} out of {total}",
+                quizRestart: "Restart Quiz",
+                quizShowAnswers: "Review Answers",
+                quizCorrect: "Correct!",
+                quizIncorrect: "Incorrect!",
+                quizYourAnswer: "Your answer:",
+                quizCorrectAnswer: "Correct answer:",
+                quizLooseLabel: "==",
+                quizStrictLabel: "===",
+                // Truthy/Falsy quiz specific
+                tfQuestion: "Is the value <strong>{value}</strong> truthy or falsy?",
+                tfTruthy: "Truthy",
+                tfFalsy: "Falsy",
+                tfCorrect: "✅ Correct!",
+                tfIncorrect: "✗ Incorrect!",
+                tfIsTruthy: "The value <strong>{value}</strong> is <strong>truthy</strong>.",
+                tfIsFalsy: "The value <strong>{value}</strong> is <strong>falsy</strong>.",
+                tfNext: "Next",
+                tooltips: {
+                    nanAlwaysFalse: "NaN {operator} NaN is always false",
+                    sameTypeAndValue: "{left} {operator} {right}: Same type and value",
+                    typeCoercionEqual: "{left} == {right}: Type coercion makes them equal",
+                    differentTypes: "{left} !== {right}: Different types ({leftType} vs {rightType})",
+                    sameTypeDifferentValues: "{left} !== {right}: Same type but different values",
+                    notEqualWithCoercion: "{left} != {right}: Not equal even with type coercion"
+                }
+            },
+            pl: {
+                title: "Demonstracja wartości prawdziwych/fałszywych",
+                tabLoose: "Porównanie Luźne (==)",
+                tabStrict: "Porównanie Ścisłe (===)",
+                tabQuiz: "Quiz",
+                tabTruthyFalsy: "Czy wartośc traktowana jest jako Prawda czy Fałsz?",
+                legendTitle: "Legenda:",
+                legendEqual: "Wartości są równe",
+                legendNotEqual: "Wartości nie są równe",
+                legendNoteLabel: "Uwaga:",
+                legendNote: "To pokazuje jak JavaScript/TypeScript obsługuje porównania równości między różnymi typami i wartościami.",
+                legendTypeCoercionLabel: "Konwersja typów:",
+                legendTypeCoercion: "Automatyczna konwersja wartości z jednego typu na inny (np. string na number) podczas porównania. To jest sposób, w jaki JavaScript/TypeScript obsługuje luźne porównanie.",
+                looseTitle: "Porównanie Luźne (==)",
+                strictTitle: "Porównanie Ścisłe (===)",
+                footerText: 'Utworzone dla kursu <a href="https://jaktestowac.pl/course/typescript-dla-testera-podstawy/" target="_blank">TypeScript dla Testera</a> | przez <a href="https://jaktestowac.pl" target="_blank">jaktestowac.pl</a>',
+                quizTitle: "Quiz: Sprawdź swoją wiedzę o wartościach prawdziwych/fałszywych",
+                quizQuestion: "Czy te wartości są równe?",
+                quizProgress: "Pytanie {current} z {total}",
+                quizLooseComparison: "Porównanie luźne (==)",
+                quizStrictComparison: "Porównanie ścisłe (===)",
+                quizEqual: "Równe",
+                quizNotEqual: "Nie równe",
+                quizNext: "Następne pytanie",
+                quizFinish: "Zakończ quiz",
+                quizScore: "Twój wynik: {score} z {total}",
+                quizRestart: "Zacznij od nowa",
+                quizShowAnswers: "Przejrzyj odpowiedzi",
+                quizCorrect: "Poprawnie!",
+                quizIncorrect: "Niepoprawnie!",
+                quizYourAnswer: "Twoja odpowiedź:",
+                quizCorrectAnswer: "Poprawna odpowiedź:",
+                quizLooseLabel: "==",
+                quizStrictLabel: "===",
+                // Truthy/Falsy quiz specific
+                tfQuestion: "Czy wartość <strong>{value}</strong> jest prawdziwa (truthy) czy fałszywa (falsy)?",
+                tfTruthy: "Prawdziwa",
+                tfFalsy: "Fałszywa",
+                tfCorrect: "✅ Poprawnie!",
+                tfIncorrect: "✗ Niepoprawnie!",
+                tfIsTruthy: "Wartość <strong>{value}</strong> jest <strong>prawdziwa (truthy)</strong>.",
+                tfIsFalsy: "Wartość <strong>{value}</strong> jest <strong>fałszywa (falsy)</strong>.",
+                tfNext: "Dalej",
+                tooltips: {
+                    nanAlwaysFalse: "NaN {operator} NaN zawsze zwraca false",
+                    sameTypeAndValue: "{left} {operator} {right}: Ten sam typ i wartość",
+                    typeCoercionEqual: "{left} == {right}: Konwersja typów sprawia, że są równe",
+                    differentTypes: "{left} !== {right}: Różne typy ({leftType} vs {rightType})",
+                    sameTypeDifferentValues: "{left} !== {right}: Ten sam typ ale różne wartości",
+                    notEqualWithCoercion: "{left} != {right}: Nie równe nawet z konwersją typów"
+                }
+            }
+        };
+
+        let currentLanguage = 'en';
+
+        function updateStaticTranslations() {
+            const t = translations[currentLanguage];
+            const setText = (id, value, html) => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (html) el.innerHTML = value;
+                    else el.textContent = value;
+                }
+            };
+            setText('main-title', t.title);
+            setText('main-desc-text', t.footerText, true);
+            setText('tab-truthy-falsy', t.tabTruthyFalsy);
+            setText('tab-quiz', t.tabQuiz);
+            setText('legend-title', t.legendTitle);
+            setText('legend-equal', t.legendEqual);
+            setText('legend-not-equal', t.legendNotEqual);
+            setText('legend-note-label', t.legendNoteLabel);
+            setText('legend-note', t.legendNote);
+            setText('legend-coercion-label', t.legendTypeCoercionLabel);
+            setText('legend-coercion', t.legendTypeCoercion);
+            setText('quiz-title', t.quizTitle);
+            setText('truthy-falsy-title', t.tabTruthyFalsy);
+            setText('footer-text', t.footerText, true);
+        }
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`lang-${lang}`).classList.add('active');
+            updateStaticTranslations();
+            if (document.getElementById('quiz').classList.contains('active')) {
+                startQuiz();
+            } else {
+                // re-render quiz container if on truthy-falsy tab
+                renderTruthyFalsyQuestion();
+            }
+        }
+
+
+        // Values for the dynamic comparison table
+        const comparisonTableValues = [
+            { display: 'undefined', value: undefined },
+            { display: 'null', value: null },
+            { display: 'false', value: false },
+            { display: 'true', value: true },
+            { display: '0', value: 0 },
+            { display: '-0', value: -0 },
+            { display: '0n', value: 0n },
+            { display: '1n', value: 1n },
+            { display: 'Symbol()', value: Symbol() },
+            { display: 'new Boolean(false)', value: new Boolean(false) },
+            { display: 'new Boolean(true)', value: new Boolean(true) },
+            { display: 'new Number(0)', value: new Number(0) },
+            { display: 'new String("")', value: new String("") },
+            { display: '1', value: 1 },
+            { display: '""', value: "" },
+            { display: '"0"', value: "0" },
+            { display: '"false"', value: "false" },
+            { display: '" "', value: " " },
+            { display: '"\t"', value: "\t" },
+            { display: '"\n"', value: "\n" },
+            { display: '"hello"', value: "hello" },
+            { display: '[]', value: [] },
+            { display: '[0]', value: [0] },
+            { display: '[1]', value: [1] },
+            { display: '[1,2]', value: [1, 2] },
+            { display: '{}', value: {} },
+            { display: '{a:1}', value: { a: 1 } },
+            { display: 'function(){}', value: function () { } },
+            { display: 'NaN', value: NaN },
+            { display: 'Infinity', value: Infinity },
+            { display: '-Infinity', value: -Infinity },
+        ];
+
+        function getType(val) {
+            if (val === null) return 'object';
+            if (typeof val === 'bigint') return 'bigint';
+            if (typeof val === 'symbol') return 'symbol';
+            if (typeof val === 'function') return 'function';
+            if (Array.isArray(val)) return 'object';
+            return typeof val;
+        }
+
+        function isTruthy(val) {
+            return !!val;
+        }
+
+        function renderComparisonTable() {
+            const tbody = document.querySelector('#truthyFalsyTable tbody');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+            for (const entry of comparisonTableValues) {
+                const type = getType(entry.value);
+                const truthy = isTruthy(entry.value);
+                const row = document.createElement('tr');
+                const tdVal = document.createElement('td');
+                tdVal.textContent = entry.display;
+                const tdType = document.createElement('td');
+                tdType.textContent = type;
+                const tdTruthy = document.createElement('td');
+                tdTruthy.textContent = truthy ? 'Truthy' : 'Falsy';
+                tdTruthy.className = truthy ? 'equal' : 'not-equal';
+                row.appendChild(tdVal);
+                row.appendChild(tdType);
+                row.appendChild(tdTruthy);
+                tbody.appendChild(row);
+            }
+        }
+
+        function formatValue(value) {
+            if (value === undefined) return 'undefined';
+            if (value === null) return 'null';
+            if (typeof value === 'string') return `"${value}"`;
+            if (typeof value === 'function') return 'function(){}';
+            if (Array.isArray(value)) return `[${value.join(',')}]`;
+            if (typeof value === 'object') return JSON.stringify(value);
+            return String(value);
+        }
+
+        function showTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            // If quiz tab, start quiz
+            if (tabName === 'quiz') {
+                startQuiz();
+            }
+        }
+
+        // --- Truthy/Falsy Quiz Only ---
+        let truthyFalsyQuestions = [];
+        let truthyFalsyCurrent = 0;
+        let truthyFalsyScore = 0;
+
+        function generateTruthyFalsyQuizQuestions() {
+            const truthyFalsyValues = [
+                { name: 'undefined', value: undefined, isTruthy: false },
+                { name: 'null', value: null, isTruthy: false },
+                { name: 'false', value: false, isTruthy: false },
+                { name: 'true', value: true, isTruthy: true },
+                { name: '0', value: 0, isTruthy: false },
+                { name: '1', value: 1, isTruthy: true },
+                { name: '""', value: "", isTruthy: false },
+                { name: '"hello"', value: "hello", isTruthy: true },
+                { name: '[]', value: [], isTruthy: true },
+                { name: '{}', value: {}, isTruthy: true },
+                { name: 'NaN', value: NaN, isTruthy: false }
+            ];
+            return truthyFalsyValues.sort(() => Math.random() - 0.5).slice(0, 7);
+        }
+
+        function startQuiz() {
+            truthyFalsyQuestions = generateTruthyFalsyQuizQuestions();
+            truthyFalsyCurrent = 0;
+            truthyFalsyScore = 0;
+            renderTruthyFalsyQuestion();
+        }
+
+        // --- Improved Truthy/Falsy Quiz with Feedback ---
+        let lastAnswerCorrect = null;
+        let lastAnswerWasTruthy = null;
+        function renderTruthyFalsyQuestion() {
+            const t = translations[currentLanguage];
+            const container = document.getElementById('quiz-container');
+            if (truthyFalsyCurrent >= truthyFalsyQuestions.length) {
+                container.innerHTML = `<div class="quiz-results">
+                    <div class="score-display">${t.quizScore.replace('{score}', truthyFalsyScore).replace('{total}', truthyFalsyQuestions.length)}</div>
+                    <button class="quiz-restart-btn" onclick="startQuiz()">${t.quizRestart}</button>
+                </div>`;
+                return;
+            }
+            const question = truthyFalsyQuestions[truthyFalsyCurrent];
+            let feedbackHtml = '';
+            let disableButtons = '';
+            let truthyBtnClass = 'quiz-btn equal';
+            let falsyBtnClass = 'quiz-btn not-equal';
+            if (lastAnswerCorrect !== null) {
+                disableButtons = 'disabled';
+                if (lastAnswerWasTruthy) {
+                    truthyBtnClass += ' selected';
+                    if (lastAnswerCorrect) {
+                        feedbackHtml = `<div class="quiz-feedback correct">${t.tfCorrect}<br><span style=\"font-size:13px;\">${t.tfIsTruthy.replace('{value}', question.name)}</span></div>`;
+                    } else {
+                        feedbackHtml = `<div class="quiz-feedback incorrect">${t.tfIncorrect}<br><span style=\"font-size:13px;\">${t.tfIsFalsy.replace('{value}', question.name)}</span></div>`;
+                    }
+                } else {
+                    falsyBtnClass += ' selected';
+                    if (lastAnswerCorrect) {
+                        feedbackHtml = `<div class="quiz-feedback correct">${t.tfCorrect}<br><span style=\"font-size:13px;\">${t.tfIsFalsy.replace('{value}', question.name)}</span></div>`;
+                    } else {
+                        feedbackHtml = `<div class="quiz-feedback incorrect">${t.tfIncorrect}<br><span style=\"font-size:13px;\">${t.tfIsTruthy.replace('{value}', question.name)}</span></div>`;
+                    }
+                }
+                feedbackHtml += `<div style=\"text-align:center;margin-top:16px;\"><button class=\"quiz-restart-btn\" onclick=\"nextTruthyFalsyQuestion()\">${t.tfNext}</button></div>`;
+            }
+            container.innerHTML = `<div class="quiz-question">
+                <div class="quiz-progress">
+                    <div>${t.quizProgress.replace('{current}', truthyFalsyCurrent + 1).replace('{total}', truthyFalsyQuestions.length)}</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${Math.round(((truthyFalsyCurrent) / truthyFalsyQuestions.length) * 100)}%"></div>
+                    </div>
+                </div>
+                <h4 style="text-align:center;">${t.tfQuestion.replace('{value}', question.name)}</h4>
+                <div class="answer-buttons" style="justify-content:center;">
+                    <button class="${truthyBtnClass}" style="min-width:100px;" onclick="answerTruthyFalsyQuiz(true)" ${disableButtons}>${t.tfTruthy}</button>
+                    <button class="${falsyBtnClass}" style="min-width:100px;" onclick="answerTruthyFalsyQuiz(false)" ${disableButtons}>${t.tfFalsy}</button>
+                </div>
+                ${feedbackHtml}
+            </div>`;
+        }
+
+        function answerTruthyFalsyQuiz(isTruthy) {
+            const question = truthyFalsyQuestions[truthyFalsyCurrent];
+            lastAnswerCorrect = (isTruthy === question.isTruthy);
+            lastAnswerWasTruthy = isTruthy;
+            if (lastAnswerCorrect) {
+                truthyFalsyScore++;
+            }
+            renderTruthyFalsyQuestion();
+        }
+
+        function nextTruthyFalsyQuestion() {
+            lastAnswerCorrect = null;
+            lastAnswerWasTruthy = null;
+            truthyFalsyCurrent++;
+            renderTruthyFalsyQuestion();
+        }
+
+        // Set initial language and translations on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', function () {
+            updateStaticTranslations();
+            renderComparisonTable();
+            startQuiz();
+        });
+    </script>
+</body>
+
+</html>

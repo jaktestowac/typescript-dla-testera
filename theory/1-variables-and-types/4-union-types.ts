@@ -13,9 +13,9 @@
 // -------------------------
 // 🔀 Example: String or Number
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔀 Union: string or number")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let userId: string | number
 
@@ -36,9 +36,9 @@ console.log("User ID (string):", userId) // abc
 // -------------------------
 // 🔄 Example: Boolean or String
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔄 Union: boolean or string")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let status: boolean | string
 

@@ -12,9 +12,9 @@
 // - `i++` (postfix) returns the value before incrementing
 // - `++i` (prefix) increments first, then returns the value
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("➕➕ Increment (++)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let i: number = 5
 console.log("Initial i:", i) // 5
@@ -28,9 +28,9 @@ console.log("Initial k:", k) // 7
 console.log("k after increment:", ++k) // 8
 console.log("k after ++:", k) // 8 (increments to 8, then returns it)
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("➖➖ Decrement (--)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log("Decrementing a number by 1 (i--)")
 

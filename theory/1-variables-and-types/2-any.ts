@@ -10,9 +10,9 @@
 // `any` is a special type that disables type checking.
 // It tells TypeScript: "Trust me, I know what I'm doing."
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("❓ The any type – disables type safety")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let randomValue: any = "Hello"
 console.log("Random value:", randomValue)

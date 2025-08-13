@@ -7,9 +7,9 @@
 // -------------------------
 // 🟢 Basic Assignment (=)
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🟢 Basic Assignment (=)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let score: number = 10
 console.log("Initial score:", score) // 10
@@ -19,9 +19,9 @@ console.log("Initial score:", score) // 10
 // -------------------------
 // ➕ Add and Assign (+=)
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("➕ Add and Assign (+=)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 score += 5
 console.log("Score after += 5:", score) // 15
@@ -31,9 +31,9 @@ console.log("Score after += 5:", score) // 15
 // -------------------------
 // ➖ Subtract and Assign (-=)
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("➖ Subtract and Assign (-=)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 score -= 3
 console.log("Score after -= 3:", score) // 12
@@ -43,9 +43,9 @@ console.log("Score after -= 3:", score) // 12
 // -------------------------
 // ✖️ Multiply and Assign (*=)
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✖️ Multiply and Assign (*=)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 score *= 2
 console.log("Score after *= 2:", score) // 24
@@ -55,9 +55,9 @@ console.log("Score after *= 2:", score) // 24
 // -------------------------
 // ➗ Divide and Assign (/=)
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("➗ Divide and Assign (/=)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 score /= 4
 console.log("Score after /= 4:", score) // 6

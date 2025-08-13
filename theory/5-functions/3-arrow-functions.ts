@@ -1,4 +1,4 @@
-// 📘 Lesson: Arrow Functions in TypeScript
+// 📘 Lesson: Arrow Functions in TypeScript - part 1
 // In this lesson, you'll learn:
 // - what arrow functions are
 // - how to use them with and without parameters
@@ -15,70 +15,26 @@
 // -------------------------
 
 console.log("-------------------------")
-console.log("➡️ Basic Arrow Function (no params)")
+console.log("➡️ Normal Function")
 console.log("-------------------------")
 
-const sayHello = () => {
+// This is a regular function declaration.
+function sayHello() {
     console.log("Hello!")
 }
 
+// You can call it like this:
 sayHello()
 
-// -------------------------
-// 🔢 Arrow Function with Parameters
-// -------------------------
-// You can add parameters inside the parentheses
-
 console.log("-------------------------")
-console.log("🔢 With Parameters")
+console.log("➡️ Basic Arrow Function (no params)")
 console.log("-------------------------")
 
-const greet = (name: string) => {
-    console.log(`Hi, ${name}!`)
+const sayHelloToo = () => {
+    console.log("Hello!")
 }
 
-greet("Alice")
-
-const add = (a: number, b: number) => {
-    return a + b
-}
-
-console.log("Add result:", add(5, 3)) // 8
-
-// -------------------------
-// ✅ One-liner Arrow Functions
-// -------------------------
-// If the function has only one expression, you can skip `{}` and `return`
-
-console.log("-------------------------")
-console.log("✅ One-liner Arrow Functions")
-console.log("-------------------------")
-
-const double = (x: number) => x * 2
-console.log("Double 4:", double(4)) // 8
-
-// -------------------------
-// 🧠 Notes:
-// -------------------------
-// - Use `const` to declare arrow functions (safer and recommended)
-// - Use parentheses `()` around parameters
-// - Use `{}` if you have more logic; otherwise, omit it for short expressions
-
-// -------------------------
-// ❓ When to use arrow functions?
-// -------------------------
-// - For short functions or inline logic
-// - In array methods like `.map()`, `.filter()`
-// - As callbacks (e.g. for events or timers)
-
-// -------------------------
-// 🧠 Summary:
-// -------------------------
-// const greet = (name: string) => { ... }
-// const add = (a: number, b: number) => a + b
-// const log = () => console.log("Hi")
-
-// Arrow functions are a modern and clean way to define small functions.
+sayHelloToo()
 
 // -------------------------
 // 📚 Related TypeScript Documentation:

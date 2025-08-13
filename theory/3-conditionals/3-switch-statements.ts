@@ -14,11 +14,11 @@
 // -------------------------
 // 🔄 Basic Example: Weekdays
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔄 switch – example with days")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
-let day = "Monday"
+let day = "Saturday"
 
 switch (day) {
     case "Monday":
@@ -29,7 +29,7 @@ switch (day) {
         break
     case "Saturday":
     case "Sunday":
-        console.log("It's the weekend! 🏖")
+        console.log("It's the weekend! 🎊")
         break
     default:
         console.log("Just another day")
@@ -42,9 +42,9 @@ switch (day) {
 // - This is called "fall-through", and it can lead to bugs if you're not careful
 
 // Try this example to see what happens without break:
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("❌ No break – unexpected behavior")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let fruit = "apple"
 
@@ -79,9 +79,10 @@ switch (fruit) {
 // ✅ Mini Practice
 // -------------------------
 // Change the value of `status` and see what message appears
-console.log("-------------------------")
+
+console.log("\n-------------------------")
 console.log("✅ Mini Practice")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let status = "loading"
 

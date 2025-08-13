@@ -18,9 +18,9 @@ console.log("Hello")
 // -------------------------
 // 🔁 Basic `for` loop
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔁 Basic for loop")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 for (let i = 1; i <= 3; i++) {
     console.log("Hello number", i)
@@ -34,9 +34,9 @@ for (let i = 1; i <= 3; i++) {
 // -------------------------
 // 🔢 Loop from 1 to 5
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔢 Loop from 1 to 5")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 for (let counter = 1; counter <= 5; counter++) {
     console.log("Counter is:", counter)
@@ -45,9 +45,9 @@ for (let counter = 1; counter <= 5; counter++) {
 // -------------------------
 // 🔁 Loop through an array
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔁 Loop through an array")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const colors = ["red", "green", "blue"]
 

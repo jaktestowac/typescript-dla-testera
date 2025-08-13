@@ -13,9 +13,9 @@
 // - PS. There is also `var`, but it's not recommended for modern TypeScript code.
 // This helps prevent accidental changes to important values.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔡 Declaring variables")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let name = "Alice" // name can change later
 const birthYear = 1990 // birthYear is fixed
@@ -29,9 +29,9 @@ name = "Alicja" // ✅ allowed with let
 // -------------------------
 // 🔢 Basic types: number, string, boolean
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔢 Basic types")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let age: number = 33
 let language: string = "TypeScript"
@@ -46,9 +46,9 @@ console.log("Is tester:", isTester)
 // -------------------------
 // TypeScript can figure out the type by looking at the value
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🧠 Type Inference")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const city = "Warsaw"
 const score = 100
@@ -63,9 +63,9 @@ console.log("Is ready:", isReady)
 // ✅ Good habit: use type inference when the type is clear
 // ✅ Use explicit types when needed for clarity or safety
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔄 Redeclaring types")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let userId: string
 
@@ -78,9 +78,9 @@ console.log("User ID:", userId)
 // but for constants, you must declare the type when you create it
 // const userEmail: string // ❌ Error: const must be initialized
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("String types")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // String is a sequence of characters
 const greeting: string = "Hello, TypeScript!"

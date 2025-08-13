@@ -8,9 +8,9 @@
 // -------------------------
 // 👉 Equal and Not Equal
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("👉 Equal and Not Equal")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const a: number = 5
 const b: number = 10
@@ -35,9 +35,9 @@ console.log("c == d:", c == d) // true (loose: values are equal, types ignored)
 // -------------------------
 // Strict checks also compare the type.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔐 Strict Equal and Not Strict Equal")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const x: any = 5
 const y: string = "5"
@@ -52,9 +52,9 @@ console.log("x !== y:", x !== y) // true (strict not equal)
 // -------------------------
 // <> Greater / Less Than
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("<> Greater / Less Than")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const score: number = 80
 const passingScore: number = 70
@@ -68,9 +68,9 @@ console.log("score < passingScore:", score < passingScore) // false
 // -------------------------
 // 🧮 Greater / Less Than or Equal
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🧮 Greater / Less Than or Equal")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const points: number = 100
 const maxPoints: number = 100

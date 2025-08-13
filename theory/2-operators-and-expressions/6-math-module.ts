@@ -11,9 +11,9 @@
 // The Math object provides properties and methods for mathematical constants and functions,
 // so you don’t have to implement common math logic yourself.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🎯 Math Module Overview")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // The Math object is a global built-in object.
 // You never instantiate it; you call its methods directly on Math.
@@ -23,9 +23,9 @@ console.log(Math.E) // 2.718281828459045
 // -------------------------
 // ➗ Absolute Value: Math.abs()
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("➗ Absolute Value (abs)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const firstValue = Math.abs(-5)
 console.log(`Absolute value of -5: ${firstValue}`) // 5
@@ -39,9 +39,9 @@ console.log(`Absolute value of 3.14: ${secondValue}`) // 3.14
 // - Math.ceil(): rounds up
 // - Math.floor(): rounds down
 // - Math.round(): rounds to nearest integer
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔼 Rounding Methods")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log(Math.ceil(4.2)) // 5
 console.log(Math.floor(4.8)) // 4
@@ -53,9 +53,9 @@ console.log(Math.round(4.4)) // 4
 // -------------------------
 // - Math.pow(base, exponent)
 // - Math.sqrt(value)
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✖️ Power and Root")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log(Math.pow(2, 3)) // 8
 console.log(Math.sqrt(16)) // 4
@@ -71,9 +71,9 @@ console.log(`${base} raised to the power of ${exponent} is ${result}`)
 // -------------------------
 // - Math.min(...values)
 // - Math.max(...values)
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔢 Min and Max")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log(Math.min(10, 5, 20)) // 5
 console.log(Math.max(10, 5, 20)) // 20
@@ -82,9 +82,9 @@ console.log(Math.max(10, 5, 20)) // 20
 // 🎲 Random Numbers
 // -------------------------
 // Math.random() returns a float between 0 (inclusive) and 1 (exclusive).
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🎲 Random Numbers")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const r = Math.random()
 console.log(`Random between 0 and 1: ${r}`)
@@ -95,9 +95,9 @@ console.log(`Random value: ${Math.random()}`)
 // 🤔 Sign of Numbers
 // -----------------------------
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🤔 Sign of Numbers")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // Math.sign() returns the sign of a number.
 // -1 for negative, 1 for positive, 0 for zero.

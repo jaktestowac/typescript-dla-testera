@@ -36,11 +36,32 @@ console.log("🌀 Spread Operator")
 console.log("-------------------------")
 
 const frontendSkills = ["HTML", "CSS", "JS"]
+
+console.log("Frontend skills:", frontendSkills)
+
+// You can use spread to combine these arrays into one
+
+console.log("Frontend skills (after spread):", ...frontendSkills)
+
+console.log("-------------------------")
+console.log("🌀 Spread Operator for joining arrays")
+console.log("-------------------------")
+
 const backendSkills = ["Node.js", "Express"]
+
+console.log("Frontend skills:", frontendSkills)
+console.log("Backend skills:", backendSkills)
+
+// You can combine arrays using spread
 
 const allSkills = [...frontendSkills, ...backendSkills]
 
+console.log("After joining with spread...")
 console.log("All skills:", allSkills)
+
+console.log("-------------------------")
+console.log("🌀 Spread Operator in functions")
+console.log("-------------------------")
 
 // You can also use spread to pass arguments into a function
 
@@ -54,6 +75,10 @@ function sumOfNumbers(...numbers: number[]) {
 
 const numbers: number[] = [2, 4, 6]
 
+console.log("Numbers array:", numbers)
+
+// Using spread to pass the array elements as individual arguments
+console.log("Sum of numbers array:")
 console.log("Sum:", sumOfNumbers(...numbers)) // 12
 
 // -------------------------

@@ -1,6 +1,6 @@
 // 📘 Lesson: Ternary Operator in TypeScript
 
-// What is ternary operator? (PL: Operator warunkowy)
+// What is ternary operator? (PL: Operator warunkowy trójargumentowy )
 // The ternary operator is a shorthand way to write an if-else statement.
 // It has three parts:
 // 1. A condition to check
@@ -10,9 +10,9 @@
 // -------------------------
 // 🔍 Example: Checking an age - classic if else
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔍 Example: Checking an age")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const age = 20
 
@@ -25,9 +25,9 @@ if (age < 18) {
 // -------------------------
 // 🔍 Example: Checking an age - ternary operator
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔍 Example: Checking an age - ternary operator")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const age2 = 20
 const message2 = age2 < 18 ? "✅ You are a minor" : "✅ You are an adult"
@@ -41,9 +41,9 @@ age2 < 18 ? console.log("✅ You are a minor") : console.log("✅ You are an adu
 // ⚠️ Nesting Ternaries (Use Sparingly)
 // -------------------------
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("⚠️ Nesting Ternaries")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const age3 = 20
 const ageMessage = age3 < 18 ? "You are a minor" : age3 < 65 ? "You are an adult" : "You are a senior citizen"

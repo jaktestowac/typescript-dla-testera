@@ -24,9 +24,9 @@
 // 🚨 Example: Crashing code (without handling)
 // -------------------------
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🚨 Code that causes an error (not handled)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // 🔓 Uncomment this to see a crash in the console
 // let result = "hello" / 2 // ❌ This will print NaN or behave unexpectedly
@@ -40,9 +40,9 @@ console.log("-------------------------")
 // -------------------------
 // TypeScript gives us `try` and `catch` to stop crashes and handle errors safely.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✅ Using try / catch")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 try {
     console.log("Entring try block...")
@@ -61,9 +61,9 @@ try {
 // -------------------------
 // `finally` runs no matter what – even if there's an error or not.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🧹 finally block")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 try {
     console.log("About to do something risky...")

@@ -17,18 +17,18 @@ const fruits = ["apple", "banana", "cherry"]
 // -------------------------
 // 📏 .length – how many items?
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("📏 .length")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log("Total fruits:", fruits.length) // 3
 
 // -------------------------
 // 🔍 .includes() – check if something is inside
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔍 .includes()")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log("Includes 'banana'?", fruits.includes("banana")) // true
 console.log("Includes 'grape'?", fruits.includes("grape")) // false
@@ -36,9 +36,9 @@ console.log("Includes 'grape'?", fruits.includes("grape")) // false
 // -------------------------
 // 🆕 .push() – add to the end
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🆕 .push()")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 fruits.push("grape")
 console.log("After push:", fruits) // ["apple", "banana", "cherry", "grape"]
@@ -46,9 +46,9 @@ console.log("After push:", fruits) // ["apple", "banana", "cherry", "grape"]
 // -------------------------
 // 🗑️ .pop() – remove from the end
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🗑️ .pop()")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const lastFruit = fruits.pop()
 console.log("Popped item:", lastFruit)
@@ -57,9 +57,11 @@ console.log("After pop:", fruits)
 // -------------------------
 // 🎯 .indexOf() – find the position of an item
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🎯 .indexOf()")
-console.log("-------------------------")
+console.log("-------------------------\n")
+
+// const fruits = ["apple", "banana", "cherry"]
 
 const cherryIndex = fruits.indexOf("cherry")
 console.log("Index of cherry:", cherryIndex)
@@ -67,9 +69,9 @@ console.log("Index of cherry:", cherryIndex)
 // -------------------------
 // 🔁 .join() – convert to a string
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔁 .join()")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const fruitList = fruits.join(", ")
 console.log("Fruit list:", fruitList) // "apple, banana, cherry"
@@ -77,9 +79,9 @@ console.log("Fruit list:", fruitList) // "apple, banana, cherry"
 // -------------------------
 // 🔍 .filter() – create a new array with filtered items
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔍 .filter()")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const filteredFruits = fruits.filter((fruit) => fruit.length > 5)
 console.log("Filtered fruits:", filteredFruits) // ["banana", "cherry"]
@@ -87,9 +89,9 @@ console.log("Filtered fruits:", filteredFruits) // ["banana", "cherry"]
 // -------------------------
 // 🔍 .map() – create a new array with transformed items
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔍 .map()")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const mappedFruits = fruits.map((fruit) => fruit.toUpperCase())
 console.log("Mapped fruits:", mappedFruits) // ["APPLE", "BANANA", "CHERRY"]

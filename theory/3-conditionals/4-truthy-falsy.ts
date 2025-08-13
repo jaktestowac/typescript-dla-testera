@@ -14,9 +14,9 @@
 // ❌ Falsy values
 // -------------------------
 // These are values that behave like `false` when evaluated in conditions:
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("❌ Falsy values")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log("Boolean(false) result:", Boolean(false)) // false
 console.log("Boolean(0) result:", Boolean(0)) // false
@@ -25,13 +25,19 @@ console.log("Boolean(null) result:", Boolean(null)) // false
 console.log("Boolean(undefined) result:", Boolean(undefined)) // false
 console.log("Boolean(NaN) result:", Boolean(NaN)) // false
 
+const value = ""
+
+if (value) {
+    console.log("This won't run because value is falsy!")
+}
+
 // -------------------------
 // ✅ Truthy values
 // -------------------------
 // Everything else is considered truthy:
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✅ Truthy values")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log("Boolean(true) result:", Boolean(true)) // true
 console.log("Boolean(1) result:", Boolean(1)) // true
@@ -40,12 +46,55 @@ console.log("Boolean([]) result:", Boolean([])) // true (even empty array!)
 console.log("Boolean({}) result:", Boolean({})) // true (even empty object!)
 console.log('Boolean("0") result:', Boolean("0")) // true (non-empty string)
 
+const otherValue = []
+
+if (otherValue) {
+    console.log("This will run because otherValue is truthy!")
+    console.log("Even an empty array is truthy!")
+}
+
+// -------------------------
+// 🤔 Example: where a number is 0 but not falsy 
+// -------------------------
+
+console.log("\n-------------------------")
+console.log("🤔 Example: where a number is 0 but not falsy")
+console.log("-------------------------\n")
+
+const number = "0"
+
+// In this case, number is a string containing "0", which is truthy
+// Let's check if the number is truthy:
+console.log(`Number: "${number}"`)
+console.log("Checking if number is truthy...")
+if (number) {
+    console.log("✅ The number is truthy:", number)
+}
+else {
+    console.log("❌ The number is falsy")
+}
+
+console.log("\n-------------------------")
+console.log("Lets check if the number is exactly 0 (number type)...")
+console.log("-------------------------\n")
+
+// thats why we should use strict equality (===) to check for exact values
+// If we used `if (number == 0)`, it would be false because "0" (string) is not equal to 0 (number).
+// But `if (number === "0")` would be true because both are strings.
+// Example:
+console.log("Checking if number is exactly '0' (string)...")
+if (number === "0") {
+    console.log("✅ The number is exactly '0' (string)")
+} else {
+    console.log("❌ The number is not exactly '0' (string)")
+}
+
 // -------------------------
 // ✅ Example: Login check
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✅ Example: Login check")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const username = ""
 
@@ -65,9 +114,9 @@ if (username) {
 // -------------------------
 // ✅ Example: Custom message
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✅ Example: Custom message")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const customMessage = null
 

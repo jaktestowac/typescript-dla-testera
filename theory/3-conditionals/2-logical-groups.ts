@@ -5,8 +5,8 @@
 // 🤔 Why combine conditions?
 // -------------------------
 // Sometimes you need to check more than one thing:
-// - “If it's raining AND cold”
-// - “If it's weekend OR I'm on vacation”
+// - "If it's raining AND cold"
+// - "If it's weekend OR I'm on vacation"
 
 // You can do that using:
 // - `&&` – AND: all conditions must be true
@@ -19,12 +19,12 @@
 // true && false → ❌ false
 // false && false → ❌ false
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✅ AND operator (&&)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let isRaining: boolean = true
-let isCold: boolean = true
+let isCold: boolean = false
 
 if (isRaining && isCold) {
     console.log("Wear a raincoat 🧥☔")
@@ -39,9 +39,9 @@ if (isRaining && isCold) {
 // true || false → ✅ true
 // false || false → ❌ false
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✅ OR operator (||)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let isWeekend: boolean = false
 let hasDayOff: boolean = true
@@ -55,9 +55,9 @@ if (isWeekend || hasDayOff) {
 // -------------------------
 // Use `!` to reverse a condition (true → false)
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("❗ NOT operator (!)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let isWorkingDay: boolean = true
 
@@ -69,9 +69,9 @@ if (!isWorkingDay) {
 // ✅ Example with all
 // -------------------------
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔀 Combined logic")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let isLoggedIn: boolean = true
 let isAdmin: boolean = false

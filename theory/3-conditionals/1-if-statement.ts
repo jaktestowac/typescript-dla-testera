@@ -20,11 +20,17 @@
 // 💻 Let's see it in code
 // -------------------------
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🌤 if statement - basic example")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let isRaining: boolean = true
+
+if (isRaining === true) {
+    console.log("Take an umbrella ☔")
+}
+
+// This is the same as:
 
 if (isRaining) {
     console.log("Take an umbrella ☔")
@@ -40,9 +46,9 @@ console.log("Walk outside 🚶")
 // ❗ What if the condition is false?
 // -------------------------
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🌤 if statement - when condition is false")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let isSunny: boolean = false
 
@@ -59,9 +65,9 @@ console.log("Go to work 🏢")
 // 🔁 Using `else` – do something if false
 // -------------------------
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔁 if...else")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let isWeekend: boolean = false
 
@@ -75,9 +81,9 @@ if (isWeekend) {
 // 🔄 Using `else if` – multiple options
 // -------------------------
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔄 if...else if...else")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 let temperature: number = 25
 

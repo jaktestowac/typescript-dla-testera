@@ -7,9 +7,9 @@
 // -------------------------
 // `typeof` is a built-in operator that returns the type of a value as a string.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔍 typeof – check the type of a value")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const name = "Alice"
 console.log("Type of name:", typeof name)
