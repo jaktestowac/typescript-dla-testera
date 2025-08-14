@@ -5,9 +5,9 @@
 // 🤔 What happens when you use `any` in an object?
 // -------------------------
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🤔 Object with `any` values")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // You can create an object with any property types
 const user: { name: any; age: any } = {
@@ -39,9 +39,9 @@ console.log("User after bad update:", user)
 // ✅ Using proper types is safer
 // -------------------------
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✅ Object with specific types")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const safeUser: { name: string; age: number } = {
     name: "Bob",

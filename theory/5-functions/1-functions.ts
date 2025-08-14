@@ -10,9 +10,9 @@
 // A function is a reusable block of code that performs a task.
 // You define it once, and call it whenever you need it.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("❓ What is a function?")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // Example: sayHello function
 function sayHello() {
@@ -27,9 +27,9 @@ sayHello()
 // -------------------------
 // Parameters let you pass data into a function
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🧮 Function with parameters")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 function greet(name: string) {
     console.log("Hello,", name)
@@ -43,15 +43,21 @@ greet("Krzysztof") // "Hello, Krzysztof"
 // -------------------------
 // A function can return a result using the `return` keyword
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔙 Function with return value")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 function add(a: number, b: number): number {
     return a + b
 }
 
-const sum = add(5, 3)
+// we can also write it like this
+// function add(a: number, b: number): number {
+//     const sum = a + b
+//     return sum
+// }
+
+const sum = add(5, 1)
 console.log("Sum:", sum) // 8
 
 // -------------------------
@@ -59,9 +65,9 @@ console.log("Sum:", sum) // 8
 // -------------------------
 // You can (and should) add types to parameters and return values
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✅ Function with types")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 function isAdult(age: number): boolean {
     return age >= 18
@@ -69,6 +75,26 @@ function isAdult(age: number): boolean {
 
 console.log("Is 20 an adult?", isAdult(20)) // true
 console.log("Is 15 an adult?", isAdult(15)) // false
+
+// -------------------------
+// 🤔 Functions with no return value 
+// -------------------------
+console.log("\n-------------------------")
+console.log("🤔 Function with no return value")
+console.log("-------------------------\n")
+
+// If a function doesn't return anything, you should use `void` type
+function logMessage(message: string): void {
+    console.log("Log:", message)
+}
+
+// This function does not return anything, it just logs a message
+logMessage("This is a message") // Logs: "Log: This is a message"
+
+// What does `void` mean?
+// It means the function does not return a value. You can still call it, but you
+// won't get anything back. It's useful for functions that perform actions like logging,
+// updating UI, etc.
 
 // -------------------------
 // 🧠 Summary:

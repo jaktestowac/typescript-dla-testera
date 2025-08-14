@@ -5,9 +5,9 @@
 // -------------------------
 // You can add parameters inside the parentheses
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔢 With Parameters")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const greet = (name: string) => {
     console.log(`Hi, ${name}!`)
@@ -26,9 +26,9 @@ console.log("Add result:", add(5, 3)) // 8
 // -------------------------
 // If the function has only one expression, you can skip `{}` and `return`
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✅ One-liner Arrow Functions")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const double = (x: number) => x * 2
 console.log("Double 4:", double(4)) // 8

@@ -14,9 +14,9 @@
 // ✅ Basic Arrow Function (no params)
 // -------------------------
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("➡️ Normal Function")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // This is a regular function declaration.
 function sayHello() {
@@ -26,9 +26,9 @@ function sayHello() {
 // You can call it like this:
 sayHello()
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("➡️ Basic Arrow Function (no params)")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const sayHelloToo = () => {
     console.log("Hello!")

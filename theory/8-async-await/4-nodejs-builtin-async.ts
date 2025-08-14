@@ -23,9 +23,9 @@
 
 import { promises as fs } from 'fs'
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("📁 File System Operations")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // ✅ Reading a file asynchronously
 async function readFileExample(): Promise<void> {
@@ -50,9 +50,9 @@ async function readFileExample(): Promise<void> {
 // -------------------------
 // 📁 More File Operations
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("📁 More File Operations")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 async function fileOperationsExample(): Promise<void> {
     try {
@@ -107,9 +107,9 @@ Line 3: From TypeScript!`
 // -------------------------
 // 🌐 HTTP Requests (using fetch)
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🌐 HTTP Requests")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 async function httpExample(): Promise<void> {
     try {
@@ -131,9 +131,9 @@ async function httpExample(): Promise<void> {
 // -------------------------
 // 🔄 Working with JSON files
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔄 Working with JSON files")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 async function jsonFileExample(): Promise<void> {
     try {
@@ -174,9 +174,9 @@ async function jsonFileExample(): Promise<void> {
 // -------------------------
 // ⚠️ Error Handling Best Practices
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("⚠️ Error Handling Best Practices")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 async function errorHandlingExample(): Promise<void> {
     try {
@@ -220,4 +220,4 @@ async function errorHandlingExample(): Promise<void> {
 // Ignore the following line
 // This is just to ensure the file is treated as a module in TypeScript.
 // -------------------------
-export {} 
+export {}

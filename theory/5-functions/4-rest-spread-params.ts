@@ -12,9 +12,9 @@
 // -------------------------
 // Rest parameters allow you to collect multiple arguments into a single array
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("📦 Rest Parameters")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 function logSkills(name: string, ...skills: string[]) {
     console.log(`${name}'s skills:`)
@@ -31,9 +31,9 @@ logSkills("Anna", "JS", "HTML", "CSS", "TypeScript")
 // -------------------------
 // Spread is the opposite of rest – it expands an array into individual values
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🌀 Spread Operator")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const frontendSkills = ["HTML", "CSS", "JS"]
 
@@ -43,9 +43,9 @@ console.log("Frontend skills:", frontendSkills)
 
 console.log("Frontend skills (after spread):", ...frontendSkills)
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🌀 Spread Operator for joining arrays")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const backendSkills = ["Node.js", "Express"]
 
@@ -59,9 +59,9 @@ const allSkills = [...frontendSkills, ...backendSkills]
 console.log("After joining with spread...")
 console.log("All skills:", allSkills)
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🌀 Spread Operator in functions")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // You can also use spread to pass arguments into a function
 

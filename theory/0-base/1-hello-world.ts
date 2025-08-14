@@ -6,9 +6,9 @@
 // 👋 Hello, world!
 // -------------------------
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("👋 Hello, TypeScript world!")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // -------------------------
 // 🧠 What is console.log?

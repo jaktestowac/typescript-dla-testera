@@ -19,9 +19,9 @@
 // 👤 Defining an object
 // -------------------------
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("👤 Defining an object")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const user = {
     name: "Alice",
@@ -35,9 +35,9 @@ console.log("User object:", user)
 // 🎯 Accessing properties
 // -------------------------
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🎯 Accessing properties")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log("Name:", user.name) // "Alice"
 console.log("Age:", user.age) // 28
@@ -47,9 +47,9 @@ console.log("Is admin?", user.isAdmin) // false
 // ✏️ Changing values
 // -------------------------
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✏️ Changing values")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 user.age = 29
 user.isAdmin = true

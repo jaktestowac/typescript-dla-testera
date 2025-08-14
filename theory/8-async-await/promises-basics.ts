@@ -7,9 +7,9 @@
 // A Promise is an object that represents the eventual completion (or failure) of an asynchronous operation.
 // Think of it as a "promise" to give you a result later.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🤔 What is a Promise?")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // Creating a simple Promise
 const myPromise = new Promise((resolve, reject) => {
@@ -29,9 +29,9 @@ console.log("Promise created:", myPromise) // Promise { <pending> }
 // -------------------------
 // ✅ Using .then() to handle success
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✅ Using .then() for success")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const successPromise = new Promise<string>((resolve) => {
     setTimeout(() => {
@@ -46,9 +46,9 @@ successPromise.then((result) => {
 // -------------------------
 // ❌ Using .catch() to handle errors
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("❌ Using .catch() for errors")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const errorPromise = new Promise<string>((resolve, reject) => {
     setTimeout(() => {
@@ -63,9 +63,9 @@ errorPromise.catch((error) => {
 // -------------------------
 // 🔄 Chaining .then() and .catch()
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔄 Chaining .then() and .catch()")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const chainedPromise = new Promise<number>((resolve, reject) => {
     setTimeout(() => {
@@ -93,9 +93,9 @@ chainedPromise
 // -------------------------
 // 🧹 Using .finally() for cleanup
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🧹 Using .finally() for cleanup")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const cleanupPromise = new Promise<string>((resolve) => {
     setTimeout(() => {
@@ -117,9 +117,9 @@ cleanupPromise
 // -------------------------
 // 🔄 Promise.all() - Wait for multiple promises
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔄 Promise.all() - Multiple promises")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const promise1 = new Promise<string>((resolve) => {
     setTimeout(() => resolve("First"), 100)
@@ -144,9 +144,9 @@ Promise.all([promise1, promise2, promise3])
 // -------------------------
 // ⚡ Promise.race() - First to complete wins
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("⚡ Promise.race() - First to complete")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const fastPromise = new Promise<string>((resolve) => {
     setTimeout(() => resolve("Fast"), 100)
@@ -164,9 +164,9 @@ Promise.race([fastPromise, slowPromise])
 // -------------------------
 // 🔄 Converting callbacks to Promises
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔄 Converting callbacks to Promises")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // Old callback style
 function oldCallbackFunction(callback: (error: string | null, result?: string) => void) {
@@ -238,4 +238,4 @@ newPromiseFunction()
 // Ignore the following line
 // This is just to ensure the file is treated as a module in TypeScript.
 // -------------------------
-export {} 
+export {}

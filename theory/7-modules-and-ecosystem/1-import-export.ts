@@ -17,9 +17,9 @@
 // Import specific things from the module
 import { add, multiply } from "./helpers/math-utils"
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("📥 Importing functions from math-utils")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log("5 + 3 =", add(5, 3)) // 8
 console.log("4 x 7 =", multiply(4, 7)) // 28
@@ -27,9 +27,9 @@ console.log("4 x 7 =", multiply(4, 7)) // 28
 // You can also import a constant or variable
 import { siteName } from "./helpers/user"
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("📥 Importing a constant")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log("Welcome to:", siteName) // "Welcome to: TypeScript Portal"
 

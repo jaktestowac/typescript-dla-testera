@@ -7,9 +7,9 @@
 // An object is a collection of key–value pairs.
 // You can store multiple related values under one variable.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🧱 Object Recap")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const user = {
     name: "Alice",
@@ -24,9 +24,9 @@ console.log("User object:", user)
 // -------------------------
 // The most common way to access a property.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔹 Dot Notation")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log("User name:", user.name) // "Alice"
 console.log("User age:", user.age) // 28
@@ -37,9 +37,9 @@ console.log("Is admin:", user.isAdmin) // true
 // -------------------------
 // Useful when the property name is dynamic or not a valid identifier.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔸 Bracket Notation")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log("User name:", user["name"])
 console.log("User age:", user["age"])
@@ -53,9 +53,9 @@ console.log("Admin flag (via variable):", user[key]) // true
 // -------------------------
 // TypeScript allows it but returns `undefined` at runtime unless types are defined.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("⚠️ Accessing Non-Existing Properties")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 console.log("User.lastname:", user["lastname"]) // undefined
 // This won't throw an error, but will return `undefined`

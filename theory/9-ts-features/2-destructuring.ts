@@ -11,9 +11,9 @@
 // -------------------------
 // Arrays store values in a list. Destructuring lets you "unpack" them into variables.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("📦 Destructuring Arrays")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const fruits = ["apple", "banana", "cherry"]
 
@@ -41,9 +41,9 @@ console.log("Only the third fruit:", third) // cherry
 // Objects store data using keys (like "name", "age").
 // Destructuring lets you pull values out of an object into variables.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🧱 Destructuring Objects")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const user = {
     name: "Alice",

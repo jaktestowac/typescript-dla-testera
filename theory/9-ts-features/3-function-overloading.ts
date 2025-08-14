@@ -7,9 +7,9 @@
 // Function overloading allows you to define multiple function signatures for the same function.
 // TypeScript will choose the correct signature based on how you call the function.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔄 Basic Function Overloading")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // Function overloads (signatures)
 function combine(a: string, b: string): string
@@ -33,9 +33,9 @@ console.log("Number result:", result2)
 // -------------------------
 // 🔄 Overloading with different parameter counts
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔄 Different parameter counts")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // Function overloads
 function createUser(name: string): { name: string; age?: number }
@@ -56,9 +56,9 @@ console.log("User 2:", user2)
 // -------------------------
 // 🔄 Overloading with arrays
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔄 Overloading with arrays")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // Function overloads
 function processItems(items: string[]): string
@@ -84,9 +84,9 @@ console.log("Number result:", numberResult)
 // -------------------------
 // 🔄 Method overloading in classes
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔄 Method overloading in classes")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 class Calculator {
     add(a: number, b: number): number
@@ -108,9 +108,9 @@ console.log("String concatenation:", calc.add("Hello", "World"))
 // -------------------------
 // ⚠️ Important: Implementation signature
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("⚠️ Implementation signature")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // The implementation signature must be compatible with all overloads
 // It's usually more general than the overload signatures
@@ -125,9 +125,9 @@ function example(a: string | number): string | number {
 // -------------------------
 // 🔄 Overloading with optional parameters
 // -------------------------
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔄 Optional parameters")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 function formatMessage(message: string): string
 function formatMessage(message: string, prefix: string): string

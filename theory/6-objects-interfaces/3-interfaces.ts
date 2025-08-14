@@ -7,9 +7,9 @@
 // An interface defines a "contract" for object shape.
 // It tells TypeScript: "This object must have these properties with these types."
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🧱 Basic Interface")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 interface User {
     name: string
@@ -37,9 +37,9 @@ console.log("User:", user)
 // -------------------------
 // TypeScript will alert you if required properties are missing or have the wrong type
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("⚠️ Invalid Object (will not compile)")
-console.log("-------------------------");
+console.log("-------------------------\n");
 
 // Uncommenting this will show an error:
 // const brokenUser: User = {
@@ -52,9 +52,9 @@ console.log("-------------------------");
 // -------------------------
 // Use `?` to mark a property as optional
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("✅ Optional Properties")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 interface Product {
     name: string
@@ -74,9 +74,9 @@ console.log("Book:", book)
 // -------------------------
 // Interfaces can also be used to type function parameters
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🧪 Interface as Function Parameter")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 function printUser(u: User) {
     console.log(`${u.name} is ${u.age} years old.`)

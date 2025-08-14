@@ -14,9 +14,9 @@
 // - Values can be strings, numbers, booleans, null, objects, or arrays.
 // - Use JSON.parse and JSON.stringify in JavaScript and TypeScript to work with JSON.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("👉 What is JSON?")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const jsonString = '{"name": "Alice", "age": 30, "isTester": true}'
 console.log("JSON String:", jsonString)
@@ -25,9 +25,9 @@ console.log("JSON String:", jsonString)
 // 🔍 Parsing JSON Strings
 // To parse a JSON string into a JavaScript object, use JSON.parse().
 // - It converts a JSON string into an object.
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🔍 Parsing JSON Strings")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const jsonString2 = '{"title": "TypeScript Guide", "author": "John Doe", "published": 2023}'
 const jsonObject2 = JSON.parse(jsonString2)
@@ -42,9 +42,9 @@ console.log("Published:", jsonObject2.published) // 2023
 // 📦 Stringifying Objects to JSON
 // To convert a JavaScript object into a JSON string, use JSON.stringify().
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("📦 Stringifying Objects to JSON")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 const jsonObject3 = {
     title: "TypeScript Guide",
@@ -56,9 +56,9 @@ const jsonString3 = JSON.stringify(jsonObject3)
 console.log("Stringified JSON:", jsonString3)
 // This converts the object into a JSON string
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("👀 Formatting JSON Strings")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // You can also format the JSON string for better readability
 const prettyJsonString = JSON.stringify(jsonObject3, null, 2)
@@ -66,9 +66,9 @@ console.log("Pretty JSON String:\n", prettyJsonString)
 // This adds indentation for better readability
 
 // error handling
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("⚠️ Error Handling in JSON Parsing")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // When parsing JSON, it's important to handle errors gracefully.
 const invalidJsonString = '{"name": "Alice", "age": 30, "isTester": true' // Missing closing brace

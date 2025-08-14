@@ -10,9 +10,9 @@
 // -------------------------
 // Parameters allow you to customize a function's behavior by passing values in.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🎯 Function Parameters")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 function introduce(name: string, age: number) {
     console.log(`My name is ${name} and I am ${age} years old.`)
@@ -32,9 +32,9 @@ introduce("Bob", 34)
 // -------------------------
 // TypeScript will match values based on their position.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("⚠️ Parameter Order Matters")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 function report(name: string, isAdmin: boolean) {
     console.log(`${name} has admin access: ${isAdmin}`)
@@ -48,9 +48,9 @@ report("Anna", true) // ✅ Correct
 // -------------------------
 // Use `?` to mark a parameter as optional.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("❓ Optional Parameters")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 function showStatus(username: string, isOnline?: boolean) {
     if (isOnline) {
@@ -68,9 +68,9 @@ showStatus("Jane", true) // Second argument is provided
 // -------------------------
 // You can set a default value in case no value is passed in.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("⚙️ Default Parameters")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 function calculatePrice(price: number, tax: number = 0.23) {
     const total = price + price * tax

@@ -15,9 +15,9 @@
 
 // 🧠 Think of enums like a labeled list of choices you can reuse anywhere in your code.
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🧠 Basic enum example")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 // Instead of writing status as string:
 const status1: string = "success"
@@ -48,9 +48,9 @@ console.log("Status name:", Status[currentStatus]) // "Loading"
 // By default, values are numbers (starting from 0).
 // You can also assign custom string values:
 
-console.log("-------------------------")
+console.log("\n-------------------------")
 console.log("🟢 Enum with custom string values")
-console.log("-------------------------")
+console.log("-------------------------\n")
 
 enum Role {
     Admin = "ADMIN",
