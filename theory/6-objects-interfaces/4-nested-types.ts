@@ -8,36 +8,6 @@
 // We can describe this using types or interfaces.
 
 console.log("\n-------------------------")
-console.log("🏠 Basic Nested Object")
-console.log("-------------------------\n")
-
-type Address = {
-    city: string
-    postalCode: string
-}
-
-type User = {
-    name: string
-    address: Address
-}
-
-const user: User = {
-    name: "Kasia",
-    address: {
-        city: "Warsaw",
-        postalCode: "00-001"
-    }
-}
-
-console.log("User:", user)
-console.log("User's city:", user.address.city)
-
-// -------------------------
-// 🧱 Nested Interfaces
-// -------------------------
-// You can also use interfaces instead of type aliases
-
-console.log("\n-------------------------")
 console.log("🧱 Using Interfaces")
 console.log("-------------------------\n")
 
@@ -60,7 +30,40 @@ const product: Product = {
 }
 
 console.log("Product:", product)
+console.log("Details:", product.details)
 console.log("In stock:", product.details.inStock)
+
+// or with bracket notation
+console.log("Product weight:", product["details"]["inStock"])
+
+// -------------------------
+// 💡 Good Pracices!
+// -------------------------
+
+console.log("\n-------------------------")
+console.log("💡 Good Pracices")
+console.log("-------------------------\n")
+
+// Instead of using simple types, prefer using interfaces for complex objects
+// This allows you to define clear structures and reuse them across your codebase
+interface MyEmployee {
+    name: string
+    contact: {
+        email: string
+        phone: string
+    }
+}
+
+// better to implement interfaces for each nested object
+interface Contact {
+    email: string
+    phone: string
+}
+
+interface MyEmployee {
+    name: string
+    contact: Contact
+}
 
 // -------------------------
 // 📦 Optional Nested Properties
@@ -84,6 +87,18 @@ const e2: Employee = { name: "Sara", contact: { email: "sara@example.com" } }
 
 console.log("Employee 1:", e1)
 console.log("Employee 2:", e2)
+
+// And with good practices, you can define interfaces for optional nested properties too:
+
+interface Contact2 {
+    email?: string
+    phone?: string
+}
+
+interface Employee2 {
+    name: string
+    contact?: Contact2
+}
 
 // -------------------------
 // 🧠 Summary:

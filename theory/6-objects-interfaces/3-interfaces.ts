@@ -78,11 +78,28 @@ console.log("\n-------------------------")
 console.log("🧪 Interface as Function Parameter")
 console.log("-------------------------\n")
 
-function printUser(u: User) {
-    console.log(`${u.name} is ${u.age} years old.`)
+interface User {
+    name: string
+    age: number
+    isAdmin: boolean
 }
 
-printUser(user) // Alice is 28 years old.
+const myUser: User = {
+    name: "Alice",
+    age: 28,
+    isAdmin: true
+}
+
+function printUser(user: User): void {
+    console.log(`${user.name} is ${user.age} years old.`)
+}
+
+printUser(myUser) // Alice is 28 years old.
+
+// Interface will ensure the function receives the correct object shape
+// Uncommenting the following line will show an error:
+// printUser({ name: "Bob", age: 30 }) // ❌ Argument of type '{ name: string; age: number; }' is not assignable to parameter of type 'User'. Property 'isAdmin' is missing in type '{ name: string; age: number; }' but required in type 'User'.ts(2345)
+// printUser(123) // ❌ Argument of type 'number' is not assignable to parameter of type 'User'.ts(2345)
 
 // -------------------------
 // 🧠 Summary:

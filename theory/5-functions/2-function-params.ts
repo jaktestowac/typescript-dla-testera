@@ -14,7 +14,7 @@ console.log("\n-------------------------")
 console.log("🎯 Function Parameters")
 console.log("-------------------------\n")
 
-function introduce(name: string, age: number) {
+function introduce(name: string, age: number): void {
     console.log(`My name is ${name} and I am ${age} years old.`)
 }
 
@@ -36,7 +36,7 @@ console.log("\n-------------------------")
 console.log("⚠️ Parameter Order Matters")
 console.log("-------------------------\n")
 
-function report(name: string, isAdmin: boolean) {
+function report(name: string, isAdmin: boolean): void {
     console.log(`${name} has admin access: ${isAdmin}`)
 }
 
@@ -52,7 +52,10 @@ console.log("\n-------------------------")
 console.log("❓ Optional Parameters")
 console.log("-------------------------\n")
 
-function showStatus(username: string, isOnline?: boolean) {
+function showStatus(username: string, isOnline?: boolean): void {
+    console.log("Username:", username)
+    console.log("Online status:", isOnline)
+    // If isOnline is undefined, we can handle it gracefully
     if (isOnline) {
         console.log(`${username} is online.`)
     } else {
@@ -72,7 +75,7 @@ console.log("\n-------------------------")
 console.log("⚙️ Default Parameters")
 console.log("-------------------------\n")
 
-function calculatePrice(price: number, tax: number = 0.23) {
+function calculatePrice(price: number, tax: number = 0.23): void {
     const total = price + price * tax
     console.log(`Total price (with tax): ${total}`)
 }

@@ -27,7 +27,7 @@ class Person {
         this.age = age
     }
 
-    greet() {
+    greet(): void {
         console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`)
     }
 }

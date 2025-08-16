@@ -9,13 +9,13 @@ console.log("\n-------------------------")
 console.log("🔢 With Parameters")
 console.log("-------------------------\n")
 
-const greet = (name: string) => {
+const greet = (name: string): void => {
     console.log(`Hi, ${name}!`)
 }
 
 greet("Alice")
 
-const add = (a: number, b: number) => {
+const add = (a: number, b: number): number => {
     return a + b
 }
 
@@ -30,9 +30,29 @@ console.log("\n-------------------------")
 console.log("✅ One-liner Arrow Functions")
 console.log("-------------------------\n")
 
-const double = (x: number) => x * 2
+const double = (x: number): number => x * 2
 console.log("Double 4:", double(4)) // 8
 
+// -------------------------
+// ➡️ Callbacks with Arrow Functions
+// -------------------------
+console.log("\n-------------------------")
+console.log("➡️ Callbacks with Arrow Functions")
+console.log("-------------------------\n")
+
+const numbers = [1, 2, 3, 4, 5]
+
+const squared = numbers.map((num: number): number => {
+    return num * num
+})
+
+console.log("Squared numbers:", squared) // [1, 4, 9, 16, 25]
+
+// we can also use one-liners here
+const squaredToo = numbers.map(num => num * num)
+console.log("Squared numbers (one-liner):", squaredToo) // [1, 4, 9, 16, 25]
+
+// -------------------------
 // -------------------------
 // 🧠 Notes:
 // -------------------------

@@ -48,6 +48,17 @@ console.log("User age:", user["age"])
 const key = "isAdmin"
 console.log("Admin flag (via variable):", user[key]) // true
 
+// 💡 TIP!
+// Use bracket notation when the property name is not a valid identifier 
+// (e.g., contains spaces or special characters).
+// Example:
+const userWithSpecialKey = {
+    "user name": "Bob",
+    "user-age": 30
+}
+
+console.log("User with special key:", userWithSpecialKey["user name"]) // "Bob"
+
 // -------------------------
 // ⚠️ Accessing Non-Existing Properties
 // -------------------------
@@ -57,12 +68,40 @@ console.log("\n-------------------------")
 console.log("⚠️ Accessing Non-Existing Properties")
 console.log("-------------------------\n")
 
-console.log("User.lastname:", user["lastname"]) // undefined
+const myUser = {
+    name: "Alice",
+    age: 28,
+    isAdmin: true
+}
+
+console.log("User.lastname:", myUser["lastname"]) // undefined
 // This won't throw an error, but will return `undefined`
 
 // What if we use .dot notation?
-// console.log(user.lastname); // ❌ This will show an error if `lastname` is not defined in the object
+console.log(myUser.lastname); // ❌ This will show an error if `lastname` is not defined in the object
 // Property 'lastname' does not exist on type '{ name: string; age: number; isAdmin: boolean; }'.ts(2339)
+
+
+// -------------------------
+// ❌ Accessing Unknown Properties
+// -------------------------
+// If you try to access a property of non existing object, it will throw an error.
+console.log("\n-------------------------")
+console.log("❌ Accessing Unknown Properties")
+console.log("-------------------------\n")
+
+const unknownUser: any = {
+    name: "Charlie"
+}
+
+console.log("Unknown user name:", unknownUser["address"]) // undefined
+// Uncommenting the following line will throw an error:
+// console.log("Unknown user name:", unknownUser["address"]["city"]) // ❌ TypeError: Cannot read properties of undefined (reading 'city')
+
+// 🧠 Why does this happen?
+// Because `unknownUser["address"]` is `undefined`
+// and you cannot access properties of `undefined`!
+// Because `undefined` is not an object!
 
 // -------------------------
 // 🧠 Summary

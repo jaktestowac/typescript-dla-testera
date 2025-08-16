@@ -4,8 +4,8 @@
 // - how to use `spread` to pass values or copy arrays
 
 // Simple Explanation:
-// "Rest" lets you collect many values into a single array.
-// "Spread" lets you take an array (or object) and expand it out into individual values.
+// "Rest" (reszta) lets you collect many values into a single array.
+// "Spread" (rozproszenie) lets you take an array (or object) and expand it out into individual values.
 
 // -------------------------
 // 📦 Rest Parameters
@@ -16,7 +16,7 @@ console.log("\n-------------------------")
 console.log("📦 Rest Parameters")
 console.log("-------------------------\n")
 
-function logSkills(name: string, ...skills: string[]) {
+function logSkills(name: string, ...skills: string[]): void {
     console.log(`${name}'s skills:`)
     console.log(skills)
 }
@@ -65,7 +65,7 @@ console.log("-------------------------\n")
 
 // You can also use spread to pass arguments into a function
 
-function sumOfNumbers(...numbers: number[]) {
+function sumOfNumbers(...numbers: number[]): number {
     let sum = 0
     for (const num of numbers) {
         sum += num

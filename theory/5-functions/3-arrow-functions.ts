@@ -19,7 +19,7 @@ console.log("➡️ Normal Function")
 console.log("-------------------------\n")
 
 // This is a regular function declaration.
-function sayHello() {
+function sayHello(): void {
     console.log("Hello!")
 }
 
@@ -30,11 +30,17 @@ console.log("\n-------------------------")
 console.log("➡️ Basic Arrow Function (no params)")
 console.log("-------------------------\n")
 
-const sayHelloToo = () => {
+const sayHelloToo = (): void => {
     console.log("Hello!")
 }
 
 sayHelloToo()
+
+// That can also be written in a more concise way:
+
+const sayHelloAgain = (): void => console.log("Hello!")
+
+sayHelloAgain()
 
 // -------------------------
 // 📚 Related TypeScript Documentation:
