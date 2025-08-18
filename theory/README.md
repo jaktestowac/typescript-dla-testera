@@ -54,14 +54,14 @@
 - [S6.1 – Objects](./6-objects-interfaces/1-objects.ts)
 - [S6.2 – Object Access](./6-objects-interfaces/2-object-access.ts)
 - [S6.3 – Interfaces](./6-objects-interfaces/3-interfaces.ts)
-- [S6.4 – Types and Interfaces](./6-objects-interfaces/3.1-types-and-interfaces.ts)
-- [S6.5 – Nested Types](./6-objects-interfaces/4-nested-types.ts)
-- [S6.6 – Classes](./6-objects-interfaces/5-classes.ts)
-- [S6.7 – Classes: Simple Access](./6-objects-interfaces/6-classes-access-simple.ts)
-- [S6.8 – Classes: Access Modifiers](./6-objects-interfaces/7-classes-access.ts)
-- [S6.9 – Classes: Inheritance](./6-objects-interfaces/8-classes-inheritance.ts)
-- [S6.10 – Any Type in Objects](./6-objects-interfaces/9-any.ts)
-- [S6.11 – JSON](./6-objects-interfaces/10-json.ts)
+- [S6.3.1 – Types and Interfaces](./6-objects-interfaces/3.1-types-and-interfaces.ts)
+- [S6.4 – Nested Types](./6-objects-interfaces/4-nested-types.ts)
+- [S6.5 – Classes](./6-objects-interfaces/5-classes.ts)
+- [S6.6 – Classes: Simple Access](./6-objects-interfaces/6-classes-access-simple.ts)
+ - [S6.6.2 – Classes: Access Modifiers](./6-objects-interfaces/6.2-classes-access.ts)
+ - [S6.7 – Classes: Inheritance](./6-objects-interfaces/7-classes-inheritance.ts)
+ - [S6.8 – Any Type in Objects](./6-objects-interfaces/8-any.ts)
+ - [S6.9 – JSON](./6-objects-interfaces/9-json.ts)
 
 ## Section 7: Modules and Ecosystem
 

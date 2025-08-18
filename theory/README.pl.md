@@ -54,14 +54,14 @@
 - [S6.1 – Obiekty](./6-objects-interfaces/1-objects.ts)
 - [S6.2 – Dostęp do Obiektów](./6-objects-interfaces/2-object-access.ts)
 - [S6.3 – Interfejsy](./6-objects-interfaces/3-interfaces.ts)
-- [S6.4 – Typy i Interfejsy](./6-objects-interfaces/3.1-types-and-interfaces.ts)
-- [S6.5 – Zagnieżdżone Typy](./6-objects-interfaces/4-nested-types.ts)
-- [S6.6 – Klasy](./6-objects-interfaces/5-classes.ts)
-- [S6.7 – Klasy: Prosty Dostęp](./6-objects-interfaces/6-classes-access-simple.ts)
-- [S6.8 – Klasy: Modyfikatory Dostępu](./6-objects-interfaces/7-classes-access.ts)
-- [S6.9 – Klasy: Dziedziczenie](./6-objects-interfaces/8-classes-inheritance.ts)
-- [S6.10 – Typ Any w Obiektach](./6-objects-interfaces/9-any.ts)
-- [S6.11 – JSON](./6-objects-interfaces/10-json.ts)
+- [S6.3.1 – Typy i Interfejsy](./6-objects-interfaces/3.1-types-and-interfaces.ts)
+- [S6.4 – Zagnieżdżone Typy](./6-objects-interfaces/4-nested-types.ts)
+- [S6.5 – Klasy](./6-objects-interfaces/5-classes.ts)
+- [S6.6 – Klasy: Prosty Dostęp](./6-objects-interfaces/6-classes-access-simple.ts)
+ - [S6.6.2 – Klasy: Modyfikatory Dostępu](./6-objects-interfaces/6.2-classes-access.ts)
+ - [S6.7 – Klasy: Dziedziczenie](./6-objects-interfaces/7-classes-inheritance.ts)
+ - [S6.8 – Typ Any w Obiektach](./6-objects-interfaces/8-any.ts)
+ - [S6.9 – JSON](./6-objects-interfaces/9-json.ts)
 
 ## Sekcja 7: Moduły i Ekosystem
 

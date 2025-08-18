@@ -51,6 +51,7 @@ console.log("-------------------------\n")
 const john = new Person("John", 25)
 console.log("Name:", john.name) // John
 console.log("Age:", john.age) // 25
+console.log("Age:", john["age"]) // 25
 
 // -------------------------
 // 🧰 Why Use Classes?

@@ -9,7 +9,39 @@
 // `protected` - accessible inside the class and subclasses
 
 console.log("\n-------------------------")
-console.log("🔒 Access Modifiers - simple example")
+console.log("🔒 Access Modifiers - example 1")
+console.log("-------------------------\n")
+
+// only properties that are public can be accessed outside the class!
+
+class Person {
+    // Public property can be accessed from anywhere
+    public name: string
+    // when no access modifier is specified, it defaults to public
+    // so this is also a public property
+    nameWithoutModifier: string
+
+    // Private property can only be accessed within the class
+    private age: number
+    // Protected property can be accessed in subclasses
+    protected address: string
+
+    constructor(name: string, age: number, address: string) {
+        this.name = name
+        this.nameWithoutModifier = name
+        this.age = age
+        this.address = address
+    }
+}
+
+const person = new Person("Alice", 30, "123 Main St")
+console.log(person.name) // Alice
+console.log(person.nameWithoutModifier) // Alice
+// person.age // Error: Property 'age' is private and only accessible within class 'Person'.
+// person.address // Error: Property 'address' is protected and only accessible within class 'Person
+
+console.log("\n-------------------------")
+console.log("🔒 Access Modifiers - example 2")
 console.log("-------------------------\n")
 
 class User {
