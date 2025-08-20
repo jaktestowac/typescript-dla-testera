@@ -9,8 +9,13 @@ console.log("\n-------------------------")
 console.log("🤔 Object with `any` values")
 console.log("-------------------------\n")
 
+interface User {
+    name: any
+    age: any
+}
+
 // You can create an object with any property types
-const user: { name: any; age: any } = {
+const user: User = {
     name: "Alice",
     age: 25
 }
@@ -43,34 +48,48 @@ console.log("\n-------------------------")
 console.log("✅ Object with specific types")
 console.log("-------------------------\n")
 
-const safeUser: { name: string; age: number } = {
-    name: "Bob",
-    age: 40
+class SafeUser {
+    name: string
+
+    constructor(name: string) {
+        this.name = name
+    }
+
+    // You can also add methods
+    greet() {
+        console.log(`Hello, my name is ${this.name}.`)
+    } 
 }
 
-// Uncommenting below lines will show errors
-// safeUser.name = false   // ❌ Error
-// safeUser.age = "forty"  // ❌ Error
+const safeUser = new SafeUser("Alice")
+safeUser.greet() // Hello, my name is Alice.
 
-console.log("Safe user:", safeUser)
 
-// -------------------------
-// 🧩 `any` in interfaces
-// -------------------------
+// Now if you try to assign a wrong type, TypeScript will catch it
+// safeUser.name = 123 // ❌ Error: Type 'number' is not assignable to type 'string'.
 
-interface UnsafeProduct {
-    name: any
-    price: any
-}
+// what if You assign safeUser to `any` type?
+console.log("\n-------------------------")
+console.log("🤔 Assigning to `any` type")
+console.log("-------------------------\n")
 
-let product1: UnsafeProduct = {
-    name: "Notebook",
-    price: 25
-}
+console.log("safeUser before bad update:", safeUser)
 
-product1.price = "twenty-five" // ❌ No error
+let anyUser: any = safeUser
+anyUser.name = 123 // ❌ No error, but this is bad practice!
+console.log("anyUser after bad update:", anyUser)
+// 👀 on console you will see:
+// anyUser after bad update: { name: 123, greet: [Function: greet] }
 
-console.log("Product:", product1)
+// Now anyUser is not type-safe anymore!
+// You can assign any type to it, which defeats the purpose of TypeScript's type safety.
+
+// try to invoke greet method
+anyUser.greet() // Hello, my name is 123.
+// This works, but it’s not what we wanted!
+
+// try to invoke non-existing method
+// anyUser.sayGoodbye() // ❌ Error: anyUser.sayGoodbye is not a function
 
 // -------------------------
 // 🧠 Summary:

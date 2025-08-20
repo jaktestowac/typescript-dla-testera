@@ -22,6 +22,21 @@
 // ✅ Step-by-step: Install faker
 // -------------------------
 
+// Where to find packages?
+// You can find packages on npm (Node Package Manager) at https://www.npmjs.com/
+
+// 💡 TIP: While looking for packages, always check if they have TypeScript support.
+// Many popular libraries have TypeScript definitions, which help with type checking and autocompletion.
+
+// 💡 TIP: While looking for packages:
+// - check their popularity (stars, downloads)
+// - read the documentation
+// - see if they are actively maintained
+
+// Search for "faker" to find the package we will use.
+// Faker is a library that helps you generate fake data like names, addresses, and more.
+// It is very useful for testing and development.
+
 // Run this command in your terminal:
 // 👉 npm install @faker-js/faker
 

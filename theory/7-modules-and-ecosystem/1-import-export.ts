@@ -40,8 +40,6 @@ console.log("Welcome to:", siteName) // "Welcome to: TypeScript Portal"
 // 4 x 7 = 28
 // Welcome to: TypeScript Portal
 
-export {}
-
 // -------------------------
 // 📚 Related TypeScript Documentation:
 // -------------------------

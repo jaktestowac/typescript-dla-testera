@@ -8,14 +8,23 @@
 
 Witamy w **TypeScript dla Testera** - praktycznym przewodniku zaprojektowany specjalnie dla testerów, którzy chcą nauczyć się programować w języku TypeScript!
 
-Wspólnie przeprowadzimy Cię przez teorię, przykładami i praktycznymi ćwiczeniami, aby zbudować solidne podstawy w TypeScript. **Nie jest wymagane żadne wcześniejsze doświadczenie programistyczne** – zaczniemy od samych podstaw i poprowadzimy Cię krok po kroku.
+Wspólnie przeprowadzimy Cię przez teorię, przykładami i praktycznymi ćwiczeniami.
+Dzięki temu zbudujesz solidne podstawy w TypeScript. 
+
+**Nie jest wymagane żadne wcześniejsze doświadczenie programistyczne**.
+
+Zaczniemy od podstaw i poprowadzimy Cię krok po kroku przez rózne koncepty.
 
 > [!IMPORTANT]
 > Sprawdź nasze darmowe nagrania z tego kursu na **YouTube**:
 > [![TypeScript for Tester](./assets/typescript-dla-testera-za-darmo-tsx.jpg)](https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa)
 
 > [!TIP]
-> 🧠 To jest **skrócony przegląd** języka TypeScript skupiony na najważniejszych funkcjach powszechnie używanych w automatyzacji testów. Jeśli chcesz zgłębić temat, sprawdź dodatkowe materiały i kursy wymienione poniżej:
+> 🧠 To jest **skrócony przegląd** języka TypeScript skupiony na najważniejszych funkcjach powszechnie używanych w automatyzacji testów. 
+>
+> **Chcesz barzdiej zgłębić temat?**
+> 
+> Sprawdź dodatkowe materiały i kursy wymienione poniżej:
 >
 > - 🇵🇱 [**JavaScript i TypeScript dla Testerów**](https://jaktestowac.pl/js-ts/)
 > - 🇵🇱 [**Profesjonalna Automatyzacja Testów z Playwright**](https://jaktestowac.pl/playwright/)

@@ -46,7 +46,7 @@ console.log("-------------------------\n")
 
 class User {
     // Public property can be accessed from anywhere
-    public username: string
+    private username: string
 
     // Private property can only be accessed within the class
     private password: string
@@ -59,6 +59,15 @@ class User {
     // Public method to get the username
     public getUsername(): string {
         return this.username
+    }
+
+    public changeUsername(newUsername: string, password: string): void {
+        if (this.checkPassword(password)) {
+            this.username = newUsername
+            console.log("Username updated successfully.")
+        } else {
+            console.log("Password is incorrect. Cannot change username.")
+        }
     }
 
     // Public method to set a new password
