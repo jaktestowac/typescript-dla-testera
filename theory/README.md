@@ -67,6 +67,7 @@
 
 - [S7.1 – Import/Export](./7-modules-and-ecosystem/1-import-export.ts)
 - [S7.2 – Install Packages](./7-modules-and-ecosystem/2-install-packages.ts)
+- [S7.3 – Working with files (read & write)](./7-modules-and-ecosystem/3-files.ts)
 
 ## Section 8: Async/Await
 

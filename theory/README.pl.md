@@ -58,15 +58,16 @@
 - [S6.4 – Zagnieżdżone Typy](./6-objects-interfaces/4-nested-types.ts)
 - [S6.5 – Klasy](./6-objects-interfaces/5-classes.ts)
 - [S6.6 – Klasy: Prosty Dostęp](./6-objects-interfaces/6-classes-access-simple.ts)
- - [S6.6.2 – Klasy: Modyfikatory Dostępu](./6-objects-interfaces/6.2-classes-access.ts)
- - [S6.7 – Klasy: Dziedziczenie](./6-objects-interfaces/7-classes-inheritance.ts)
- - [S6.8 – Typ Any w Obiektach](./6-objects-interfaces/8-any.ts)
- - [S6.9 – JSON](./6-objects-interfaces/9-json.ts)
+- [S6.6.2 – Klasy: Modyfikatory Dostępu](./6-objects-interfaces/6.2-classes-access.ts)
+- [S6.7 – Klasy: Dziedziczenie](./6-objects-interfaces/7-classes-inheritance.ts)
+- [S6.8 – Typ Any w Obiektach](./6-objects-interfaces/8-any.ts)
+- [S6.9 – JSON](./6-objects-interfaces/9-json.ts)
 
 ## Sekcja 7: Moduły i Ekosystem
 
 - [S7.1 – Import/Export](./7-modules-and-ecosystem/1-import-export.ts)
 - [S7.2 – Instalacja Paczek](./7-modules-and-ecosystem/2-install-packages.ts)
+- [S7.3 – Praca z plikami (odczyt i zapis)](./7-modules-and-ecosystem/3-files.ts)
 
 ## Sekcja 8: Async/Await
 
