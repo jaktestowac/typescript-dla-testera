@@ -1,0 +1,10 @@
+{
+    "name": "John Doe",
+    "type": "user",
+    "address": {
+        "street": "742 Evergreen Terrace",
+        "city": "Springfield",
+        "state": "CA",
+        "zip": "12345"
+    }
+}

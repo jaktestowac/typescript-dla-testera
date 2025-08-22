@@ -48,6 +48,7 @@
         "t7s1": "npx tsx theory/7-modules-and-ecosystem/1-import-export.ts",
         "t7s2": "npx tsx theory/7-modules-and-ecosystem/2-install-packages.ts",
         "t7s3": "npx tsx theory/7-modules-and-ecosystem/3-files.ts",
+        "t7s3.2": "npx tsx theory/7-modules-and-ecosystem/3.2-files-json.ts",
         "t8s1": "npx tsx theory/8-async-await/1-async-basic.ts",
         "t8s2": "npx tsx theory/8-async-await/2-async-without-await.ts",
         "t8s3": "npx tsx theory/8-async-await/3-async-await.ts",
