@@ -5,6 +5,10 @@
 // ⏳ Simulate loading data using a Promise
 // -------------------------
 
+console.log("\n-------------------------")
+console.log("⏳ Simulate loading data using a Promise")
+console.log("-------------------------\n")
+
 function loadData(): Promise<string> {
     // Simulate loading data with a delay
     // This function returns a Promise that resolves after 1 second

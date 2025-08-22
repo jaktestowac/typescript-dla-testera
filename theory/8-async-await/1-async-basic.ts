@@ -17,6 +17,10 @@
 // ✅ Async function always returns a Promise
 // -------------------------
 
+console.log("\n-------------------------")
+console.log("🧠 Basic async example")
+console.log("-------------------------\n")
+
 async function getGreeting(): Promise<string> {
     return new Promise((resolve) => {
         setTimeout(() => {

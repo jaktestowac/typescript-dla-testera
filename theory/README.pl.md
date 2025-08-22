@@ -74,8 +74,6 @@
 - [S8.1 – Podstawy Async](./8-async-await/1-async-basic.ts)
 - [S8.2 – Async Bez Await](./8-async-await/2-async-without-await.ts)
 - [S8.3 – Async/Await](./8-async-await/3-async-await.ts)
-- [S8.4 – Podstawy Promise](./8-async-await/promises-basics.ts)
-- [S8.5 – Wbudowane Async w Node.js](./8-async-await/4-nodejs-builtin-async.ts)
 
 ## Sekcja 9: Funkcje TypeScript
 

@@ -5,6 +5,10 @@
 // ✅ Clean syntax with async/await
 // -------------------------
 
+console.log("\n-------------------------")
+console.log("✅ Clean syntax with async/await")
+console.log("-------------------------\n")
+
 async function loadData(): Promise<string> {
     // Simulate loading data with a delay
     // This function returns a Promise that resolves after 2 seconds
