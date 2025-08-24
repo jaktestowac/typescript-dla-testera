@@ -58,22 +58,33 @@
 - [S6.4 – Nested Types](./6-objects-interfaces/4-nested-types.ts)
 - [S6.5 – Classes](./6-objects-interfaces/5-classes.ts)
 - [S6.6 – Classes: Simple Access](./6-objects-interfaces/6-classes-access-simple.ts)
- - [S6.6.2 – Classes: Access Modifiers](./6-objects-interfaces/6.2-classes-access.ts)
- - [S6.7 – Classes: Inheritance](./6-objects-interfaces/7-classes-inheritance.ts)
- - [S6.8 – Any Type in Objects](./6-objects-interfaces/8-any.ts)
- - [S6.9 – JSON](./6-objects-interfaces/9-json.ts)
+- [S6.6.2 – Classes: Access Modifiers](./6-objects-interfaces/6.2-classes-access.ts)
+- [S6.7 – Classes: Inheritance](./6-objects-interfaces/7-classes-inheritance.ts)
+- [S6.8 – Any Type in Objects](./6-objects-interfaces/8-any.ts)
+- [S6.9 – JSON](./6-objects-interfaces/9-json.ts)
 
 ## Section 7: Modules and Ecosystem
 
 - [S7.1 – Import/Export](./7-modules-and-ecosystem/1-import-export.ts)
 - [S7.2 – Install Packages](./7-modules-and-ecosystem/2-install-packages.ts)
 - [S7.3 – Working with files (read & write)](./7-modules-and-ecosystem/3-files.ts)
+  - [S7.3.1 – Error handling when reading files (try/catch)](./7-modules-and-ecosystem/3.2-files-error-handling.ts) — how to catch file read errors safely.
+  - [S7.3.2 – Finding file paths (path module, __dirname)](./7-modules-and-ecosystem/3.3-files-path.ts) — build absolute paths that work in modules.
+  - [S7.3.3 – Writing files (fs.writeFileSync)](./7-modules-and-ecosystem/3.4-write-files.ts) — create and write files synchronously.
+  - [S7.3.4 – JSON files (read/parse & write JSON)](./7-modules-and-ecosystem/3.5-files-json.ts) — read, parse and save JSON data.
 
 ## Section 8: Async/Await
 
 - [S8.1 – Async Basics](./8-async-await/1-async-basic.ts)
 - [S8.2 – Async Without Await](./8-async-await/2-async-without-await.ts)
 - [S8.3 – Async/Await](./8-async-await/3-async-await.ts)
+- [S8.4 – Promises Basics](./8-async-await/promises-basics.ts)
+- [S8.5 – Node.js Built-in Async](./8-async-await/4-nodejs-builtin-async.ts)
+    - [S8.5.1 – FS: Basic file operations](./8-async-await/4.1-nodejs-fs-basic.ts)
+    - [S8.5.2 – FS: More file operations](./8-async-await/4.2-nodejs-fs-more.ts)
+    - [S8.5.3 – HTTP Requests (fetch)](./8-async-await/4.3-http-requests.ts)
+    - [S8.5.4 – Working with JSON files](./8-async-await/4.4-json-files.ts)
+    - [S8.5.5 – Error Handling Best Practices](./8-async-await/4.5-error-handling.ts)
 
 ## Section 9: TypeScript Features
 

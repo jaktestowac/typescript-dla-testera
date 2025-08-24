@@ -19,10 +19,23 @@ console.log("\n-------------------------")
 console.log("🧠 Basic enum example")
 console.log("-------------------------\n")
 
-// Instead of writing status as string:
+// Without enums, you might use strings or numbers directly:
 const status1: string = "success"
 const status2: string = "error"
 const status3: string = "loading"
+
+// Then to use them, you have to remember the exact strings:
+function printStatus(status: string) {
+    if (status === "success") {
+        console.log("Operation was successful!")
+    } else if (status === "error") {
+        console.log("There was an error.")
+    } else if (status === "loading") {
+        console.log("Loading...")
+    } else {
+        console.log("Unknown status")
+    }
+}
 
 // You can group them using an enum:
 enum Status {
@@ -31,16 +44,37 @@ enum Status {
     Loading
 }
 
+// How it looks on console?
+
+console.log(Status)
+
 // How to interpret this?
 // - `Status.Success` is 0
 // - `Status.Error` is 1
 // - `Status.Loading` is 2
+
+console.log("\n-------------------------")
+console.log("🟢 Using enums")
+console.log("-------------------------\n")
 
 // Now you can use the enum values:
 
 const currentStatus: Status = Status.Loading
 console.log("Current status (number):", currentStatus) // 2
 console.log("Status name:", Status[currentStatus]) // "Loading"
+
+// Example of a function using enum:
+function printEnumStatus(status: Status) {
+    if (status === Status.Success) {
+        console.log("Operation was successful!")
+    } else if (status === Status.Error) {
+        console.log("There was an error.")
+    } else if (status === Status.Loading) {
+        console.log("Loading...")
+    } else {
+        console.log("Unknown status")
+    }
+}
 
 // -------------------------
 // 🟢 Enum with custom values
@@ -58,9 +92,34 @@ enum Role {
     Guest = "GUEST"
 }
 
+console.log(Role)
+
+console.log("\n-------------------------")
+console.log("🟢 Using enums with custom string values")
+console.log("-------------------------\n")
+
+
 const userRole: Role = Role.User
 console.log("User role:", userRole) // "USER"
 console.log("Role name:", Role[userRole]) // "User"
+
+// Usage: 
+function printUserRole(role: Role) {
+    if (role === Role.Admin) {
+        console.log("You have admin access.")
+    } else if (role === Role.User) {
+        console.log("You are a regular user.")
+    } else if (role === Role.Guest) {
+        console.log("You are browsing as a guest.")
+    } else {
+        console.log("Unknown role")
+    }
+}
+
+printUserRole(Role.Admin)
+printUserRole(Role.Guest)
+printUserRole('USER' as Role) // Works, but not recommended
+printUserRole('INVALID' as Role) // TypeScript won't catch this at compile time
 
 // -------------------------
 // ✅ Why use enums?

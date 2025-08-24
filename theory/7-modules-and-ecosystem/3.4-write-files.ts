@@ -1,24 +1,28 @@
 // 📘 Lesson: Working with files (read & write)
 // In this lesson, you'll learn how to read and write files in TypeScript.
 
-// First - reading from text files
-
-console.log("\n-------------------------")
-console.log("📖 Reading from a file")
-console.log("-------------------------\n")
-
 // First we need to import the fs (file system) module
 import * as fs from "fs"
 
-// Now we can use the fs module to read a file
-// We will use fs.readFileSync
-// - synchronous method
-// - blocks the execution until the file is read
-// - returns the file content as a string
+console.log("\n-------------------------")
+console.log("📖 Writing to a file")
+console.log("-------------------------\n")
 
-const data = fs.readFileSync("theory/7-modules-and-ecosystem/test-data/example.txt", "utf-8")
-console.log("File content:")
-console.log(data)
+// We can use fs.writeFileSync to write to a file
+// - synchronous method
+// - blocks the execution until the file is written
+
+const outputPath = "theory/7-modules-and-ecosystem/test-data/output.txt"
+
+fs.writeFileSync(outputPath, "Hello, world!", "utf-8")
+console.log("File written successfully.")
+
+// Now check the output.txt file!
+
+// Also now we can read the content of the output.txt file
+const outputData = fs.readFileSync(outputPath, "utf-8")
+console.log("Output file content:")
+console.log(outputData)
 
 // -------------------------
 // 🧠 Summary:

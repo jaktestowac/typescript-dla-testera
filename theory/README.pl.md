@@ -68,12 +68,23 @@
 - [S7.1 – Import/Export](./7-modules-and-ecosystem/1-import-export.ts)
 - [S7.2 – Instalacja Paczek](./7-modules-and-ecosystem/2-install-packages.ts)
 - [S7.3 – Praca z plikami (odczyt i zapis)](./7-modules-and-ecosystem/3-files.ts)
+  - [S7.3.1 – Obsługa błędów przy odczycie plików (try/catch)](./7-modules-and-ecosystem/3.2-files-error-handling.ts) — jak bezpiecznie obsługiwać błędy podczas odczytu plików.
+  - [S7.3.2 – Znajdowanie ścieżek plików (moduł path, __dirname)](./7-modules-and-ecosystem/3.3-files-path.ts) — budowanie ścieżek absolutnych, które działają w modułach.
+  - [S7.3.3 – Zapis plików (fs.writeFileSync)](./7-modules-and-ecosystem/3.4-write-files.ts) — tworzenie i zapisywanie plików w sposób synchroniczny.
+  - [S7.3.4 – Pliki JSON (odczyt/parsowanie & zapis JSON)](./7-modules-and-ecosystem/3.5-files-json.ts) — jak czytać, parsować i zapisywać dane JSON.
 
 ## Sekcja 8: Async/Await
 
 - [S8.1 – Podstawy Async](./8-async-await/1-async-basic.ts)
 - [S8.2 – Async Bez Await](./8-async-await/2-async-without-await.ts)
 - [S8.3 – Async/Await](./8-async-await/3-async-await.ts)
+- [S8.4 – Podstawy Promisów](./8-async-await/promises-basics.ts)
+- [S8.5 – Wbudowane asynchroniczne funkcje Node.js](./8-async-await/4-nodejs-builtin-async.ts)
+    - [S8.5.1 – FS: Podstawowe operacje na plikach](./8-async-await/4.1-nodejs-fs-basic.ts)
+    - [S8.5.2 – FS: Więcej operacji na plikach](./8-async-await/4.2-nodejs-fs-more.ts)
+    - [S8.5.3 – Żądania HTTP (fetch)](./8-async-await/4.3-http-requests.ts)
+    - [S8.5.4 – Praca z plikami JSON](./8-async-await/4.4-json-files.ts)
+    - [S8.5.5 – Najlepsze praktyki obsługi błędów](./8-async-await/4.5-error-handling.ts)
 
 ## Sekcja 9: Funkcje TypeScript
 

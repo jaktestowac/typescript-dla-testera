@@ -24,7 +24,7 @@ console.log("Manual access:", firstFruit, secondFruit)
 
 // ✅ With destructuring:
 const [first, second] = fruits
-console.log("Destructured access:", first, second) // apple banana
+console.log("Destructured:", first, second) // apple banana
 
 // 🧠 How it works:
 // The first value in the array goes to `first`, the second goes to `second`
@@ -34,6 +34,15 @@ console.log("Destructured access:", first, second) // apple banana
 // ✅ You can skip items by leaving a blank space
 const [, , third] = fruits
 console.log("Only the third fruit:", third) // cherry
+
+// What if there are more variables than items?
+// The extra variables will be `undefined`
+const [a, b, c, d] = fruits
+console.log("Destructured:", a, b, c, d) // apple banana cherry undefined
+
+// ✅ With destructuring:
+const [firstOne, ...theRest] = fruits
+console.log("Destructured:", firstOne, theRest) // apple [ 'banana', 'cherry' ]
 
 // -------------------------
 // 🧱 Destructuring Objects

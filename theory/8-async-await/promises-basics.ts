@@ -156,10 +156,9 @@ const slowPromise = new Promise<string>((resolve) => {
     setTimeout(() => resolve("Slow"), 500)
 })
 
-Promise.race([fastPromise, slowPromise])
-    .then((result) => {
-        console.log("Winner:", result) // "Fast" will win
-    })
+Promise.race([fastPromise, slowPromise]).then((result) => {
+    console.log("Winner:", result) // "Fast" will win
+})
 
 // -------------------------
 // 🔄 Converting callbacks to Promises
@@ -197,6 +196,17 @@ function newPromiseFunction(): Promise<string> {
 newPromiseFunction()
     .then((result) => console.log("Promise result:", result))
     .catch((error) => console.log("Promise error:", error))
+
+// On console:
+// Winner: Fast
+// Result: Task completed!
+// Cleanup: Always runs regardless of success/failure
+// Promise error: Failed!
+// Got result: 81.91664534063314
+// Doubled result: 163.83329068126628
+// All promises completed: [ 'First', 'Second', 'Third' ]
+// Success: Data loaded successfully!
+// Error: Something went wrong!
 
 // -------------------------
 // 🧠 Promise states
