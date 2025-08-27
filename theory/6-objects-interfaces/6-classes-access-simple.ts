@@ -77,7 +77,7 @@ class User {
             console.log("Password updated successfully.")
         } else {
             console.log("Old password is incorrect.")
-        }   
+        }
     }
 
     // Private method to check password (not accessible outside)

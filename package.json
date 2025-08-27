@@ -132,7 +132,13 @@
         "e9s6": "npx tsx exercises/9-ts-features/3-1-union-types.ts",
         "e9s7": "npx tsx exercises/9-ts-features/4-1-function-overloading.ts",
         "validate": "npx tsc --noEmit && npx prettier --check .",
-        "format": "npx prettier --write ."
+        "format": "npx prettier --write .",
+        "type-check": "tsc --noEmit",
+        "show-config": "npx tsc --showConfig -p tsconfig.json",
+        "show-config-ts-node": "npx ts-node --showConfig -P tsconfig.json",
+        "t9s4-no-error": "npx tsx theory/9-ts-features/4-checks.ts",
+        "t9s4-tsx-error-check": "npx tsc --noEmit -p ./tsconfig.strict.json && npx tsx theory/9-ts-features/4-checks.ts",
+        "t9s4-error-check": "npx tsc --noEmit -p ./tsconfig.strict.json && npx ts-node -P ./tsconfig.strict.json theory/9-ts-features/4-checks.ts"
     },
     "keywords": [
         "typescript",

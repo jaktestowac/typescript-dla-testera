@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "moduleResolution": "Node",
+        "noImplicitAny": true,
+        "strict": true,
+        "isolatedModules": true,
+        "module": "CommonJS",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "noEmit": true
+    },
+    "include": ["theory/9-ts-features/4-checks.ts"]
+}
