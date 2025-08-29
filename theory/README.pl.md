@@ -6,6 +6,10 @@
 > - 🇬🇧 [English](./README.md)
 > - 🇵🇱 [Polski](./README.pl.md)
 
+> [!IMPORTANT]
+> Sprawdź nasze darmowe nagrania z tego kursu na **YouTube**:
+> [![TypeScript for Tester](../assets/typescript-dla-testera-za-darmo-tsx.jpg)](https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa)
+
 ## Sekcja 0: Wprowadzenie
 
 - [S0.1 – Hello World](./0-base/1-hello-world.ts)
@@ -68,10 +72,10 @@
 - [S7.1 – Import/Export](./7-modules-and-ecosystem/1-import-export.ts)
 - [S7.2 – Instalacja Paczek](./7-modules-and-ecosystem/2-install-packages.ts)
 - [S7.3 – Praca z plikami (odczyt i zapis)](./7-modules-and-ecosystem/3-files.ts)
-  - [S7.3.1 – Obsługa błędów przy odczycie plików (try/catch)](./7-modules-and-ecosystem/3.2-files-error-handling.ts) — jak bezpiecznie obsługiwać błędy podczas odczytu plików.
-  - [S7.3.2 – Znajdowanie ścieżek plików (moduł path, __dirname)](./7-modules-and-ecosystem/3.3-files-path.ts) — budowanie ścieżek absolutnych, które działają w modułach.
-  - [S7.3.3 – Zapis plików (fs.writeFileSync)](./7-modules-and-ecosystem/3.4-write-files.ts) — tworzenie i zapisywanie plików w sposób synchroniczny.
-  - [S7.3.4 – Pliki JSON (odczyt/parsowanie & zapis JSON)](./7-modules-and-ecosystem/3.5-files-json.ts) — jak czytać, parsować i zapisywać dane JSON.
+    - [S7.3.1 – Obsługa błędów przy odczycie plików (try/catch)](./7-modules-and-ecosystem/3.2-files-error-handling.ts) — jak bezpiecznie obsługiwać błędy podczas odczytu plików.
+    - [S7.3.2 – Znajdowanie ścieżek plików (moduł path, \_\_dirname)](./7-modules-and-ecosystem/3.3-files-path.ts) — budowanie ścieżek absolutnych, które działają w modułach.
+    - [S7.3.3 – Zapis plików (fs.writeFileSync)](./7-modules-and-ecosystem/3.4-write-files.ts) — tworzenie i zapisywanie plików w sposób synchroniczny.
+    - [S7.3.4 – Pliki JSON (odczyt/parsowanie & zapis JSON)](./7-modules-and-ecosystem/3.5-files-json.ts) — jak czytać, parsować i zapisywać dane JSON.
 
 ## Sekcja 8: Async/Await
 

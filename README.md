@@ -9,21 +9,21 @@
 Witamy w **TypeScript dla Testera** - praktycznym przewodniku zaprojektowany specjalnie dla testerów, którzy chcą nauczyć się programować w języku TypeScript!
 
 Wspólnie przeprowadzimy Cię przez teorię, przykładami i praktycznymi ćwiczeniami.
-Dzięki temu zbudujesz solidne podstawy w TypeScript. 
+Dzięki temu zbudujesz solidne podstawy w TypeScript.
 
 **Nie jest wymagane żadne wcześniejsze doświadczenie programistyczne**.
 
 Zaczniemy od podstaw i poprowadzimy Cię krok po kroku przez rózne koncepty.
 
 > [!IMPORTANT]
-> Sprawdź nasze darmowe nagrania z tego kursu na **YouTube**:
+> Sprawdź **darmowe** lekcje z tego kursu na **YouTube**:
 > [![TypeScript for Tester](./assets/typescript-dla-testera-za-darmo-tsx.jpg)](https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa)
 
 > [!TIP]
-> 🧠 To jest **skrócony przegląd** języka TypeScript skupiony na najważniejszych funkcjach powszechnie używanych w automatyzacji testów. 
+> 🧠 To jest **skrócony przegląd** języka TypeScript skupiony na najważniejszych funkcjach powszechnie używanych w automatyzacji testów.
 >
-> **Chcesz barzdiej zgłębić temat?**
-> 
+> **Chcesz bardziej zgłębić temat?**
+>
 > Sprawdź dodatkowe materiały i kursy wymienione poniżej:
 >
 > - 🇵🇱 [**JavaScript i TypeScript dla Testerów**](https://jaktestowac.pl/js-ts/)
@@ -74,6 +74,10 @@ Jako tester, nauka TypeScript pomoże Ci:
 - **Pisać lepsze skrypty** we frameworku
 - **Efektywnie współpracować** z programistami i inżynierami automatyzacji
 
+> [!IMPORTANT]
+> Sprawdź wideo na **YouTube** o tym kursie:
+> [![TypeScript for Tester](./assets/typescript-dla-testera-za-darmo-tsx-intro.jpg)](https://www.youtube.com/watch?v=EZn7rqmuL3Y&list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa&index=1)
+
 # 🎯 Grupa docelowa
 
 - **Testerzy manualni** rozpoczynający swoją przygodę z automatyzacją
@@ -94,6 +98,10 @@ Czego potrzebujesz na swoim komputerze:
 </div>
 
 # 🚀 Pierwsze kroki
+
+> [!IMPORTANT]
+> Sprawdź wideo na **YouTube** gdzie opowiadmy o tym projekcie:
+> [![TypeScript for Tester](./assets/typescript-dla-testera-za-darmo-tsx-project.jpg)](https://www.youtube.com/watch?v=KzGcENmCcf4&list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa&index=3)
 
 ## 0. Zweryfikuj swoją konfigurację
 

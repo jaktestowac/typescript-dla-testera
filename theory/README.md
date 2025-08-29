@@ -6,6 +6,10 @@
 > - 🇬🇧 [English](./README.md)
 > - 🇵🇱 [Polski](./README.pl.md)
 
+> [!IMPORTANT]
+> Check out our free **YouTube** series from this course:
+> [![TypeScript for Tester](../assets/typescript-dla-testera-za-darmo-tsx.jpg)](https://www.youtube.com/playlist?list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa)
+
 ## Section 0: Getting Started
 
 - [S0.1 – Hello World](./0-base/1-hello-world.ts)
@@ -68,10 +72,10 @@
 - [S7.1 – Import/Export](./7-modules-and-ecosystem/1-import-export.ts)
 - [S7.2 – Install Packages](./7-modules-and-ecosystem/2-install-packages.ts)
 - [S7.3 – Working with files (read & write)](./7-modules-and-ecosystem/3-files.ts)
-  - [S7.3.1 – Error handling when reading files (try/catch)](./7-modules-and-ecosystem/3.2-files-error-handling.ts) — how to catch file read errors safely.
-  - [S7.3.2 – Finding file paths (path module, __dirname)](./7-modules-and-ecosystem/3.3-files-path.ts) — build absolute paths that work in modules.
-  - [S7.3.3 – Writing files (fs.writeFileSync)](./7-modules-and-ecosystem/3.4-write-files.ts) — create and write files synchronously.
-  - [S7.3.4 – JSON files (read/parse & write JSON)](./7-modules-and-ecosystem/3.5-files-json.ts) — read, parse and save JSON data.
+    - [S7.3.1 – Error handling when reading files (try/catch)](./7-modules-and-ecosystem/3.2-files-error-handling.ts) — how to catch file read errors safely.
+    - [S7.3.2 – Finding file paths (path module, \_\_dirname)](./7-modules-and-ecosystem/3.3-files-path.ts) — build absolute paths that work in modules.
+    - [S7.3.3 – Writing files (fs.writeFileSync)](./7-modules-and-ecosystem/3.4-write-files.ts) — create and write files synchronously.
+    - [S7.3.4 – JSON files (read/parse & write JSON)](./7-modules-and-ecosystem/3.5-files-json.ts) — read, parse and save JSON data.
 
 ## Section 8: Async/Await
 

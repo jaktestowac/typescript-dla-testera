@@ -63,6 +63,10 @@ As a tester, learning TypeScript will help you:
 - **Write better test automation** scripts
 - **Collaborate effectively** with developers and automation engineers
 
+> [!IMPORTANT]
+> Check out video on **YouTube** about this course:
+> [![TypeScript for Tester](./assets/typescript-dla-testera-za-darmo-tsx-intro.jpg)](https://www.youtube.com/watch?v=EZn7rqmuL3Y&list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa&index=1)
+
 # 🎯 Target Audience
 
 - Manual testers starting their automation journey
@@ -83,6 +87,10 @@ Installed on your machine:
 </div>
 
 # 🚀 Getting Started
+
+> [!IMPORTANT]
+> Check out video on **YouTube** about this project:
+> [![TypeScript for Tester](./assets/typescript-dla-testera-za-darmo-tsx-project.jpg)](https://www.youtube.com/watch?v=KzGcENmCcf4&list=PLfKhn9AcZ-cD2AJmR8W5C4qGG9e5YiAGa&index=3)
 
 ## 0. Verify your setup
 
