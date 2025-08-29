@@ -22,6 +22,7 @@ console.log("🧠 Basic async example")
 console.log("-------------------------\n")
 
 async function getGreeting(): Promise<string> {
+    console.log("🚚 Loading data...")
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve("Hello!")
@@ -29,29 +30,25 @@ async function getGreeting(): Promise<string> {
     })
 }
 
-console.log("Calling async function...")
+console.log("1. Calling async function...")
 
 const result = getGreeting()
 
-console.log("Result:", result) // ❗ This shows: Promise { <pending> }
+console.log("2. Function called!")
+
+console.log("3. Result:", result) // ❗ This shows: Promise { <pending> }
+
 // The result is a Promise, not the actual greeting yet!
 // This means the function is still working in the background.
 // You can think of it like a "promise" to give you the result later.
 
 // You don't get the "Hello!" immediately — you get a Promise box first
 
-// To get the actual value, you have to wait for the Promise to finish:
-result.then((text) => {
-    console.log("Greeting:", text) // ✅ This will print: "Greeting: Hello!"
-})
-
 // -------------------------
 // 🧠 Summary:
 // -------------------------
 // - `Promise` = something that will be ready in the future
 // - `async` functions always return a Promise
-// - To get the result, use `.then()` or `await`
-// - In the next lesson, you'll learn why `await` is easier to read
 
 // -------------------------
 // 📚 Related TypeScript Documentation:

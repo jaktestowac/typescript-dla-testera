@@ -11,18 +11,23 @@ console.log("-------------------------\n")
 
 async function loadData(): Promise<string> {
     // Simulate loading data with a delay
-    // This function returns a Promise that resolves after 2 seconds
-    console.log("Loading data...")
+    // This function returns a Promise that resolves after 1 second
+    console.log("🚚 Loading data...")
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve("✅ Data loaded (with await)")
-        }, 2000)
+            console.log("🎯 Data loaded")
+            resolve("✅ Data loaded (no await)")
+        }, 100)
     })
 }
 
-console.log("Requesting data...")
+console.log("1. Starting request...")
+
 const result = await loadData()
-console.log("Result:", result)
+
+console.log("2. Request sent!")
+
+console.log("3. Result:", result)
 
 // -------------------------
 // 🧠 Summary:
