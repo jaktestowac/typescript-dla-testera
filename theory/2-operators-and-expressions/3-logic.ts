@@ -99,13 +99,15 @@ console.log("Can enter club:", canEnter)
 // How it works for different scenarios: (present as a table)
 // | Age | Is Member | Has Valid ID || age >= 18 | isMemberOfClub | canEnter |
 // |-----|-----------|--------------||-----------|----------------|----------|
-// | 17  | ❌false  | ❌false      || ❌false  | ❌false        | ❌false  |
-// | 18  | ✅true   | ❌false      || ✅true   | ❌false        | ✅true   |
-// | 19  | ✅true   | ✅true       || ✅true   | ✅true         | ✅true   |
-// | 20  | ✅true   | ❌false      || ✅true   | ❌false        | ✅true   |
-// | 21  | ✅true   | ✅true       || ✅true   | ✅true         | ✅true   |
-// | 22  | ✅true   | ❌false      || ✅true   | ❌false        | ✅true   |
-// | 23  | ✅true   | ✅true       || ✅true   | ✅true         | ✅true   |
+// | 17  | ❌false   | ❌false      || ❌false   | ❌false        | ❌false  |
+// | 17  | ❌false   | ✅true       || ❌false   | ❌false        | ✅true   |
+// | 17  | ✅true    | ❌false      || ❌false   | ✅true         | ❌false  |
+// | 17  | ✅true    | ✅true       || ❌false   | ✅true         | ✅true   |
+// | 20  | ❌false   | ❌false      || ✅true    | ❌false        | ❌false  |
+// | 20  | ❌false   | ✅true       || ✅true    | ❌false        | ✅true   |
+// | 20  | ✅true    | ❌false      || ✅true    | ✅true         | ✅true   |
+// | 20  | ✅true    | ✅true       || ✅true    | ✅true         | ✅true   |
+
 
 // -------------------------
 // 🧠 Summary:
