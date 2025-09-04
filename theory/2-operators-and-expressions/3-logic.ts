@@ -96,16 +96,13 @@ const hasValidID: boolean = true
 const canEnter = (age >= 18 && isMemberOfClub) || hasValidID
 console.log("Can enter club:", canEnter)
 
-// How it works for different scenarios: (present as a table)
-// | Age | Is Member | Has Valid ID || age >= 18 | isMemberOfClub | canEnter |
-// |-----|-----------|--------------||-----------|----------------|----------|
-// | 17  | ❌false  | ❌false      || ❌false  | ❌false        | ❌false  |
-// | 18  | ✅true   | ❌false      || ✅true   | ❌false        | ✅true   |
-// | 19  | ✅true   | ✅true       || ✅true   | ✅true         | ✅true   |
-// | 20  | ✅true   | ❌false      || ✅true   | ❌false        | ✅true   |
-// | 21  | ✅true   | ✅true       || ✅true   | ✅true         | ✅true   |
-// | 22  | ✅true   | ❌false      || ✅true   | ❌false        | ✅true   |
-// | 23  | ✅true   | ✅true       || ✅true   | ✅true         | ✅true   |
+// Simplified scenarios: (present as a table)
+// | Age | Has Valid ID | isMemberOfClub || canEnter |
+// |-----|--------------|----------------||----------|
+// | 17  | ❌false      | ❌false       || ❌false  |
+// | 18  | ❌false      | ✅true        || ✅true   |
+// | 19  | ✅true       | ❌false       || ✅true   |
+// | 20  | ✅true       | ✅true        || ✅true   |
 
 // -------------------------
 // 🧠 Summary:
