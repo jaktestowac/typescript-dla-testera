@@ -25,4 +25,4 @@ export {} // Ignore this line
 // 👇 Your code here 👇
 
 const age = 25 // Step 1: Create a variable called `age`; // Step 2: Assign it a number value
-console.log("I am ", age, " years old") // Step 3: Print using comma-separated values
+console.log("I am", age, "years old") // Step 3: Print using comma-separated values
