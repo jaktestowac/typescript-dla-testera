@@ -33,9 +33,6 @@ You'll work through theory, examples, and hands-on exercises to build a strong f
     - [1. Clone this repository](#1-clone-this-repository)
     - [2. Install dependencies](#2-install-dependencies)
     - [3. Run your first TypeScript example](#3-run-your-first-typescript-example)
-- [🗺️ Learning Path](#️-learning-path)
-- [🧭 How to Study](#-how-to-study)
-- [🎯 Progress Tracking](#-progress-tracking)
 - [💡 PRO TIP: How to quickly run TypeScript files?](#-pro-tip-how-to-quickly-run-typescript-files)
     - [Using Code Runner VS Code extension](#using-code-runner-vs-code-extension)
     - [Using tsx](#using-tsx)
@@ -50,7 +47,6 @@ You'll work through theory, examples, and hands-on exercises to build a strong f
 - [📚 Learning Resources](#-learning-resources)
     - [🇵🇱 Polish Resources](#-polish-resources)
     - [🇬🇧 English Resources](#-english-resources)
-- [📝 Exercises](#-exercises)
 
 # 📚 What You'll Learn
 
