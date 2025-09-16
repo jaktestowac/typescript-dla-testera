@@ -1,5 +1,5 @@
 // 📘 Mini Lesson: `interface` vs `type` (Simple Beginner Version)
-// In this short lesson, you’ll learn what `interface` and `type` are, and how they are similar.
+// In this short lesson, you'll learn what `interface` and `type` are, and how they are similar.
 
 // -------------------------
 // 👶 What are they?
@@ -29,7 +29,7 @@ const product1: Product = {
 }
 
 // -------------------------
-// ✅ So what’s the difference?
+// ✅ So what's the difference?
 // -------------------------
 // For now — you can treat them as **almost the same**
 // Main differences are:
@@ -51,7 +51,7 @@ type Status = "loading" | "success" | "error"
 // -------------------------
 // ✅ Use `interface` for object shapes
 // ✅ Use `type` for objects, or for things like "one of many values"
-// Don’t worry too much — both are correct in most cases
+// Don't worry too much — both are correct in most cases
 
 // -------------------------
 // 📚 Related TypeScript Documentation:

@@ -9,7 +9,7 @@
 // 🎯 Why use the Math module?
 // -------------------------
 // The Math object provides properties and methods for mathematical constants and functions,
-// so you don’t have to implement common math logic yourself.
+// so you don't have to implement common math logic yourself.
 
 console.log("\n-------------------------")
 console.log("🎯 Math Module Overview")

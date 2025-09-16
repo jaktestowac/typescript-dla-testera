@@ -83,8 +83,8 @@ console.log("Renamed variable:", nation)
 // 🧠 Summary
 // -------------------------
 // ✅ Destructuring helps you extract data quickly from arrays or objects
-// ✅ With arrays, it’s about position: [first, second]
-// ✅ With objects, it’s about names: { name, age }
+// ✅ With arrays, it's about position: [first, second]
+// ✅ With objects, it's about names: { name, age }
 // ✅ You can even rename variables: { country: nation }
 
 // Use destructuring when:
