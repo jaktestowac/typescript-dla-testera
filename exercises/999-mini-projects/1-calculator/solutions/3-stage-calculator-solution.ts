@@ -15,11 +15,18 @@ export {} // Ignore this line
 // 5. Create a function called `calculate` that takes an Operation enum and two numbers
 //    - Use a switch statement to handle different operations
 //    - Call the appropriate function based on the operation
-// 6. Test the functions with console.log:
-//    - calculate(Operation.Add, 5, 3) should print 8
-//    - calculate(Operation.Subtract, 10, 4) should print 6
-//    - calculate(Operation.Multiply, 7, 3) should print 21
-//    - calculate(Operation.Add, 12, 8) should print 20
+// 6. Test your functions with precise test cases:
+//    Test Case 1: Add 5 and 3 using enum (using calculate(Operation.Add, 5, 3))
+//    Expected: Result should be 8
+//
+//    Test Case 2: Subtract 10 and 4 using enum (using calculate(Operation.Subtract, 10, 4))
+//    Expected: Result should be 6
+//
+//    Test Case 3: Multiply 7 and 3 using enum (using calculate(Operation.Multiply, 7, 3))
+//    Expected: Result should be 21
+//
+//    Test Case 4: Add 12 and 8 using enum (using calculate(Operation.Add, 12, 8))
+//    Expected: Result should be 20
 
 // 💭 Questions to think about:
 // - How do enums improve type safety compared to strings?
@@ -29,10 +36,10 @@ export {} // Ignore this line
 // -------------------------
 // 📤 Expected Output:
 // -------------------------
-// 8
-// 6
-// 21
-// 20
+// Test Case 1 - Add 5 + 3 = 8
+// Test Case 2 - Subtract 10 - 4 = 6
+// Test Case 3 - Multiply 7 * 3 = 21
+// Test Case 4 - Add 12 + 8 = 20
 // -------------------------
 
 // 👇 Your code here 👇
@@ -68,8 +75,8 @@ function calculate(operation: Operation, num1: number, num2: number): number {
     }
 }
 
-// Testing the functions
-console.log(calculate(Operation.Add, 5, 3)) // Should print 8
-console.log(calculate(Operation.Subtract, 10, 4)) // Should print 6
-console.log(calculate(Operation.Multiply, 7, 3)) // Should print 21
-console.log(calculate(Operation.Add, 12, 8)) // Should print 20
+// Testing the functions with structured test cases
+console.log(`Test Case 1 - Add 5 + 3 = ${calculate(Operation.Add, 5, 3)}`)
+console.log(`Test Case 2 - Subtract 10 - 4 = ${calculate(Operation.Subtract, 10, 4)}`)
+console.log(`Test Case 3 - Multiply 7 * 3 = ${calculate(Operation.Multiply, 7, 3)}`)
+console.log(`Test Case 4 - Add 12 + 8 = ${calculate(Operation.Add, 12, 8)}`)

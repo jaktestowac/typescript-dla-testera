@@ -12,9 +12,15 @@ export {} // Ignore this line
 // 2. Create a function called `calculate` that takes an operation string and two numbers
 //    - If operation is "add", call the add function
 //    - Otherwise, return 0
-// 3. Test the functions with console.log:
-//    - calculate("add", 5, 3) should print 8
-//    - calculate("add", 10, 7) should print 17
+// 3. Test your functions with precise test cases:
+//    Test Case 1: Add 5 and 3 (using calculate("add", 5, 3))
+//    Expected: Result should be 8
+//
+//    Test Case 2: Add 10 and 7 (using calculate("add", 10, 7))
+//    Expected: Result should be 17
+//
+//    Test Case 3: Add 0 and 0 (using calculate("add", 0, 0))
+//    Expected: Result should be 0
 
 // 💭 Questions to think about:
 // - How do functions help organize calculator operations?
@@ -23,8 +29,9 @@ export {} // Ignore this line
 // -------------------------
 // 📤 Expected Output:
 // -------------------------
-// 8
-// 17
+// Test Case 1 - Add 5 + 3 = 8
+// Test Case 2 - Add 10 + 7 = 17
+// Test Case 3 - Add 0 + 0 = 0
 // -------------------------
 
 // 👇 Your code here 👇

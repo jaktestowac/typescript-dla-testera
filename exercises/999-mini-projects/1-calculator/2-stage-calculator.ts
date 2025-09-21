@@ -14,10 +14,18 @@ export {} // Ignore this line
 //    - If operation is "add", call the add function
 //    - If operation is "subtract", call the subtract function
 //    - Otherwise, return 0
-// 4. Test the functions with console.log:
-//    - calculate("add", 5, 3) should print 8
-//    - calculate("subtract", 10, 4) should print 6
-//    - calculate("add", 7, 2) should print 9
+// 4. Test your functions with precise test cases:
+//    Test Case 1: Add 5 and 3 (using calculate("add", 5, 3))
+//    Expected: Result should be 8
+//
+//    Test Case 2: Subtract 10 and 4 (using calculate("subtract", 10, 4))
+//    Expected: Result should be 6
+//
+//    Test Case 3: Add 7 and 2 (using calculate("add", 7, 2))
+//    Expected: Result should be 9
+//
+//    Test Case 4: Subtract 15 and 8 (using calculate("subtract", 15, 8))
+//    Expected: Result should be 7
 
 // 💭 Questions to think about:
 // - How does adding more operations change the calculate function?
@@ -26,9 +34,10 @@ export {} // Ignore this line
 // -------------------------
 // 📤 Expected Output:
 // -------------------------
-// 8
-// 6
-// 9
+// Test Case 1 - Add 5 + 3 = 8
+// Test Case 2 - Subtract 10 - 4 = 6
+// Test Case 3 - Add 7 + 2 = 9
+// Test Case 4 - Subtract 15 - 8 = 7
 // -------------------------
 
 // 👇 Your code here 👇

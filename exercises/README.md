@@ -1,28 +1,28 @@
-# 📝 Exercises
+# 📝 Ćwiczenia
 
 > [!TIP]
-> 💡 Choose your language:
+> 💡 Wybierz swój język:
 >
-> - 🇬🇧 [English](./README.md)
-> - 🇵🇱 [Polski](./README.pl.md)
+> - 🇬🇧 [English](./README.eng.md)
+> - 🇵🇱 [Polski](./README.md)
 
-This directory contains hands-on TypeScript exercises and solutions for each topic in the course. Practice here to reinforce your learning!
+Ten katalog zawiera praktyczne ćwiczenia z TypeScript oraz rozwiązania do każdego tematu kursu. Ćwicz tutaj, aby utrwalić swoją wiedzę!
 
-**How to use the exercises:**
+**Jak korzystać z ćwiczeń:**
 
-1. **Find an exercise:**
-    - Browse the `exercises/` directory and choose a topic and file to work on (e.g., `exercises/1-variables-and-types/1-1-print-name.ts`).
-2. **Edit and solve:**
-    - Open the exercise file in your editor and follow the instructions or complete the task.
-3. **Run your solution:**
-    - Use `npx tsx <path-to-exercise>` to run your code, e.g.:
+1. **Znajdź ćwiczenie:**
+    - Przejrzyj katalog `exercises/` i wybierz temat oraz plik do rozwiązania (np. `exercises/1-variables-and-types/1-1-print-name.ts`).
+2. **Edytuj i rozwiąż:**
+    - Otwórz plik ćwiczenia w edytorze i postępuj zgodnie z instrukcjami lub wykonaj zadanie.
+3. **Uruchom swoje rozwiązanie:**
+    - Użyj polecenia `npx tsx <ścieżka-do-ćwiczenia>`, np.:
         ```bash
         npx tsx exercises/1-variables-and-types/1-1-print-name.ts
         ```
-4. **Check the solution:**
-    - Compare your answer with the provided solution in the corresponding `solutions/` subdirectory (e.g., `exercises/1-variables-and-types/solutions/1-1-print-name.ts`).
+4. **Sprawdź rozwiązanie:**
+    - Porównaj swoją odpowiedź z dostarczonym rozwiązaniem w odpowiednim podkatalogu `solutions/` (np. `exercises/1-variables-and-types/solutions/1-1-print-name.ts`).
 
-5. **Experiment:**
-    - Feel free to modify the code, add your own functions, and see how different solutions work! The exercises are designed for you to learn by doing.
+5. **Eksperymentuj:**
+    - Nie bój się modyfikować kodu, dodawać własne funkcje i sprawdzać, jak działają różne rozwiązania! Ćwiczenia są zaprojektowane tak, abyś mógł uczyć się poprzez praktykę.
 
-    Each task can be solved in multiple ways, so we encourage you to experiment and discover different approaches to problems 😉
+    Również każde zadanie można rozwiązać na wiele sposobów, więc zachęcamy do eksperymentowania i odkrywania różnych podejść do problemów 😉

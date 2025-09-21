@@ -47,9 +47,10 @@ Each stage adds new functionality while building on the previous stage.
 
 > [!TIP]
 > Stage 5 is broken down into small, manageable steps. Start with just the basic class and add method, then gradually add more features. Don't try to implement everything at once!
->
+
 > [!TIP]
-> Stage 5 includes a comprehensive testing suite. Run each test step by step and compare your output with the expected results to verify your implementation!
+> Stage 5 includes a comprehensive testing suite. 
+> Run each test step by step and compare your output with the expected results to verify your implementation!
 
 ## How to Use
 

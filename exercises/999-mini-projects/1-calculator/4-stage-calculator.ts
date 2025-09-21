@@ -17,12 +17,21 @@ export {} // Ignore this line
 // 6. Create a function called `calculate` that takes an Operation enum and two numbers
 //    - Use a switch statement to handle different operations
 //    - Call the appropriate function based on the operation
-// 7. Test the functions with console.log:
-//    - calculate(Operation.Add, 5, 3) should print 8
-//    - calculate(Operation.Subtract, 10, 4) should print 6
-//    - calculate(Operation.Multiply, 7, 3) should print 21
-//    - calculate(Operation.Divide, 15, 3) should print 5
-//    - calculate(Operation.Divide, 10, 0) should handle division by zero
+// 7. Test your functions with precise test cases:
+//    Test Case 1: Add 5 and 3 using enum (using calculate(Operation.Add, 5, 3))
+//    Expected: Result should be 8
+//
+//    Test Case 2: Subtract 10 and 4 using enum (using calculate(Operation.Subtract, 10, 4))
+//    Expected: Result should be 6
+//
+//    Test Case 3: Multiply 7 and 3 using enum (using calculate(Operation.Multiply, 7, 3))
+//    Expected: Result should be 21
+//
+//    Test Case 4: Divide 15 and 3 using enum (using calculate(Operation.Divide, 15, 3))
+//    Expected: Result should be 5
+//
+//    Test Case 5: Divide 10 and 0 using enum (using calculate(Operation.Divide, 10, 0))
+//    Expected: Should handle division by zero gracefully
 
 // 💭 Questions to think about:
 // - How do you handle edge cases like division by zero?
@@ -32,11 +41,11 @@ export {} // Ignore this line
 // -------------------------
 // 📤 Expected Output:
 // -------------------------
-// 8
-// 6
-// 21
-// 5
-// Division by zero!
+// Test Case 1 - Add 5 + 3 = 8
+// Test Case 2 - Subtract 10 - 4 = 6
+// Test Case 3 - Multiply 7 * 3 = 21
+// Test Case 4 - Divide 15 / 3 = 5
+// Test Case 5 - Divide 10 / 0 = Division by zero!
 // -------------------------
 
 // 👇 Your code here 👇

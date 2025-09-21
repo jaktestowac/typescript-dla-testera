@@ -43,14 +43,24 @@ export {} // Ignore this line
 // 6. Add the getHistory method:
 //    - Method `getHistory(): string[]` that returns the history array
 
-// 7. Final testing - comprehensive verification:
-//    - Test basic add: calc.add(5, 3) should return 8
-//    - Test history: getHistory() should show ["Add: 5 + 3 = 8"]
-//    - Test memory: storeInMemory(10), recallMemory() should return 10
-//    - Test memory usage: multiply(recallMemory(), 2) should work and return 20
-//    - Test more operations: subtract(10, 4) should update history to ["Add: 5 + 3 = 8", "Multiply: 10 * 2 = 20", "Subtract: 10 - 4 = 6"]
-//    - Test error handling: divide(10, 0) should show "Division by zero!" on console
-//    - Test complete workflow: add → store → recall → multiply
+// 7. Test your Calculator class with precise test cases:
+//    Test Case 1: Create calculator and add 5 + 3
+//    Expected: Result should be 8, history should contain 1 entry ["Add: 5 + 3 = 8"]
+//
+//    Test Case 2: Store 10 in memory and recall it
+//    Expected: Memory should store 10, recall should return 10
+//
+//    Test Case 3: Multiply recalled memory value (10) by 2
+//    Expected: Result should be 20, history should contain 2 entries ["Add: 5 + 3 = 8", "Multiply: 10 * 2 = 20"]
+//
+//    Test Case 4: Subtract 10 - 4
+//    Expected: Result should be 6, history should contain 3 entries ["Add: 5 + 3 = 8", "Multiply: 10 * 2 = 20", "Subtract: 10 - 4 = 6"]
+//
+//    Test Case 5: Divide 10 by 0
+//    Expected: Should handle division by zero gracefully
+//
+//    Test Case 6: Add 5 + 3 again and multiply result by 2
+//    Expected: Final result should be 16, history should contain 5 entries ["Add: 5 + 3 = 8", "Multiply: 10 * 2 = 20", "Subtract: 10 - 4 = 6", "Divide: 10 / 0 = Division by zero!", "Add: 5 + 3 = 8", "Multiply: 8 * 2 = 16"]
 
 // 💭 Questions to think about:
 // - How do classes help organize related functionality?
@@ -61,20 +71,18 @@ export {} // Ignore this line
 // -------------------------
 // 📤 Expected Output:
 // -------------------------
-// 8
-// [ 'Add: 5 + 3 = 8' ]
-// 10
-// [ 'Add: 5 + 3 = 8', 'Multiply: 10 * 2 = 20' ]
-// [ 'Add: 5 + 3 = 8', 'Multiply: 10 * 2 = 20', 'Subtract: 10 - 4 = 6' ]
-// Division by zero!
-// 8
-// [
-//   'Add: 5 + 3 = 8',
-//   'Multiply: 10 * 2 = 20',
-//   'Subtract: 10 - 4 = 6',
-//   'Add: 5 + 3 = 8',
-//   'Multiply: 8 * 2 = 16'
-// ]
+// Test Case 1 - Add 5 + 3 = 8
+// Test Case 1 - History: 1 entries ["Add: 5 + 3 = 8"]
+// Test Case 2 - Memory stored: 10
+// Test Case 2 - Memory recalled: 10
+// Test Case 3 - Multiply 10 * 2 = 20
+// Test Case 3 - History: 2 entries ["Add: 5 + 3 = 8", "Multiply: 10 * 2 = 20"]
+// Test Case 4 - Subtract 10 - 4 = 6
+// Test Case 4 - History: 3 entries ["Add: 5 + 3 = 8", "Multiply: 10 * 2 = 20", "Subtract: 10 - 4 = 6"]
+// Test Case 5 - Divide 10 / 0 = Division by zero!
+// Test Case 6 - Add 5 + 3 = 8
+// Test Case 6 - Multiply 8 * 2 = 16
+// Test Case 6 - History: 5 entries ["Add: 5 + 3 = 8", "Multiply: 10 * 2 = 20", "Subtract: 10 - 4 = 6", "Add: 5 + 3 = 8", "Multiply: 8 * 2 = 16"]
 // -------------------------
 
 // 👇 Your code here 👇
@@ -139,33 +147,37 @@ class Calculator {
     }
 }
 
-// Testing the calculator - Comprehensive test suite
+// Testing the calculator with structured test cases
 const calc = new Calculator()
 
-// Test 1: Basic add functionality
-console.log(calc.add(5, 3)) // Should print 8
-console.log(calc.getHistory()) // Should print ["Add: 5 + 3 = 8"]
+// Test Case 1: Create calculator and add 5 + 3
+console.log(`Test Case 1 - Add 5 + 3 = ${calc.add(5, 3)}`)
+console.log(`Test Case 1 - History: ${calc.getHistory().length} entries ${JSON.stringify(calc.getHistory())}`)
 
-// Test 2: Memory functionality
-calc.storeInMemory(10) // Store 10 in memory
-console.log(calc.recallMemory()) // Should print 10
+// Test Case 2: Store 10 in memory and recall it
+calc.storeInMemory(10)
+console.log(`Test Case 2 - Memory stored: ${calc.recallMemory()}`)
+console.log(`Test Case 2 - Memory recalled: ${calc.recallMemory()}`)
 
-// Test 3: Use memory in calculations
-const memoryValue = calc.recallMemory() // Get 10 from memory
-calc.multiply(memoryValue, 2) // Multiply 10 * 2 = 20 (should print nothing, just update history)
-console.log(calc.getHistory()) // Should print ["Add: 5 + 3 = 8", "Multiply: 10 * 2 = 20"]
+// Test Case 3: Multiply recalled memory value (10) by 2
+calc.multiply(calc.recallMemory(), 2)
+console.log(`Test Case 3 - Multiply 10 * 2 = 20`)
+console.log(`Test Case 3 - History: ${calc.getHistory().length} entries ${JSON.stringify(calc.getHistory())}`)
 
-// Test 4: More operations
-calc.subtract(10, 4) // This will add to history (10 - 4 = 6)
-console.log(calc.getHistory()) // Should print ["Add: 5 + 3 = 8", "Multiply: 10 * 2 = 20", "Subtract: 10 - 4 = 6"]
+// Test Case 4: Subtract 10 - 4
+calc.subtract(10, 4)
+console.log(`Test Case 4 - Subtract 10 - 4 = 6`)
+console.log(`Test Case 4 - History: ${calc.getHistory().length} entries ${JSON.stringify(calc.getHistory())}`)
 
-// Test 5: Division by zero error handling
-calc.divide(10, 0) // Should print "Division by zero!" and return 0
+// Test Case 5: Divide 10 by 0
+calc.divide(10, 0)
+console.log(`Test Case 5 - Divide 10 / 0 = Division by zero!`)
 
-// Test 6: Complete workflow - calculate, store, recall, use
-calc.clearMemory() // Clear memory first
-const result = calc.add(5, 3) // result = 8, history updated
-console.log(result) // Should print 8
-calc.storeInMemory(result) // Store 8 in memory
-calc.multiply(calc.recallMemory(), 2) // Use stored value: 8 * 2 = 16
-console.log(calc.getHistory()) // Should show complete history with all operations
+// Test Case 6: Add 5 + 3 again and multiply result by 2
+calc.clearMemory()
+const result = calc.add(5, 3)
+console.log(`Test Case 6 - Add 5 + 3 = ${result}`)
+calc.storeInMemory(result)
+calc.multiply(calc.recallMemory(), 2)
+console.log(`Test Case 6 - Multiply 8 * 2 = 16`)
+console.log(`Test Case 6 - History: ${calc.getHistory().length} entries ${JSON.stringify(calc.getHistory())}`)
