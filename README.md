@@ -349,7 +349,7 @@ Zebraliśmy kolekcję zasobów, które pomogą Ci nauczyć się i opanować Play
 Zdobądź przewagę łącząc wiedzę AI z najpopularniejszymi narzędziami na rynku IT.
 Pokażemy Ci jak przyspieszyć z AI i zbudować profesjonalny framework do automatyzacji testów 😉
 
-- [AI_Testers Strona](https://aitesters.com) - Strona o Programie AI_Testers
+- [AI_Testers](https://aitesters.com) - Strona o Programie AI_Testers
 - [AI_Testers LinkedIn](https://www.linkedin.com/company/aitesters) - Nasz profil na LinkedIn
 
 ## 🇬🇧 Angielskie zasoby
