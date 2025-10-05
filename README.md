@@ -340,7 +340,11 @@ Zebraliśmy kolekcję zasobów, które pomogą Ci nauczyć się i opanować Play
 
 ### AI_Testers
 
-[![TypeScript for Tester](./assets/aitesters-header-photo.jpg)](https://aitesters.com)
+<div align="center">
+<a href="https://aitesters.com">
+<img src="./assets/aitesters-header-photo.jpg" alt="AI Testers Logo" height="500"/>
+</a>
+</div>
 
 Zdobądź przewagę łącząc wiedzę AI z najpopularniejszymi narzędziami na rynku IT.
 Pokażemy Ci jak przyspieszyć z AI i zbudować profesjonalny framework do automatyzacji testów 😉

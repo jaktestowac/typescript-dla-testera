@@ -324,7 +324,11 @@ We have gathered a collection of resources to help you learn and master Playwrig
 
 ### AI_Testers
 
-[![TypeScript for Tester](./assets/aitesters-header-photo.jpg)](https://aitesters.com)
+<div align="center">
+<a href="https://aitesters.com">
+<img src="./assets/aitesters-header-photo.jpg" alt="AI Testers Logo" height="500"/>
+</a>
+</div>
 
 Gain an edge by combining AI knowledge with the most popular tools in the IT market.  
 We'll show you how to accelerate with AI and build a professional test automation framework. 😉
