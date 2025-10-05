@@ -342,7 +342,7 @@ Zebraliśmy kolekcję zasobów, które pomogą Ci nauczyć się i opanować Play
 
 <div align="center">
 <a href="https://aitesters.com">
-<img src="./assets/aitesters-header-photo.jpg" alt="AI Testers Logo" height="500"/>
+<img src="./assets/aitesters-header-photo.jpg" alt="AI Testers Logo" height="400"/>
 </a>
 </div>
 
