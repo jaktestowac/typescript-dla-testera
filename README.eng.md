@@ -322,6 +322,16 @@ We have gathered a collection of resources to help you learn and master Playwrig
 - [Discord Community](https://discord.gg/mUAqQ7FUaZ) - First Polish Playwright community!
 - [Playwright Info](https://playwright.info/) - first and only Polish Playwright blog
 
+### AI_Testers
+
+[![TypeScript for Tester](./assets/aitesters-header-photo.jpg)](https://aitesters.com)
+
+Gain an edge by combining AI knowledge with the most popular tools in the IT market.  
+We'll show you how to accelerate with AI and build a professional test automation framework. 😉
+
+- [AI_Testers Strona](https://aitesters.com) - Main page about AI_Testers Program
+- [AI_Testers LinkedIn](https://www.linkedin.com/company/aitesters) - Follow us on LinkedIn
+
 ## 🇬🇧 English Resources
 
 - [VS Code Extensions](https://marketplace.visualstudio.com/publishers/jaktestowac-pl) - Our free Playwright plugins

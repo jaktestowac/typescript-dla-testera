@@ -338,6 +338,16 @@ Zebraliśmy kolekcję zasobów, które pomogą Ci nauczyć się i opanować Play
 - [Społeczność Discord](https://discord.gg/mUAqQ7FUaZ) - Pierwsza polska społeczność Playwright!
 - [Playwright Info](https://playwright.info/) - pierwszy i jedyny polski blog o Playwright
 
+### AI_Testers
+
+[![TypeScript for Tester](./assets/aitesters-header-photo.jpg)](https://aitesters.com)
+
+Zdobądź przewagę łącząc wiedzę AI z najpopularniejszymi narzędziami na rynku IT.
+Pokażemy Ci jak przyspieszyć z AI i zbudować profesjonalny framework do automatyzacji testów 😉
+
+- [AI_Testers Strona](https://aitesters.com) - Strona o Programie AI_Testers
+- [AI_Testers LinkedIn](https://www.linkedin.com/company/aitesters) - Nasz profil na LinkedIn
+
 ## 🇬🇧 Angielskie zasoby
 
 - [Rozszerzenia VS Code](https://marketplace.visualstudio.com/publishers/jaktestowac-pl) - Nasze darmowe wtyczki Playwright
