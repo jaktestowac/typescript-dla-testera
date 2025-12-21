@@ -1,4 +1,4 @@
-# Conditionals (if, switch, ternary)
+# Async and Await
 
 > [!IMPORTANT]
 > Check out our free **YouTube** series from this course:

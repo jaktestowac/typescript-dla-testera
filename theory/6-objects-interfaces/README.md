@@ -1,4 +1,4 @@
-# Conditionals (if, switch, ternary)
+# Objects and Interfaces
 
 > [!IMPORTANT]
 > Check out our free **YouTube** series from this course:
