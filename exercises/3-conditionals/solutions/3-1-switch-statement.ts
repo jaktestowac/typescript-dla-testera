@@ -1,15 +1,15 @@
-// 🧪 Exercise 3.1: Switch statement in functions
-// This exercise will help you practice using switch statements within functions.
+// 🧪 Exercise 3.1: Switch statement using variables
+// This exercise will help you practice using switch statements.
 
 // -------------------------
-// ✅ Exercise: Switch statement in functions ✅
+// ✅ Exercise: Switch statement ✅
 // -------------------------
 
 export {} // Ignore this line
 
 // Steps:
-// 1. Create a function called `getDayName` that takes a number parameter (1-7)
-// 2. Use a switch statement inside the function to return the day name:
+// 1. Create a variable `day` with a number value (1-7).
+// 2. Use a `switch` statement on `day` to set a `dayName` string:
 //    - 1: "Monday"
 //    - 2: "Tuesday"
 //    - 3: "Wednesday"
@@ -18,19 +18,16 @@ export {} // Ignore this line
 //    - 6: "Saturday"
 //    - 7: "Sunday"
 //    - default: "Invalid day"
-// 3. Create a function called `getSeason` that takes a month number (1-12)
-// 4. Use a switch statement to return the season:
+// 3. Create a variable `month` with a number value (1-12).
+// 4. Use a `switch` statement on `month` to set a `season` string:
 //    - 12, 1, 2: "Winter"
 //    - 3, 4, 5: "Spring"
 //    - 6, 7, 8: "Summer"
 //    - 9, 10, 11: "Autumn"
-//    - default: "Invalid month"
-// 5. Test both functions and print the results (e.g. use parameters 3 and 6 for testing)
+// 5. Print both results using `console.log` (example: `day = 3`, `month = 6`).
 
 // 💭 Questions to think about:
-// - What happens if you forget the break statement in a switch?
-// - How is using return statements different from using break?
-// - When would you prefer switch over if-else in functions?
+// - What happens if you forget the `break` statement in a switch?
 // - How can you group multiple cases together?
 
 // -------------------------
@@ -42,55 +39,62 @@ export {} // Ignore this line
 
 // 👇 Your code here 👇
 
-function getDayName(day: number): string {
-    // Step 1: Create function getDayName
-    switch (
-        day // Step 2: Use switch statement
-    ) {
-        case 1:
-            return "Monday"
-        case 2:
-            return "Tuesday"
-        case 3:
-            return "Wednesday"
-        case 4:
-            return "Thursday"
-        case 5:
-            return "Friday"
-        case 6:
-            return "Saturday"
-        case 7:
-            return "Sunday"
-        default:
-            return "Invalid day"
-    }
+const day: number = 3
+let dayName: string
+
+switch (day) {
+	case 1:
+		dayName = "Monday"
+		break
+	case 2:
+		dayName = "Tuesday"
+		break
+	case 3:
+		dayName = "Wednesday"
+		break
+	case 4:
+		dayName = "Thursday"
+		break
+	case 5:
+		dayName = "Friday"
+		break
+	case 6:
+		dayName = "Saturday"
+		break
+	case 7:
+		dayName = "Sunday"
+		break
+	default:
+		dayName = "Invalid day"
 }
 
-function getSeason(month: number): string {
-    // Step 3: Create function getSeason
-    switch (
-        month // Step 4: Use switch statement for seasons
-    ) {
-        case 12:
-        case 1:
-        case 2:
-            return "Winter"
-        case 3:
-        case 4:
-        case 5:
-            return "Spring"
-        case 6:
-        case 7:
-        case 8:
-            return "Summer"
-        case 9:
-        case 10:
-        case 11:
-            return "Autumn"
-        default:
-            return "Invalid month"
-    }
+const month: number = 6
+let season: string
+
+switch (month) {
+	case 12:
+	case 1:
+	case 2:
+		season = "Winter"
+		break
+	case 3:
+	case 4:
+	case 5:
+		season = "Spring"
+		break
+	case 6:
+	case 7:
+	case 8:
+		season = "Summer"
+		break
+	case 9:
+	case 10:
+	case 11:
+		season = "Autumn"
+		break
+	default:
+		season = "Invalid month"
 }
 
-console.log(`Day 3 is ${getDayName(3)}`) // Step 5: Test and print
-console.log(`Month 6 is ${getSeason(6)}`)
+console.log(`Day ${day} is ${dayName}`)
+console.log(`Month ${month} is ${season}`)
