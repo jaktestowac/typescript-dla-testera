@@ -12,7 +12,7 @@ console.log("Initial tasks:", tasks)
 
 tasks.push("code") // adds item at the end
 console.log("After push:", tasks) // ['eat', 'sleep', 'code']
- 
+
 tasks[1] = "nap" // replaces second item
 console.log("After replacement:", tasks) // ['eat', 'nap', 'code']
 
@@ -50,6 +50,22 @@ console.log("Before splice:", lastNumbersToRemove)
 numbersToRemove.splice(1, 2) // removes 2 items starting from index 1
 // This will remove the items at index 1 and 2 (2 and 3)
 console.log("After splice:", lastNumbersToRemove) // [1, 4]
+
+// other example:
+
+const fruits: string[] = ["apple", "banana", "cherry", "watermelon"]
+console.log("Before splice:", fruits)
+fruits.splice(1, 2) // removes 2 items starting from index 1
+// This will remove the items at index 1 and 2 ("banana" and "cherry")
+console.log("After splice:", fruits) // ["apple", "watermelon"]
+
+// other example:
+
+const fruitsEmojis: string[] = ["🍏", "🍌", "🍒", "🍉"]
+console.log("Before splice:", fruitsEmojis)
+fruitsEmojis.splice(1, 2) // removes 2 items starting from index 1
+// This will remove the items at index 1 and 2 ("🍌" and  "🍒")
+console.log("After splice:", fruitsEmojis) // ["🍏", "🍉"]
 
 // -------------------------
 // 🧠 Summary:
