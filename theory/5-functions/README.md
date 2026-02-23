@@ -1,4 +1,4 @@
-# Conditionals (if, switch, ternary)
+# Functions
 
 > [!IMPORTANT]
 > Full recording of all lessons from this section You can find on **YouTube**:

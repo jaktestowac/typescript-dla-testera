@@ -47,7 +47,7 @@ console.log("")
 
 const lastNumbersToRemove: number[] = [1, 2, 3, 4]
 console.log("Before splice:", lastNumbersToRemove)
-numbersToRemove.splice(1, 2) // removes 2 items starting from index 1
+lastNumbersToRemove.splice(1, 2) // removes 2 items starting from index 1
 // This will remove the items at index 1 and 2 (2 and 3)
 console.log("After splice:", lastNumbersToRemove) // [1, 4]
 

@@ -118,6 +118,43 @@ console.log("Can enter club:", canEnter)
 // !false → true
 
 // -------------------------
+// !! - Double NOT
+// -------------------------
+// Using double NOT (!!) converts a value to its boolean equivalent.
+
+console.log("\n-------------------------")
+console.log("Double NOT (!!) to convert to boolean")
+console.log("-------------------------\n")
+
+// How it works:
+// - The first NOT (!) converts the value to boolean and negates it.
+// - The second NOT (!) negates it again, resulting in the boolean equivalent of the original value.
+
+const someValue: any = "Hello, TypeScript!"
+const booleanValue: boolean = !!someValue
+
+console.log("Original value:", someValue) // "Hello, TypeScript!"
+console.log("Converted to boolean:", booleanValue) // true, because non-empty string is truthy  
+
+console.log("!!0:", !!0) // false, because 0 is falsy
+console.log("!!1:", !!1) // true, because 1 is truthy
+
+const emptyString = ""
+console.log("!!'':", !!emptyString) // false, because empty string is falsy
+
+const nullValue = null
+console.log("!!null:", !!nullValue) // false, because null is falsy
+
+const undefinedValue = undefined 
+console.log("!!undefined:", !!undefinedValue) // false, because undefined is falsy
+
+const emptyArray: number[] = []
+console.log("!![]:", !!emptyArray) // true, because empty array is truthy
+
+const emptyObject = {}
+console.log("!!{}:", !!emptyObject) // true, because empty object is truthy
+
+// -------------------------
 // 📚 Related TypeScript Documentation:
 // -------------------------
 // • Logical Operators: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#logical_operators

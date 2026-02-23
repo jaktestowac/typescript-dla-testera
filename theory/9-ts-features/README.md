@@ -1,4 +1,4 @@
-# Conditionals (if, switch, ternary)
+# TypeScript Features
 
 > [!IMPORTANT]
 > Check out our free **YouTube** series from this course:
