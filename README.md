@@ -6,14 +6,11 @@
 > - 🇬🇧 [English](./README.eng.md)
 > - 🇵🇱 [Polski](./README.md)
 
-Witamy w **TypeScript dla Testera** - praktycznym przewodniku zaprojektowany specjalnie dla testerów, którzy chcą nauczyć się programować w języku TypeScript!
-
-Wspólnie przeprowadzimy Cię przez teorię, przykładami i praktycznymi ćwiczeniami.
-Dzięki temu zbudujesz solidne podstawy w TypeScript.
+Witamy w **TypeScript dla Testera** - praktycznym przewodniku zaprojektowany specjalnie **dla testerów**, którzy chcą nauczyć się programować w języku TypeScript! Wspólnie przeprowadzimy Cię przez teorię z **przykładami i praktycznymi ćwiczeniami**.
 
 **Nie jest wymagane żadne wcześniejsze doświadczenie programistyczne**.
 
-Zaczniemy od podstaw i poprowadzimy Cię krok po kroku przez rózne koncepty.
+Zaczniemy od podstaw i poprowadzimy Cię krok po kroku przez różne koncepty.
 
 > [!IMPORTANT]
 > Sprawdź **darmowe** lekcje z tego kursu na **YouTube**:
